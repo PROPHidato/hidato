@@ -18,10 +18,10 @@ public class Board{
     }
 
     public int getCell(int column, int row) { 
-        return cell.getvalue(column,row);
+        return cell.getValue(column,row);
     }
     
     public void setCellValue(int value) {
-        cell.setvalue(value);
+        cell.setValue(value);
     }
 }
