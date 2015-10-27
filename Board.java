@@ -18,10 +18,10 @@ public class Board{
     }
 
     public int getCell(int column, int row) { // Com utilitzar column i row aquí que són de Cell?
-        return ;
+        return cell.getvalue(column,row);
     }
     
-    public void setCell(int column, int row) { // Com utilitzar column i row aquí que són de Cell?
-        this. = ;
+    public void setCellvalue(int value) litzar column i row aquí que són de Cell?
+        cell.setvalue(value);
     }
 }
