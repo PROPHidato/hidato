@@ -8,8 +8,7 @@ public class Cell extends Taulell{
     boolean[] annotations; //marques
     boolean visible; //per veure si la casella és visible
     boolean written; //per veure si el valor ja venia donat en el joc o no
-    //NO ÉS COMÚ
-    //int max_annotations = 9; //del 1 al 9 possibles
+    int max_annotations; //numero maxim possibles en una casella
     
     public Cell(int column, int row) {
         this.column = column;
