@@ -21,7 +21,7 @@ public class Board{
         return cell.getvalue(column,row);
     }
     
-    public void setCellvalue(int value) {
+    public void setCellValue(int value) {
         cell.setvalue(value);
     }
 }
