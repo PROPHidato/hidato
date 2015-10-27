@@ -6,7 +6,7 @@ public class Board{
     Arraylist<Arraylist<Cell>> board;
     
     public Board(int size) { // Fer la creadora
-        
+        ArrayList<ArrayList<Cell>> Taulell = new ArrayList<ArrayList<Cell>>();
     }
 
     public int getSize() {
