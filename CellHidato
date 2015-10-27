@@ -1,7 +1,7 @@
 package domini.Basic;
 
 
-public class Cell extends Taulell{
+public class CellHidato extends Cell{
     int value; 
     int column; //numero de columna
     int row; //numero de fila
