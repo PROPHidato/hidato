@@ -17,11 +17,11 @@ public class Board{
         this.size = size;
     }
 
-    public int getCell(int column, int row) { // Com utilitzar column i row aquí que són de Cell?
+    public int getCell(int column, int row) { 
         return cell.getvalue(column,row);
     }
     
-    public void setCellvalue(int value) litzar column i row aquí que són de Cell?
+    public void setCellvalue(int value) {
         cell.setvalue(value);
     }
 }
