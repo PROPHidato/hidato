@@ -17,8 +17,12 @@ public class Board{
         this.size = size;
     }
 
-    public int getCell(int column, int row) { 
+    public int getvalueCell(int column, int row) { 
         return cell.getValue(column,row);
+    }
+
+    public int getvalue() { 
+        return cell.getValue();
     }
     
     public void setCellValue(int value) {
