@@ -2,12 +2,6 @@ package domini.Basic;
 
 
 public class CellHidato extends Cell{
-    int value; 
-    int column; //numero de columna
-    int row; //numero de fila
-    boolean[] annotations; //marques
-    boolean visible; //per veure si la casella és visible
-    boolean written; //per veure si el valor ja venia donat en el joc o no
     int max_annotations = 9; //del 1 al 9 possibles
     
     public Cell(int column, int row) {
@@ -15,52 +9,21 @@ public class CellHidato extends Cell{
         this.row = row;
         written = false;
         visible = false;
-        value = -1;
+        value = 0;  // 0 = cela buida
         
         annotations = new boolean[max_annotations];
         for (int i = 0; i < annotations.length; i++) annotations[i] = false;
     }
 
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
-    public int getColumn() {
-        return column;
+    public boolean getAnnotation(int value) {
+        return annotations[value];
     }
     
-    public int getRow() {
-        return row;
-    }
-
-    public boolean getWritten(){
-        return written;
-    }
-
-    public void setWritten(){  //Aclarar perquè = written. 
-        this.written = written;
-    }
-    
-    public boolean getVisible(){
-        return visible;
-    }
-
-    public void setVisible(){  //Aclarar perquè = visible. 
-        this.visible = visible;
-    }
-    
-    //NO ÉS COMÚ
-    /*public boolean getAnnotation(int value) {
-        return annotations[value - 1];
-    }
     public void switchAnnotation(int value) {
-        this.annotations[value - 1] ^= true;
+        this.annotations[value] ^= true;
     }
+    
     public void setAnnotation(int value, boolean annotation) {
-        this.annotations[value - 1] = annotation;
-    }*/
+        this.annotations[value] = annotation;
+    }
 }
