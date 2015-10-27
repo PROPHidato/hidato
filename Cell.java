@@ -8,7 +8,8 @@ public class Cell extends Taulell{
     boolean[] annotations; //marques
     boolean visible; //per veure si la casella és visible
     boolean written; //per veure si el valor ja venia donat en el joc o no
-    int max_annotations = 10; 
+    //NO ÉS COMÚ
+    //int max_annotations = 9; //del 1 al 9 possibles
     
     public Cell(int column, int row) {
         this.column = column;
@@ -32,7 +33,7 @@ public class Cell extends Taulell{
     public int getColumn() {
         return column;
     }
-
+    
     public int getRow() {
         return row;
     }
@@ -41,7 +42,7 @@ public class Cell extends Taulell{
         return written;
     }
 
-    public void setWritten(){
+    public void setWritten(){  //Aclarar perquè = written. 
         this.written = written;
     }
     
@@ -49,11 +50,12 @@ public class Cell extends Taulell{
         return visible;
     }
 
-    public void setVisible(){
+    public void setVisible(){  //Aclarar perquè = visible. 
         this.visible = visible;
     }
     
-    public boolean getAnnotation(int value) {
+    //NO ÉS COMÚ
+    /*public boolean getAnnotation(int value) {
         return annotations[value - 1];
     }
 
@@ -63,5 +65,5 @@ public class Cell extends Taulell{
 
     public void setAnnotation(int value, boolean annotation) {
         this.annotations[value - 1] = annotation;
-    }
+    }*/
 }
