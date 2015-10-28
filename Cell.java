@@ -8,7 +8,7 @@ public class Cell extends Board{
     boolean[] annotations; //marques
     boolean visible; //per veure si la casella és visible
     boolean written; //per veure si el valor ja venia donat en el joc o no
-    int max_annotations; //numero maxim possibles en una casella
+    int max_annotations/*=10*/; //numero maxim possibles en una casella (definir el número)
     
     public Cell(int column, int row) {
         this.column = column;
@@ -53,7 +53,7 @@ public class Cell extends Board{
         this.visible = visible;
     }
     
-    //NO ÉS COMÚ
+    //NO ÉS COMÚ PERÒ AQUÍ TENIU PER FER-HO SIMILAR
     /*public boolean getAnnotation(int value) {
         return annotations[value - 1];
     }
