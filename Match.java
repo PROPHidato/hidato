@@ -2,20 +2,18 @@ package domini.Basic;
 
 
 public class Match extends Player extends Game{
-  int playerID;
-  int gameID;
+  int PlayerId;
+  int GameId;
   int time;
-  int hints;
-  int result;
+  int hints; //número de pistes que porta el player. 
+  int result; //resultat de puntuació final del Match.
   
-  public Match(int gameID, int playerID, int difficult) {
-  
-    this.gameID = gameID;
-    this.playerID = playerID;
+  public Match(int GameId, int PlayerId, int difficult) {
+    this.GameId = GameId;
+    this.PlayerId = PlayerId;
     time = 0;
     hints = 0;
     result = -1;  //no hi ha resultat encara
-
   }
   
   public int getTime() {
@@ -41,5 +39,4 @@ public class Match extends Player extends Game{
   public void setResult(int result) {
     this.result = result;
   }
-
 }
