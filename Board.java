@@ -21,7 +21,7 @@ public class Board{
     public int getvalueCell(int column, int row) { 
         return cell.getValue(column,row);
     }
-
+                          //polla
     public int getvalue() { 
         return cell.getValue();
     }
