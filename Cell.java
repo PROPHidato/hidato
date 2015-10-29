@@ -1,4 +1,4 @@
-package domini.Basic;
+package domini;
 
 
 public class Cell extends Board{
