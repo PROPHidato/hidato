@@ -1,4 +1,4 @@
-package domini.Basic; //Falten fer els packages
+package domini; //Falten fer els packages
 
 
 public class Board{
