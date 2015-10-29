@@ -1,4 +1,4 @@
-package domini.Basic;
+package domini;
 
 
 public class Match extends Player extends Game{
