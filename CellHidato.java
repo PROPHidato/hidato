@@ -2,7 +2,6 @@ package domini.Basic;
 
 
 public class CellHidato extends Cell{
-    int max_annotations = 9; //del 1 al 9 possibles
     
     public Cell(int column, int row) {
         this.column = column;
