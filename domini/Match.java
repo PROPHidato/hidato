@@ -8,7 +8,7 @@ package domini;
  * To change this template use File | Settings | File Templates.
  */
 
-public class Match extends Game{
+public class Match extends domini.Game {
     int PlayerId;
     int GameId;
     int time;
