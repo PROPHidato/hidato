@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 
 
-public class sBoardHidato extends Board {
+public class BoardHidato extends Board {
     int max_annotations = size; //màxim nombre de marques que poden tenir les cel·es del taulell.
 
     public BoardHidato(int size) {
