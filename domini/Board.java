@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 public class Board {
     int size;
+    int prova; //per veure si puc fer commits
     ArrayList<ArrayList<Cell>> board;
     int max_annotations = 9; //màxim nombre de marques que poden tenir les cel·es del taulell
 
