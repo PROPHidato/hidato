@@ -11,7 +11,6 @@ package domini;
 
 
 public class Cell extends domini.Board {
-    int miquel;
     int value;
     int column; //numero de columna
     int row; //numero de fila
