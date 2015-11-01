@@ -9,7 +9,7 @@ package domini;
  */
 
 
-public class CellHidato extends Cell{
+public class CellHidato extends Cell {
     public CellHidato(int column, int row) {
         super(column, row);
         this.column = column;
@@ -18,7 +18,7 @@ public class CellHidato extends Cell{
         visible = false;
         value = 0;  // 0 = cela buida
 
-        annotations = new boolean[max_annotations];
+        annotations = new boolean[Board.max_annotations];
         for (int i = 0; i < annotations.length; i++) annotations[i] = false;
     }
 

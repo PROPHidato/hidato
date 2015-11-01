@@ -1,4 +1,4 @@
-package domini; //Falten fer els packages
+package domini;
 import java.util.ArrayList;
 
 
@@ -15,6 +15,6 @@ public class BoardHidato extends Board {
 
     public BoardHidato(int size) {
         super(size); // Fer la creadora
-        board = new ArrayList<ArrayList<domini.Cell>>(size);
+        board = new ArrayList<ArrayList<Cell>>(size);
     }
 }

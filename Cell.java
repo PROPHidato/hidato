@@ -10,7 +10,7 @@ package domini;
 
 
 public class Cell {
-    int value;
+    static int value;
     int column; //numero de columna
     int row; //numero de fila
     boolean[] annotations = new boolean[Board.consult_max_annotations()]; //marques
@@ -31,8 +31,8 @@ public class Cell {
         return value;
     }
 
-    public void setValue(int value) {
-        this.value = value;
+    public static void setValue(int value) {
+        Cell.value = value;
     }
 
     public int getColumn() {
