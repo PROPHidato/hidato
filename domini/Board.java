@@ -13,11 +13,11 @@ import java.util.ArrayList;
 
 public class Board {
     int size;
-    ArrayList<ArrayList<Cell>> board;
+    ArrayList<ArrayList<domini.Cell>> board;
     int max_annotations = 9; //màxim nombre de marques que poden tenir les cel·es del taulell
 
     public Board(int size) { // Fer la creadora
-        board = new ArrayList<ArrayList<Cell>>(size);
+        board = new ArrayList<ArrayList<domini.Cell>>(size);
     }
 
     public int getSize() {
@@ -29,15 +29,15 @@ public class Board {
     }
 
     public int getvalueCell(int column, int row) {
-        return Cell.getValue(column,row);
+        return domini.Cell.getValue(column, row);
     }
 
     public int getvalue() {
-        return Cell.getValue();
+        return domini.Cell.getValue();
     }
 
     public void setCellValue(int value) {
-        Cell.setValue(value);
+        domini.Cell.setValue(value);
     }
 }
 
