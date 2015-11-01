@@ -10,23 +10,22 @@ package domini;
 
 
 
-public class Cell extends domini.Board {
+public class Cell{
     int value;
     int column; //numero de columna
     int row; //numero de fila
-    boolean[] annotations; //marques
+    boolean[] annotations = new boolean[Board.consult_max_annotations()]; //marques
     boolean visible; //per veure si la casella és visible
     boolean written; //per veure si el valor ja venia donat en el joc o no
 
     public Cell(int column, int row) {
-        super(max_annotations);
+       // super(max_annotations);
         this.column = column;
         this.row = row;
         written = false;
         visible = false;
         value = -1;
 
-        annotations = new boolean[max_annotations];
         for (int i = 0; i < annotations.length; i++) annotations[i] = false;
     }
 

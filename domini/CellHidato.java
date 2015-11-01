@@ -1,5 +1,5 @@
 package domini;
-
+import domini.Cell;
 /**
  * Created with IntelliJ IDEA.
  * User: jordi.guiu.pujols

@@ -1,5 +1,6 @@
 package domini; //Falten fer els packages
-
+import java.util.ArrayList;
+import domini.Board;
 /**
  * Created with IntelliJ IDEA.
  * User: jordi.guiu.pujols
@@ -8,7 +9,7 @@ package domini; //Falten fer els packages
  * To change this template use File | Settings | File Templates.
  */
 
-import java.util.ArrayList;
+
 
 
 
@@ -17,6 +18,6 @@ public class BoardHidato extends Board {
 
     public BoardHidato(int size) {
         super(size); // Fer la creadora
-        board = new ArrayList<ArrayList<Cell>>(size);
+        board = new ArrayList<ArrayList<domini.Cell>>(size);
     }
 }

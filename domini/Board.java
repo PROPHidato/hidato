@@ -39,5 +39,9 @@ public class Board {
     public void setCellValue(int value) {
         domini.Cell.setValue(value);
     }
+
+    public int consult_max_annotations(){
+        return max_annotations;
+    }
 }
 
