@@ -1,16 +1,15 @@
 package domini;
 
+
 /**
  * Created with IntelliJ IDEA.
- * User: jordi.guiu.pujols
  * Date: 29/10/15
  * Time: 17:50
  * To change this template use File | Settings | File Templates.
  */
 
 
-
-public class Cell{
+public class Cell {
     int value;
     int column; //numero de columna
     int row; //numero de fila

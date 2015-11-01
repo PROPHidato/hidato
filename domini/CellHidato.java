@@ -1,13 +1,13 @@
 package domini;
 import domini.Cell;
+
+
 /**
  * Created with IntelliJ IDEA.
- * User: jordi.guiu.pujols
  * Date: 29/10/15
  * Time: 17:50
  * To change this template use File | Settings | File Templates.
  */
-
 
 
 public class CellHidato extends Cell{

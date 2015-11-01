@@ -1,14 +1,13 @@
 package domini;
+import java.util.ArrayList;
+
 
 /**
  * Created with IntelliJ IDEA.
- * User: jordi.guiu.pujols
  * Date: 29/10/15
  * Time: 17:48
  * To change this template use File | Settings | File Templates.
  */
-
-import java.util.ArrayList;
 
 
 public class Board {
