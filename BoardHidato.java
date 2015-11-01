@@ -1,6 +1,5 @@
 package domini; //Falten fer els packages
 import java.util.ArrayList;
-import domini.Board;
 
 
 /**

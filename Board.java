@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Board {
     int size;
     ArrayList<ArrayList<domini.Cell>> board;
-    int max_annotations = 9; //màxim nombre de marques que poden tenir les cel·es del taulell
+    static int max_annotations = 9; //màxim nombre de marques que poden tenir les cel·es del taulell
 
     public Board(int size) { // Fer la creadora
         board = new ArrayList<ArrayList<domini.Cell>>(size);
@@ -39,7 +39,7 @@ public class Board {
         domini.Cell.setValue(value);
     }
 
-    public int consult_max_annotations(){
+    public static int consult_max_annotations(){
         return max_annotations;
     }
 }

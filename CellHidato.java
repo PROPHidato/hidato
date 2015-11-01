@@ -1,5 +1,4 @@
 package domini;
-import domini.Cell;
 
 
 /**
@@ -13,7 +12,7 @@ import domini.Cell;
 public class CellHidato extends Cell{
 
     public CellHidato(int column, int row) {
-        super(column, row, max_annotations);
+        super(column, row);
         this.column = column;
         this.row = row;
         written = false;

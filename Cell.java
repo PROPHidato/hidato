@@ -18,7 +18,6 @@ public class Cell {
     boolean written; //per veure si el valor ja venia donat en el joc o no
 
     public Cell(int column, int row) {
-       // super(max_annotations);
         this.column = column;
         this.row = row;
         written = false;

@@ -9,14 +9,12 @@ package domini;
  */
 
 
-public class Match extends domini.Game {
+public class Match {
     int PlayerId;
     int GameId;
     int time;
     int hints; //número de pistes que porta el player.
     int result; //resultat de puntuació final del Match.
-
-    //private Player Payer;     //No sabem si es fa així.
 
     public Match(int GameId, /*int PlayerId, */int difficult) {
         this.GameId = GameId;
