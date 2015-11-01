@@ -16,7 +16,7 @@ public class Match {
     int hints; //número de pistes que porta el player.
     int result; //resultat de puntuació final del Match.
 
-    public Match(int GameId, /*int PlayerId, */int difficult) {
+    public Match(int GameId, /*int PlayerId, */ int difficult) {
         this.GameId = GameId;
         //this.PlayerId = PlayerId;
         time = 0;
