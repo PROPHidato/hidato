@@ -27,9 +27,9 @@ public class Board {
         this.size = size;
     }
 
-    /*public int getvalueCell(int column, int row) {  //getValue de Cell no es passen 2 valors,
+    public int getvalueCell(int column, int row) {  //getValue de Cell no es passen 2 valors,
         return Cell.getValue(column, row);            //i no s'haurien de passar.
-    }*/
+    }
 
     /*public int getvalue() {  //No fa res, oi?
         return Cell.getValue();
