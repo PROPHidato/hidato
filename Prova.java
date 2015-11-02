@@ -25,7 +25,7 @@ public class Prova {
         System.out.println("Nombre màxim de marques? (size*size):" + Taulell.consult_max_annotations());
 
         Taulell.setValueCell(1, 1, 1); //Posa valor 1 a la Cel·la [1][1]
-
+/*
         //Funcions.imprimeixValors(Taulell); //imprimeix el taulell
 
         System.out.println("Posició[0][0]? (Hauria de veure 0):" + Taulell.getValueCell(2, 0));

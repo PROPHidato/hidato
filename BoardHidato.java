@@ -15,8 +15,8 @@ public class BoardHidato extends Board {
 
     public BoardHidato(int size) {
         super(size); // Fer la creadora
-        board = new Cell[size][size];
-        //board = new ArrayList<ArrayList<Cell>>(size);
+        //board = new Cell[size][size];
+        board = new ArrayList<ArrayList<Cell>>(size);
         max_annotations = size*size;
     }
 

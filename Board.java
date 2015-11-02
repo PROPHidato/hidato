@@ -12,14 +12,13 @@ import java.util.*;
 
 public class Board {
     static int size;
-    //ArrayList<ArrayList<Cell>> board;
-    Cell[][] board;
+    ArrayList<ArrayList<Cell>> board; //Cell[][] board
     static int max_annotations = 9; //màxim nombre de marques que poden tenir les cel·es del taulell
 
     public Board(int size) { // Fer la creadora
         this.setSize(size);
-        board = new Cell[size][size];
-        //board = new ArrayList<ArrayList<Cell>>(size);
+        //board = new Cell[size][size];
+        board = new ArrayList<ArrayList<Cell>>(size);
     }
 
     public int getSize() {
@@ -31,7 +30,8 @@ public class Board {
     }
 
     public int getValueCell(int column, int row) {  //getValue de Cell no es passen 2 valors,
-        return board[column][row].getValue();
+        Cell c = board.get(column).get(row);        //i no s'haurien de passar.
+        return c.getValue();
     }
 
     public int  getValue() {
@@ -39,10 +39,9 @@ public class Board {
     }
 
     public void setValueCell(int value, int column, int row) {
-        /*Cell c = board[column][row];
-        //Cell c = board.get(column).get(row);
-        c.setValue(value);*/
-        board[column][row].setValue(value);
+        Cell c = board.get(column).get(row);        //i no s'haurien de passar.
+        c.setValue(value);
+        //board[column][row].setValue(value);
     }
 
     public static int consult_max_annotations(){
