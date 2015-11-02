@@ -27,17 +27,18 @@ public class Board {
         this.size = size;
     }
 
-    public int getvalueCell(int column, int row) {  //getValue de Cell no es passen 2 valors,
+    public int getValueCell(int column, int row) {  //getValue de Cell no es passen 2 valors,
         Cell c = board.get(column).get(row);        //i no s'haurien de passar.
         return c.getValue();
     }
 
-    public int getvalue() {
+    public int getValue() {
         return Cell.getValue();
     }
 
-    public void setCellValue(int value) {
-        Cell.setValue(value);
+    public void setValueCell(int value, int column, int row) {
+        Cell c = board.get(column).get(row);
+        c.setValue(value);
     }
 
     public static int consult_max_annotations(){

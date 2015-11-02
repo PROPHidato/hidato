@@ -11,7 +11,7 @@ import java.util.*;
 
 
 public class BoardHidato extends Board {
-    int max_annotations = size; //màxim nombre de marques que poden tenir les cel·es del taulell.
+    int max_annotations = size*size; //màxim nombre de marques que poden tenir les cel·es del taulell.
 
     public BoardHidato(int size) {
         super(size); // Fer la creadora
