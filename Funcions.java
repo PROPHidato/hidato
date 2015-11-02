@@ -9,7 +9,7 @@ import java.util.*;
 
 
 public class Funcions {
-    public static void imprimeix(Board Taulell) {
+    public static void imprimeixValors(Board Taulell) {
 
     }
 }

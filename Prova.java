@@ -15,22 +15,34 @@ public class Prova {
 
         Taulell.setValueCell(1, 1, 1); //Posa valor 1 a la Cel·la [1][1]
 
-        Funcions.imprimeix(Taulell); //imprimeix el taulell
+        Funcions.imprimeixValors(Taulell); //imprimeix el taulell
 
         Taulell.setValueCell(23, 2, 3);
 
         System.out.println("Posició[2][3]? (Hauria de veure 23):" + Taulell.getValueCell(2, 3));
 
-        System.out.println("Posició[0][0]? (Hauria de veure -1):" + Taulell.getValueCell(0, 0));
+        System.out.println("Posició[0][0]? (Hauria de veure 0):" + Taulell.getValueCell(0, 0));
 
         System.out.println("Nombre màxim de marques? (9):" + Taulell.consult_max_annotations());
 
+        CellHidato c = new CellHidato(2, 3);
+
+        System.out.println("Valor de la Cel·la[2][3]? (Hauria de veure 0):" + c.getValue());
+
+        System.out.println("Columna de la cel·la? (Hauria de veure 2):" + c.getColumn());
+
+        System.out.println("Fila de la cel·la? (Hauria de veure 3):" + c.getRow());
+
+        System.out.println("Marca 2? (false):" + c.getAnnotation(2));
+
+        c.switchAnnotation(2);
+
+        System.out.println("Marca 2? (true):" + c.getAnnotation(2));
+
+        c.setAnnotation(3, true);
+
+        System.out.println("Marca 3? (true):" + c.getAnnotation(3));
 
 
-        int i = 42;
-        System.out.println("i:" + i);
     }
-
-
-
 }
