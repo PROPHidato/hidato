@@ -24,7 +24,7 @@ public class Prova {
 
         Taulell.setValueCell(1, 1, 1); //Posa valor 1 a la Cel·la [1][1]
 
-        Funcions.imprimeixValors(Taulell); //imprimeix el taulell
+        //Funcions.imprimeixValors(Taulell); //imprimeix el taulell
 
         Taulell.setValueCell(23, 2, 3);
 
