@@ -27,7 +27,7 @@ public class Cell {
         for (int i = 0; i < annotations.length; i++) annotations[i] = false;
     }
 
-    public int getValue() {
+    public static int getValue() {
         return value;
     }
 

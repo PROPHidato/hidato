@@ -28,12 +28,13 @@ public class Board {
     }
 
     public int getvalueCell(int column, int row) {  //getValue de Cell no es passen 2 valors,
-        return Cell.getValue(column, row);            //i no s'haurien de passar.
+        Cell c = board.get(column).get(row);        //i no s'haurien de passar.
+        return c.getValue();
     }
 
-    /*public int getvalue() {  //No fa res, oi?
+    public int getvalue() {
         return Cell.getValue();
-    }*/
+    }
 
     public void setCellValue(int value) {
         Cell.setValue(value);
