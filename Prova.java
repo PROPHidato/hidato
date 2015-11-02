@@ -22,18 +22,24 @@ public class Prova {
 
         System.out.println("mida taulell:" + Taulell.getSize()); //treu mida taulell
 
+        System.out.println("Nombre màxim de marques? (size*size):" + Taulell.consult_max_annotations());
+
         Taulell.setValueCell(1, 1, 1); //Posa valor 1 a la Cel·la [1][1]
 
         //Funcions.imprimeixValors(Taulell); //imprimeix el taulell
 
+        System.out.println("Posició[0][0]? (Hauria de veure 0):" + Taulell.getValueCell(2, 0));
+
         Taulell.setValueCell(23, 2, 3);
+
+        System.out.println("Posició[0][0]? (Hauria de veure 0):" + Taulell.getValueCell(2, 0));
 
         System.out.println("Posició[2][3]? (Hauria de veure 23):" + Taulell.getValueCell(2, 3));
 
+        System.out.println("Posició[2][3]? (Hauria de veure 1):" + Taulell.getValueCell(1, 1));
+
         System.out.println("Posició[0][0]? (Hauria de veure 0):" + Taulell.getValueCell(0, 0));
-
-        System.out.println("Nombre màxim de marques? (9):" + Taulell.consult_max_annotations());
-
+/*
         System.out.printf("Entra columna i fila d'una cela:  ");
 
         column = input.nextInt();
@@ -56,7 +62,7 @@ public class Prova {
         c.setAnnotation(3, true);
 
         System.out.println("Marca 3 en la cela? (true):" + c.getAnnotation(3));
-
+*/
 
     }
 }
