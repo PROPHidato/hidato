@@ -1,4 +1,4 @@
-package domini;
+package domini.domini;
 
 
 /**
@@ -16,6 +16,10 @@ public class Game {
     public Game(int GameId, int difficult) {
         this.GameId = GameId;
         this.difficult = difficult;
+    }
+
+    public Game() {
+
     }
 
     public int getGameId() {
