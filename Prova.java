@@ -9,7 +9,16 @@ import java.util.*;
 public class Prova {
     public static void main(String[] args) {
 
-        Board Taulell = new BoardHidato(System.in);
+        Scanner input = new Scanner( System.in );
+
+        int size;
+        int column;
+        int row;
+        System.out.printf("Entra mida taulell:  ");
+
+        size = input.nextInt();
+
+        BoardHidato Taulell = new BoardHidato(size);
 
         System.out.println("mida taulell:" + Taulell.getSize()); //treu mida taulell
 
@@ -25,7 +34,12 @@ public class Prova {
 
         System.out.println("Nombre màxim de marques? (9):" + Taulell.consult_max_annotations());
 
-        CellHidato c = new CellHidato(System.in, System.in);
+        System.out.printf("Entra columna i fila d'una cela:  ");
+
+        column = input.nextInt();
+        row = input.nextInt();
+
+        CellHidato c = new CellHidato(column, row);
 
         System.out.println("Valor de la Cel·la? (Hauria de veure 0):" + c.getValue());
 
