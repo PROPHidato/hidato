@@ -17,8 +17,7 @@ public class Board {
 
     public Board(int size) { // Fer la creadora
         this.setSize(size);
-        //board = new Cell[size][size];
-        board = new ArrayList<ArrayList<Cell>>(size);
+        board = new ArrayList<ArrayList<Cell>>(size); //board = new Cell[size][size];
     }
 
     public int getSize() {

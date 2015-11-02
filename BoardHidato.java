@@ -15,9 +15,8 @@ public class BoardHidato extends Board {
 
     public BoardHidato(int size) {
         super(size); // Fer la creadora
-        //board = new Cell[size][size];
-        board = new ArrayList<ArrayList<Cell>>(size);
-        max_annotations = size*size;
+        board = new ArrayList<ArrayList<Cell>>(size); //board = new Cell[size][size];
+        max_annotations = size*size; //Si taulell hi han 25 caselles podrà anar-hi del 1 al 25 en una casella.
     }
 
     public static int consult_max_annotations(){
