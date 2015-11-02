@@ -23,6 +23,10 @@ public class Match {
         hints = 0;
         result = -1;  //no hi ha resultat encara
     }
+    
+    public int getPlayerId(){
+        return PlayerId;
+    }
 
     public int getTime() {
         return time;
