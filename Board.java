@@ -12,12 +12,20 @@ import java.util.*;
 
 public class Board {
     static int size;
-    ArrayList<ArrayList<Cell>> board; //Cell[][] board
+   // private static ArrayList<ArrayList<Cell>> board;
     static int max_annotations = 9; //màxim nombre de marques que poden tenir les cel·es del taulell
+    ArrayList<ArrayList<Cell>> board;
 
     public Board(int size) { // Fer la creadora
-        this.setSize(size);
-        board = new ArrayList<ArrayList<Cell>>(size); //board = new Cell[size][size];
+        setSize(size);
+        //definim larraylist amb la mida i nombre de files i columnes
+        ArrayList<ArrayList<Cell>> board(size) = new ArrayList<ArrayList<Cell>>
+        for (int i=0;i< board.size();++i) {
+            board[i] = new ArrayList<Cell>(size);
+            for (int j = 0; j < board[i].size(); ++j) {
+                board[i][j] = new Cell;
+            }
+        }
     }
 
     public int getSize() {
