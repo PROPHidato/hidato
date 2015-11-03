@@ -17,7 +17,7 @@ public class Cell {
     boolean visible; //per veure si la casella és visible
     boolean written; //per veure si el valor ja venia donat en el joc o no
 
-    public Cell(int column, int row) {
+    public Cell(int row, int column) {
         this.column = column;
         this.row = row;
         written = false;

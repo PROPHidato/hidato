@@ -32,12 +32,22 @@ public class Prova {
 
         Taulell.setValueCell(23, 2, 3);
 
+        Funcions.imprimeixValors(Taulell); //imprimeix el taulell
+
         System.out.println("Posici�[2][3]? (Hauria de veure 23):" + Taulell.getValueCell(2, 3));
+
+        System.out.println(Taulell.getValueCell(0,0));
+
+        Taulell.setValueCell(3, 0, 0);
+
+        System.out.println(Taulell.getValueCell(0,0));
+
+
 
 
         //Taulell.setValueCell(1, 1, 1); //Posa valor 1 a la Cel�la [1][1]
 /*
-        //Funcions.imprimeixValors(Taulell); //imprimeix el taulell
+
 
         System.out.println("Posici�[0][0]? (Hauria de veure 0):" + Taulell.getValueCell(2, 0));
 

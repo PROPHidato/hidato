@@ -54,7 +54,7 @@ public class Board {
     public void setValueCell(int value, int column, int row) {
        // Cell c = board.get(row).get(column);        //i no s'haurien de passar.
         //c.setValue(value);
-        (board.get(row).get(column)).setValue(value);
+        board.get(row).get(column).setValue(value);
         //myArrayList2D.get(row).set(col, value);
         //board[column][row].setValue(value);
     }

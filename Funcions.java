@@ -4,12 +4,22 @@ import java.util.*;
 
 /**
  * Created by Jordi Guiu on 02/11/2015.
- * Classe per ficar-hi algunes funcions, més endavant decidirem com ho fem.
+ * Classe per ficar-hi algunes funcions, mï¿½s endavant decidirem com ho fem.
  */
 
 
 public class Funcions {
     public static void imprimeixValors(Board Taulell) {
+        for (int i = 0; i < Taulell.getSize(); ++i) {
+            System.out.println("mida taulell:" + Taulell.getSize());
+            System.out.printf("entra 3 ");
+            for (int j = 0; j < Taulell.getSize(); ++j) {
+                System.out.printf("entra 4 ");
+                System.out.println(Taulell.getValueCell(j, i));
+                System.out.println(j);
+                System.out.println(i);
 
+            }
+        }
     }
 }
