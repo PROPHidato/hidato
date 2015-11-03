@@ -44,7 +44,7 @@ public class Board {
     }
 
     public int getValueCell(int column, int row) {  //getValue de Cell no es passen 2 valors,
-        return (board.get(column).get(row).getValue());        //i no s'haurien de passar
+        return (board.get(row).get(column).getValue());        //i no s'haurien de passar
     }
 
     public int getValue() {
