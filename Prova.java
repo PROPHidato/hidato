@@ -18,13 +18,14 @@ public class Prova {
 
         size = input.nextInt();
 
-        BoardHidato Taulell = new BoardHidato(size);
+        Board Taulell = new Board(size);
 
         System.out.println("mida taulell:" + Taulell.getSize()); //treu mida taulell
 
         System.out.println("Nombre maxim de marques? (size*size):" + Taulell.consult_max_annotations());
 
-        Taulell.setValueCell(1, 1, 1); //Posa valor 1 a la Cel�la [1][1]
+        System.out.println(Taulell.getValueCell(1,1));
+        //Taulell.setValueCell(1, 1, 1); //Posa valor 1 a la Cel�la [1][1]
 /*
         //Funcions.imprimeixValors(Taulell); //imprimeix el taulell
 
