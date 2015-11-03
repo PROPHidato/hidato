@@ -22,23 +22,23 @@ public class Prova {
 
         System.out.println("mida taulell:" + Taulell.getSize()); //treu mida taulell
 
-        System.out.println("Nombre màxim de marques? (size*size):" + Taulell.consult_max_annotations());
+        System.out.println("Nombre maxim de marques? (size*size):" + Taulell.consult_max_annotations());
 
-        Taulell.setValueCell(1, 1, 1); //Posa valor 1 a la Cel·la [1][1]
+        Taulell.setValueCell(1, 1, 1); //Posa valor 1 a la Celï¿½la [1][1]
 /*
         //Funcions.imprimeixValors(Taulell); //imprimeix el taulell
 
-        System.out.println("Posició[0][0]? (Hauria de veure 0):" + Taulell.getValueCell(2, 0));
+        System.out.println("Posiciï¿½[0][0]? (Hauria de veure 0):" + Taulell.getValueCell(2, 0));
 
         Taulell.setValueCell(23, 2, 3);
 
-        System.out.println("Posició[0][0]? (Hauria de veure 0):" + Taulell.getValueCell(2, 0));
+        System.out.println("Posiciï¿½[0][0]? (Hauria de veure 0):" + Taulell.getValueCell(2, 0));
 
-        System.out.println("Posició[2][3]? (Hauria de veure 23):" + Taulell.getValueCell(2, 3));
+        System.out.println("Posiciï¿½[2][3]? (Hauria de veure 23):" + Taulell.getValueCell(2, 3));
 
-        System.out.println("Posició[2][3]? (Hauria de veure 1):" + Taulell.getValueCell(1, 1));
+        System.out.println("Posiciï¿½[2][3]? (Hauria de veure 1):" + Taulell.getValueCell(1, 1));
 
-        System.out.println("Posició[0][0]? (Hauria de veure 0):" + Taulell.getValueCell(0, 0));
+        System.out.println("Posiciï¿½[0][0]? (Hauria de veure 0):" + Taulell.getValueCell(0, 0));
 /*
         System.out.printf("Entra columna i fila d'una cela:  ");
 
@@ -47,11 +47,11 @@ public class Prova {
 
         CellHidato c = new CellHidato(column, row);
 
-        System.out.println("Valor de la Cel·la? (Hauria de veure 0):" + c.getValue());
+        System.out.println("Valor de la Celï¿½la? (Hauria de veure 0):" + c.getValue());
 
-        System.out.println("Columna de la cel·la? (Hauria de veure la columna que he posat):" + c.getColumn());
+        System.out.println("Columna de la celï¿½la? (Hauria de veure la columna que he posat):" + c.getColumn());
 
-        System.out.println("Fila de la cel·la? (Hauria de veure la fila que he posat):" + c.getRow());
+        System.out.println("Fila de la celï¿½la? (Hauria de veure la fila que he posat):" + c.getRow());
 
         System.out.println("Marca 2 en la cela? (false):" + c.getAnnotation(2));
 

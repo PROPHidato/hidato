@@ -19,14 +19,17 @@ public class Board {
     public Board(int size) { // Fer la creadora
         setSize(size);
         //definim larraylist amb la mida i nombre de files i columnes
-        ArrayList<ArrayList<Cell>> board(size) = new ArrayList<ArrayList<Cell>>
-        for (int i=0;i< board.size();++i) {
-            board[i] = new ArrayList<Cell>(size);
-            for (int j = 0; j < board[i].size(); ++j) {
-                board[i][j] = new Cell;
+        ArrayList<ArrayList<Cell>> board = new ArrayList<ArrayList<Cell>>(size);
+        for (int i=0;i < board.size();++i) {
+            board.add(new ArrayList<Cell>(size));
+            for (int j = 0; j < board.size(); ++j) {
+                board.get(i).add(new Cell(i,j));//board[i][j] = new Cell(i,j);
             }
         }
     }
+
+
+
 
     public int getSize() {
         return size;
