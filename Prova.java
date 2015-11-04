@@ -8,17 +8,18 @@ import java.util.*;
 
 public class Prova {
     public static void main(String[] args) {
-
         Scanner input = new Scanner( System.in );
-
-        int size;
+        int size,num,dif;
         int column;
         int row;
         System.out.printf("Entra mida taulell:  ");
 
         size = input.nextInt();
-
         Board Taulell = new Board(size);
+        System.out.printf("numero del joc i dificultat:  ");
+        num = input.nextInt();
+        dif = input.nextInt();
+        Game joc = new Game(num,dif); //id 1 difficult 2
 
         System.out.println("mida taulell:" + Taulell.getSize()); //treu mida taulell
 
