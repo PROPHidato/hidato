@@ -11,15 +11,10 @@ import java.util.*;
 public class Funcions {
     public static void imprimeixValors(Board Taulell) {
         for (int i = 0; i < Taulell.getSize();i++) {
-            System.out.println("mida taulell:" + Taulell.getSize());
-            System.out.println("entra 3 ");
             for (int j = 0; j < Taulell.getSize();j++) {
-                System.out.println("entra 4 ");
-                System.out.println("valor: " + Taulell.getValueCell(i,j));
-                System.out.println(j);
-                System.out.println(i);
-
+                System.out.print(Taulell.getValueCell(i,j) + " ");
             }
+            System.out.println();
         }
     }
 }

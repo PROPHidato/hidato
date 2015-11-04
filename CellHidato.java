@@ -10,7 +10,7 @@ package domini;
 
 
 public class CellHidato extends Cell {
-    public CellHidato(int column, int row) {
+    public CellHidato(int row, int column) {
         super(column, row);
         this.column = column;
         this.row = row;

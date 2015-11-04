@@ -10,7 +10,7 @@ package domini;
 
 
 public class Cell {
-    static int value;
+    int value;
     int column; //numero de columna
     int row; //numero de fila
     boolean[] annotations = new boolean[Board.consult_max_annotations()]; //marques
@@ -27,13 +27,12 @@ public class Cell {
         for (int i = 0; i < annotations.length; i++) annotations[i] = false;
     }
 
-    public static int getValue() {
-        System.out.printf("entra 1");
+    public int getValue() {
         return value;
     }
 
-    public static void setValue(int value) {
-        Cell.value = value;
+    public void setValue(int value) {
+        this.value = value;
     }
 
     public int getColumn() {
@@ -48,16 +47,16 @@ public class Cell {
         return written;
     }
 
-    public void setWritten(){  //Aclarar perquè = written.
-        this.written = written;
+    public void switchWritten(){  //Aclarar perquè = written.
+        this.written ^= true;
     }
 
     public boolean getVisible(){
         return visible;
     }
 
-    public void setVisible(){  //Aclarar perquè = visible.
-        this.visible = visible;
+    public void switchVisible(){  //Aclarar perquè = visible.
+        this.visible ^= true;
     }
 
     //NO ÉS COMÚ PERÒ AQUÍ TENIU PER FER-HO SIMILAR
