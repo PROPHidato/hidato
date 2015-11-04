@@ -25,7 +25,7 @@ public class Board {
             System.out.printf("entra 2 ");
             board.add(new ArrayList<Cell>(size));
             System.out.printf("entra 3 ");
-            for (int j = 0; j < board.size(); ++j) {
+            for (int j = 0; j < size; ++j) {
                 System.out.printf("entra 4 ");
                 board.get(i).add(new Cell(i,j));//board[i][j] = new Cell(i,j);
                 System.out.println(board.get(i).get(j).getValue());

@@ -1,4 +1,4 @@
-package domini.domini;
+package domini;
 
 /**
  * Created with IntelliJ IDEA.
