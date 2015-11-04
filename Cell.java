@@ -28,6 +28,7 @@ public class Cell {
     }
 
     public static int getValue() {
+        System.out.printf("entra 1");
         return value;
     }
 

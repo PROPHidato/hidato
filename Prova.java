@@ -24,19 +24,21 @@ public class Prova {
 
         System.out.println("Nombre maxim de marques? (size*size):" + Taulell.consult_max_annotations());
 
-        System.out.println(Taulell.getValueCell(1,1));
+        System.out.println("Treu valor de la cela [1][1] (-1):" +Taulell.getValueCell(1,1));
 
         Taulell.setValueCell(2, 1, 1);
 
-        System.out.println(Taulell.getValueCell(1,1));
+        System.out.println("Treu valor de la cela [1][1] (2):" +Taulell.getValueCell(1,1));
 
         Taulell.setValueCell(23, 2, 3);
 
         Funcions.imprimeixValors(Taulell); //imprimeix el taulell
 
+        System.out.println("EI HOLA");
+
         System.out.println("Posici�[2][3]? (Hauria de veure 23):" + Taulell.getValueCell(2, 3));
 
-        System.out.println(Taulell.getValueCell(0,0));
+        System.out.println(Taulell.getValueCell(0, 0));
 
         Taulell.setValueCell(3, 0, 0);
 
