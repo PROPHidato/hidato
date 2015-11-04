@@ -15,9 +15,38 @@ public class BoardHidato extends Board {
 
     public BoardHidato(int size) {
         super(size); // Fer la creadora
-        board = new ArrayList<ArrayList<Cell>>(size); //board = new Cell[size][size];
+        ArrayList<ArrayList<Cell>> board = new ArrayList<ArrayList<Cell>>(size); //board = new Cell[size][size];
+        for (int i=0;i < board.size();++i) {
+            board.add(new ArrayList<Cell>(size));
+            for (int j = 0; j < board.size(); ++j) {
+                board.get(i).add(new Cell(i,j));
+            }
+        }
         max_annotations = size*size; //Si taulell hi han 25 caselles podrà anar-hi del 1 al 25 en una casella.
     }
+
+
+    /* AIXÒ FUNCIONA
+    int boardSize = 3;
+    ArrayList<ArrayList<Character>> board = new ArrayList<ArrayList<Character>>(boardSize);
+    for (int i = 0; i < boardSize; i++) {
+        board.add(new ArrayList<Character>(boardSize));
+        for (int j = 0; j < boardSize; j++){
+            board.get(i).add('0');
+        }
+    }
+
+    COM VA DIR EL JOAN
+    ArrayList< ArrayList< Cell > > A(size) = new ArrayList< ArrayList< Cell > >
+    for (int i = 0; i < A.size(); ++i) {
+    A[i] = new ArrayList< Cell> (size);
+    for (int j = 0; j < A[i].size(); ++j) {
+    A[i][j] = new Cell;
+    } }
+
+    */
+
+
 
     public static int consult_max_annotations(){
         return max_annotations;

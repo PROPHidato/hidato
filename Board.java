@@ -14,19 +14,27 @@ public class Board {
     static int size;
    // private static ArrayList<ArrayList<Cell>> board;
     static int max_annotations = 9; //màxim nombre de marques que poden tenir les cel·es del taulell
-    ArrayList<ArrayList<Cell>> board;
+    ArrayList<ArrayList<Cell>> board = new ArrayList<ArrayList<Cell>>(size);
 
     public Board(int size) { // Fer la creadora
         setSize(size);
+
         //definim larraylist amb la mida i nombre de files i columnes
-        ArrayList<ArrayList<Cell>> board(size) = new ArrayList<ArrayList<Cell>>
-        for (int i=0;i< board.size();++i) {
-            board[i] = new ArrayList<Cell>(size);
-            for (int j = 0; j < board[i].size(); ++j) {
-                board[i][j] = new Cell;
+        System.out.printf("entra 1 ");
+        for (int i=0;i < size;++i) {
+            System.out.printf("entra 2 ");
+            board.add(new ArrayList<Cell>(size));
+            System.out.printf("entra 3 ");
+            for (int j = 0; j < board.size(); ++j) {
+                System.out.printf("entra 4 ");
+                board.get(i).add(new Cell(i,j));//board[i][j] = new Cell(i,j);
+                System.out.println(board.get(i).get(j).getValue());
             }
         }
     }
+
+
+
 
     public int getSize() {
         return size;
@@ -36,18 +44,20 @@ public class Board {
         this.size = size;
     }
 
-    public int getValueCell(int column, int row) {  //getValue de Cell no es passen 2 valors,
-        Cell c = board.get(column).get(row);        //i no s'haurien de passar.
-        return c.getValue();
+    public int getValueCell(int row, int column) {  //getValue de Cell no es passen 2 valors,
+        System.out.printf("entra 00");
+        return (board.get(row).get(column).getValue());        //i no s'haurien de passar
     }
 
-    public int  getValue() {
+    public int getValue() {
         return Cell.getValue();
     }
 
-    public void setValueCell(int value, int column, int row) {
-        Cell c = board.get(column).get(row);        //i no s'haurien de passar.
-        c.setValue(value);
+    public void setValueCell(int value, int row, int column) {
+       // Cell c = board.get(row).get(column);        //i no s'haurien de passar.
+        //c.setValue(value);
+        board.get(row).get(column).setValue(value);
+        //myArrayList2D.get(row).set(col, value);
         //board[column][row].setValue(value);
     }
 

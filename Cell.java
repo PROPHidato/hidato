@@ -1,42 +1,39 @@
-package domini.domini;
+package domini;
+
 
 /**
  * Created with IntelliJ IDEA.
- * User: jordi.guiu.pujols
  * Date: 29/10/15
  * Time: 17:50
  * To change this template use File | Settings | File Templates.
  */
 
 
-
-public class Cell extends Board {
-    int miquel;
-    int value;
+public class Cell {
+    static int value;
     int column; //numero de columna
     int row; //numero de fila
-    boolean[] annotations; //marques
+    boolean[] annotations = new boolean[Board.consult_max_annotations()]; //marques
     boolean visible; //per veure si la casella és visible
     boolean written; //per veure si el valor ja venia donat en el joc o no
 
-    public Cell(int column, int row) {
-        super(max_annotations);
+    public Cell(int row, int column) {
         this.column = column;
         this.row = row;
         written = false;
         visible = false;
         value = -1;
 
-        annotations = new boolean[max_annotations];
         for (int i = 0; i < annotations.length; i++) annotations[i] = false;
     }
 
-    public int getValue() {
+    public static int getValue() {
+        System.out.printf("entra 1");
         return value;
     }
 
-    public void setValue(int value) {
-        this.value = value;
+    public static void setValue(int value) {
+        Cell.value = value;
     }
 
     public int getColumn() {
