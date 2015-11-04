@@ -15,7 +15,7 @@ public class Funcions {
             System.out.println("entra 3 ");
             for (int j = 0; j < Taulell.getSize();j++) {
                 System.out.println("entra 4 ");
-                System.out.println("valor: " + Taulell.getValueCell(j,i));
+                System.out.println("valor: " + Taulell.getValueCell(i,j));
                 System.out.println(j);
                 System.out.println(i);
 

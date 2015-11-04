@@ -18,6 +18,7 @@ public class Board {
 
     public Board(int size) { // Fer la creadora
         setSize(size);
+
         //definim larraylist amb la mida i nombre de files i columnes
         System.out.printf("entra 1 ");
         for (int i=0;i < size;++i) {
@@ -43,7 +44,7 @@ public class Board {
         this.size = size;
     }
 
-    public int getValueCell(int column, int row) {  //getValue de Cell no es passen 2 valors,
+    public int getValueCell(int row, int column) {  //getValue de Cell no es passen 2 valors,
         System.out.printf("entra 00");
         return (board.get(row).get(column).getValue());        //i no s'haurien de passar
     }
@@ -52,7 +53,7 @@ public class Board {
         return Cell.getValue();
     }
 
-    public void setValueCell(int value, int column, int row) {
+    public void setValueCell(int value, int row, int column) {
        // Cell c = board.get(row).get(column);        //i no s'haurien de passar.
         //c.setValue(value);
         board.get(row).get(column).setValue(value);
