@@ -12,24 +12,18 @@ import java.util.*;
 
 public class Board {
     static int size;
-   // private static ArrayList<ArrayList<Cell>> board;
-    static int max_annotations = 9; //màxim nombre de marques que poden tenir les cel·es del taulell
+    static int max_annotations = 9; //màxim nombre de marques que poden tenir les celes del taulell
     ArrayList<ArrayList<Cell>> board = new ArrayList<ArrayList<Cell>>(size);
 
-    public Board(int size) { // Fer la creadora
+    public Board(int size) {
         setSize(size);
-
-        //definim larraylist amb la mida i nombre de files i columnes
         for (int i=0;i < size;++i) {
             board.add(new ArrayList<Cell>(size));
             for (int j = 0; j < size; ++j) {
-                board.get(i).add(new Cell(i,j));//board[i][j] = new Cell(i,j);
+                board.get(i).add(new Cell(i,j));
             }
         }
     }
-
-
-
 
     public int getSize() {
         return size;
@@ -39,8 +33,8 @@ public class Board {
         this.size = size;
     }
 
-    public int getValueCell(int row, int column) {  //getValue de Cell no es passen 2 valors,
-        return (board.get(row).get(column).getValue());        //i no s'haurien de passar
+    public int getValueCell(int row, int column) {
+        return (board.get(row).get(column).getValue());
     }
 
     public int getValue() {
@@ -48,11 +42,7 @@ public class Board {
     }
 
     public void setValueCell(int value, int row, int column) {
-       // Cell c = board.get(row).get(column);        //i no s'haurien de passar.
-        //c.setValue(value);
         board.get(row).get(column).setValue(value);
-        //myArrayList2D.get(row).set(col, value);
-        //board[column][row].setValue(value);
     }
 
     public static int consult_max_annotations(){

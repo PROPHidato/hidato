@@ -26,7 +26,7 @@ public class Game {
         return GameId;
     }
 
-    public void setGameId(int gameId) {
+    public void setGameId(int GameId) {
         this.GameId = GameId;
     }
 

@@ -16,10 +16,24 @@ public class Prova {
 
         size = input.nextInt();
         Board Taulell = new Board(size);
+
         System.out.printf("numero del joc i dificultat:  ");
         num = input.nextInt();
         dif = input.nextInt();
         Game joc = new Game(num,dif); //id 1 difficult 2
+
+        System.out.println("GameId?:" + joc.getGameId());
+        System.out.println("Canvio GameId a 23");
+        joc.setGameId(23);
+        System.out.println("GameId?:" + joc.getGameId());
+
+        System.out.println("Dificultat? " + joc.getDifficult());
+        System.out.println("Canvio Dificult a 3");
+        joc.setDifficult(3);
+        System.out.println("Dificultat:" + joc.getDifficult());
+
+
+
 
         System.out.println("mida taulell:" + Taulell.getSize()); //treu mida taulell
 
@@ -107,7 +121,7 @@ public class Prova {
 
 
 
-
+/*
         System.out.println();
         System.out.println("PROVA DE CELA HIDATO");
         System.out.println("Entra una fila i una columna per crear una cela hidato qualsevol:  ");
@@ -135,6 +149,6 @@ public class Prova {
         System.out.println("Fas un setAnnotation per posar la marca 3 a true");
         c.setAnnotation(3, true);
 
-        System.out.println("Marca 3 en la cela? (true): " + c.getAnnotation(3));
+        System.out.println("Marca 3 en la cela? (true): " + c.getAnnotation(3));*/
     }
 }

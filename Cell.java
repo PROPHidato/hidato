@@ -59,7 +59,7 @@ public class Cell {
         this.visible ^= true;
     }
 
-    //NO ÉS COMÚ PERÒ AQUÍ TENIU PER FER-HO SIMILAR
+    //NO ÉS COMÚ PERÒ AQUÍ TENIU PER FER-HO SIMILAR (Ho tenim dins CellHidato)
     /*public boolean getAnnotation(int value) {
         return annotations[value - 1];
     }
