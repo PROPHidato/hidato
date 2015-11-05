@@ -25,6 +25,12 @@ public class BoardHidato extends Board {
         max_annotations = size*size; //Si taulell hi han 25 caselles podrà anar-hi del 1 al 25 en una casella.
     }
 
+    //no pilla el getStart ni el getFinish perque son funcions de CellHidato i actualment totes les
+    //nostres array list de array list son de Cells normals (crec).
+    //public boolean isStart(int row, int column) {return (board.get(row).get(column).getStart());}
+
+    //public boolean isFinish(int row, int column) {return (board.get(row).get(column).getFinish());}
+
 
     /* AIXÒ FUNCIONA
     int boardSize = 3;

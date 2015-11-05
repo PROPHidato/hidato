@@ -48,6 +48,12 @@ public class Board {
     public static int consult_max_annotations(){
         return max_annotations;
     }
+
+    public boolean isVisible(int row, int column) {return (board.get(row).get(column).getVisible());}
+
+    public void setVisibleCell (int row, int column) {board.get(row).get(column).switchVisible();}
+
+
 }
 
 

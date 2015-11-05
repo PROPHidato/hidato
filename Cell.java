@@ -14,7 +14,7 @@ public class Cell {
     int column; //numero de columna
     int row; //numero de fila
     boolean[] annotations = new boolean[Board.consult_max_annotations()]; //marques
-    boolean visible; //per veure si la casella és visible
+    static boolean visible; //per veure si la casella és visible
     boolean written; //per veure si el valor ja venia donat en el joc o no
 
     public Cell(int row, int column) {
@@ -51,7 +51,7 @@ public class Cell {
         this.written ^= true;
     }
 
-    public boolean getVisible(){
+    public static boolean getVisible(){
         return visible;
     }
 

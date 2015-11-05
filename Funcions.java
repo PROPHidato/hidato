@@ -12,7 +12,10 @@ public class Funcions {
     public static void imprimeixValors(Board Taulell) {
         for (int i = 0; i < Taulell.getSize();i++) {
             for (int j = 0; j < Taulell.getSize();j++) {
-                System.out.print(Taulell.getValueCell(i,j) + " ");
+                //System.out.print(Cell.getVisible());
+                if (Taulell.isVisible(i,j)) System.out.print(Taulell.getValueCell(i,j) + " ");
+                else System.out.print("_" + " ");
+
             }
             System.out.println();
         }

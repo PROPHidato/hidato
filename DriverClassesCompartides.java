@@ -46,7 +46,8 @@ public class DriverClassesCompartides {
         System.out.println();
 
         System.out.println("Poso un 2 a la [1][1]");
-        Taulell.setValueCell(2, 1, 1);
+        Taulell.setValueCell(2, 1, 1); //Posar el 2
+        Taulell.setVisibleCell(1, 1); //Fer cell visible
 
         //Imprimeix el taulell
         System.out.println();
@@ -55,6 +56,7 @@ public class DriverClassesCompartides {
 
         System.out.println("Poso un 23 a la [3][3]");
         Taulell.setValueCell(23, 3, 3);
+        Taulell.setVisibleCell(3, 3); //Fer cell visible
 
         //Imprimeix el taulell
         System.out.println();
@@ -63,6 +65,7 @@ public class DriverClassesCompartides {
 
         System.out.println("Poso un 3 a la [0][3]");
         Taulell.setValueCell(3,0,3);
+        Taulell.setVisibleCell(0,3); //Fer cell visible
 
         //Imprimeix el taulell
         System.out.println();
