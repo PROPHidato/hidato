@@ -15,7 +15,8 @@ public class DriverClassesCompartides {
         System.out.printf("Entra mida taulell:  ");
 
         size = input.nextInt();
-        Board Taulell = new Board(size);
+        //Board Taulell = new Board(size);
+        BoardHidato Taulell = new BoardHidato(size);
 
         System.out.printf("numero del joc i dificultat:  ");
         num = input.nextInt();

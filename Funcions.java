@@ -17,4 +17,6 @@ public class Funcions {
             System.out.println();
         }
     }
+
+    public static void solve (){}
 }
