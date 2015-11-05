@@ -10,6 +10,8 @@ package domini;
 
 
 public class CellHidato extends Cell {
+    boolean start; //marca si la casella es la primera
+    boolean finish; //marca si la casella es la ultima
     public CellHidato(int row, int column) {
         super(column, row);
         this.column = column;
@@ -17,6 +19,8 @@ public class CellHidato extends Cell {
         written = false;
         visible = false;
         value = 0;  // 0 = cela buida
+        start = false;
+        finish = false;
 
         annotations = new boolean[Board.max_annotations];
         for (int i = 0; i < annotations.length; i++) annotations[i] = false;
@@ -33,4 +37,13 @@ public class CellHidato extends Cell {
     public void setAnnotation(int value, boolean annotation) {
         this.annotations[value] = annotation;
     }
+
+    public boolean isStart() {return start;}
+
+    public void setStart() {start = true;}
+
+    public boolean isFinish() {return finish;}
+
+    public void steFinish() {finish = true;}
+
 }
