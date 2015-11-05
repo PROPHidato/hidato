@@ -6,7 +6,7 @@ import java.util.*;
  * Classe per fer proves de Run a veure si funcionen les classes que hem fet com volem.
  */
 
-public class Prova {
+public class DriverClassesCompartides {
     public static void main(String[] args) {
         Scanner input = new Scanner( System.in );
         int size,num,dif;
