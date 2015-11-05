@@ -38,12 +38,12 @@ public class CellHidato extends Cell {
         this.annotations[value] = annotation;
     }
 
-    public boolean isStart() {return start;}
+    public boolean getStart() {return start;}
 
     public void setStart() {start = true;}
 
-    public boolean isFinish() {return finish;}
+    public boolean getFinish() {return finish;}
 
-    public void steFinish() {finish = true;}
+    public void setFinish() {finish = true;}
 
 }
