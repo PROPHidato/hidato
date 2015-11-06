@@ -17,6 +17,7 @@ public class Funcions {
 
             }
             System.out.println();
+            //escric aixo q sino no puc fer commit
         }
     }
 
