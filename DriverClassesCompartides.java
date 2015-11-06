@@ -16,7 +16,7 @@ public class DriverClassesCompartides {
 
         size = input.nextInt();
         //Board Taulell = new Board(size);
-        BoardHidato Taulell = new BoardHidato(size);
+        BoardHidato Taulell = new BoardHidato(size); //cambiat Board per BoardHidato
 
         System.out.printf("numero del joc i dificultat:  ");
         num = input.nextInt();
