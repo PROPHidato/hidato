@@ -19,7 +19,7 @@ public class Match implements Serializable {
 
     public Match(int GameId, int PlayerId, int difficult) {
         Joc.GameId = GameId;
-        Jugador._name = PlayerId;
+        //Jugador.setName("");
         time = 0;
         hints = 0;
         result = -1;  //no hi ha resultat encara
