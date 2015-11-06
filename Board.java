@@ -43,6 +43,7 @@ public class Board {
 
     public void setValueCell(int value, int row, int column) {
         board.get(row).get(column).setValue(value);
+        if (getValueCell(row,column) != 0) switchWrittenCell(row,column);
     }
 
     public static int consult_max_annotations(){
@@ -53,9 +54,10 @@ public class Board {
 
     public void setVisibleCell (int row, int column) {board.get(row).get(column).switchVisible();}
 
+    // proves daixo
     public boolean getWrittenCell(int row, int column) {return (board.get(row).get(column).getWritten());}
 
-    public void setWrittenCell (int row, int column) {board.get(row).get(column).switchWritten();}
+    public void switchWrittenCell (int row, int column) {board.get(row).get(column).switchWritten();}
 
 }
 
