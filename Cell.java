@@ -14,14 +14,16 @@ public class Cell {
     int column; //numero de columna
     int row; //numero de fila
     boolean[] annotations = new boolean[Board.consult_max_annotations()]; //marques
-    static boolean visible; //per veure si la casella és visible
+    boolean visible; //per veure si la casella és visible
     boolean written; //per veure si el valor ja venia donat en el joc o no
+    boolean valida; //per si la casella és vàlida
 
     public Cell(int row, int column) {
         this.column = column;
         this.row = row;
         written = false;
         visible = false;
+        valida = true;
         value = -1;
 
         for (int i = 0; i < annotations.length; i++) annotations[i] = false;
@@ -51,7 +53,7 @@ public class Cell {
         this.written ^= true;
     }
 
-    public static boolean getVisible(){
+    public boolean getVisible(){
         return visible;
     }
 
@@ -59,14 +61,12 @@ public class Cell {
         this.visible ^= true;
     }
 
-    //NO ÉS COMÚ PERÒ AQUÍ TENIU PER FER-HO SIMILAR (Ho tenim dins CellHidato)
-    /*public boolean getAnnotation(int value) {
-        return annotations[value - 1];
+    public boolean getValida(){
+        return valida;
     }
-    public void switchAnnotation(int value) {
-        this.annotations[value - 1] ^= true;
+
+    public void switchValida(){  //Aclarar perquè = visible.
+        this.valida ^= true;
     }
-    public void setAnnotation(int value, boolean annotation) {
-        this.annotations[value - 1] = annotation;
-    }*/
+
 }

@@ -12,36 +12,48 @@ public class Funcions {
     public static void imprimeixValors(Board Taulell) {
         for (int i = 0; i < Taulell.getSize();i++) {
             for (int j = 0; j < Taulell.getSize();j++) {
-                if (Taulell.isVisible(i,j)) System.out.print(Taulell.getValueCell(i,j) + " ");
-                else System.out.print("_" + " ");
+                System.out.print(Taulell.getValueCell(i,j) + " ");
 
             }
             System.out.println();
-            //escric aixo q sino no puc fer commit
         }
     }
 
-    /*public void readBoard (int start, int finish, int size)   {
+    public static void imprimeixVisibles(Board Taulell) {
+        System.out.println("+: Visible, _: No visible");
+        for (int i = 0; i < Taulell.getSize();i++) {
+            for (int j = 0; j < Taulell.getSize();j++) {
+                if (Taulell.getVisibleCell(i,j)) System.out.print ("+ _");
+                else System.out.print("_ ");
+            }
+            System.out.println();
+        }
+    }
+
+    /*public void llegirTaulell (int start, int finish, int size)   {
 
         Scanner input = new Scanner( System.in );
 
         for (int i = 0; i < size; ++i)  {
             for (int j = 0; j < size; ++j)  {
-                char c = input.next().charAt(0);
+
+
+                num = input.nextInt();
+                dif = input.nextInt();
             }
         }
-
-
-
     }*/
 
+
+
+/*
     public void backtrack(BoardHidato Taulell, boolean[][] visitats, int size, int start, int startx, int starty, int finish, int finishx, int finishy)   {
     // Fent servir el taulell, la matriu de visitats, el punt de start i el punt de finish,
     // resoldre el taulell i posar els valors 0 als que toquen
     }
 
 
-    public void solve (/*Board Taulell, int size*/)    {   //de moment ho farem amb un taulell arbitrari
+    public void solve (Board Taulell, int size)    {   //de moment ho farem amb un taulell arbitrari
         Scanner input = new Scanner( System.in );
         int size = 5;
         BoardHidato Taulell = new BoardHidato(size);       //creem board arbitrari de mida 5
@@ -106,5 +118,5 @@ public class Funcions {
         }
         backtrack(Taulell, visitats, size, start, startx, starty, finish, finishx, finishy);  //resoldre taulell
         imprimeixValors(Taulell);   //escriure taulell
-    }
+    }*/
 }

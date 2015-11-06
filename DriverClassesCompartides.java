@@ -15,7 +15,6 @@ public class DriverClassesCompartides {
         System.out.printf("Entra mida taulell:  ");
 
         size = input.nextInt();
-        //Board Taulell = new Board(size);
         BoardHidato Taulell = new BoardHidato(size); //cambiat Board per BoardHidato
 
         System.out.printf("numero del joc i dificultat:  ");
@@ -38,7 +37,7 @@ public class DriverClassesCompartides {
 
         System.out.println("mida taulell:" + Taulell.getSize()); //treu mida taulell
 
-        System.out.println("Nombre maxim de marques? (9):" + Taulell.consult_max_annotations());
+        System.out.println("Nombre maxim de marques? (size*size):" + Taulell.consult_max_annotations());
 
         //Imprimeix el taulell
         System.out.println();
@@ -78,54 +77,7 @@ public class DriverClassesCompartides {
 
 
 
-        System.out.println(" ");
-        System.out.println("PROVA DE CELA GENERAL");
-        System.out.println("Entra una fila i una columna per crear una cela general qualsevol:  ");
 
-        row = input.nextInt();
-        column = input.nextInt();
-
-        System.out.println("Es crea una cela c amb fila i columna que acabes de posar");
-
-        Cell c2 = new Cell(row, column);
-
-        System.out.println("Valor de la Cela? (Hauria de veure -1, valor per defecte): " + c2.getValue());
-
-        System.out.println("Columna de la cela? (Hauria de veure la columna que he posat): " + c2.getColumn());
-
-        System.out.println("Fila de la cela? (Hauria de veure la fila que he posat): " + c2.getRow());
-
-        System.out.println("Esta escrit el c2?: " + c2.getWritten());
-
-        System.out.println("Faig un switchWritten per canviar l'estat de Escrit");
-
-        c2.switchWritten();
-
-        System.out.println("Esta escrit el c2?: " + c2.getWritten());
-
-        System.out.println("Faig un switchWritten per canviar l'estat de Escrit");
-
-        c2.switchWritten();
-
-        System.out.println("Esta escrit el c2?: " + c2.getWritten());
-
-        System.out.println("Esta visible el c2?: " + c2.getVisible());
-
-        System.out.println("Faig un switchVisible per canviar l'estat de Escrit");
-
-        c2.switchVisible();
-
-        System.out.println("Esta visible el c2?: " + c2.getVisible());
-
-        System.out.println("Faig un switchVisible per canviar l'estat de Escrit");
-
-        c2.switchVisible();
-
-        System.out.println("Esta escrit el c2?: " + c2.getVisible());
-
-
-
-/*
         System.out.println();
         System.out.println("PROVA DE CELA HIDATO");
         System.out.println("Entra una fila i una columna per crear una cela hidato qualsevol:  ");
@@ -153,6 +105,35 @@ public class DriverClassesCompartides {
         System.out.println("Fas un setAnnotation per posar la marca 3 a true");
         c.setAnnotation(3, true);
 
-        System.out.println("Marca 3 en la cela? (true): " + c.getAnnotation(3));*/
+        System.out.println("Marca 3 en la cela? (true): " + c.getAnnotation(3));
+
+
+        System.out.println("Esta escrit el c2?: " + c.getWritten());
+
+        System.out.println("Faig un switchWritten per canviar l'estat de Escrit");
+
+        c.switchWritten();
+
+        System.out.println("Esta escrit el c2?: " + c.getWritten());
+
+        System.out.println("Faig un switchWritten per canviar l'estat de Escrit");
+
+        c.switchWritten();
+
+        System.out.println("Esta escrit el c2?: " + c.getWritten());
+
+        System.out.println("Esta visible el c2?: " + c.getVisible());
+
+        System.out.println("Faig un switchVisible per canviar l'estat de Escrit");
+
+        c.switchVisible();
+
+        System.out.println("Esta visible el c2?: " + c.getVisible());
+
+        System.out.println("Faig un switchVisible per canviar l'estat de Escrit");
+
+        c.switchVisible();
+
+        System.out.println("Esta escrit el c2?: " + c.getVisible());
     }
 }
