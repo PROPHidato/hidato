@@ -10,16 +10,16 @@ import java.io.Serializable;
  * To change this template use File | Settings | File Templates.
  */
 
-public class Match extends Game /*extends Player */implements Serializable {
-    private Game Game;
-    private Player Player;     //No sabem si es fa així.
+public class Match implements Serializable {
+    private Game Joc;
+    private Player Jugador;     //No sabem si es fa així.
     int time;
     int hints; //número de pistes que porta el player.
     int result; //resultat de puntuació final del Match.
 
     public Match(int GameId, int PlayerId, int difficult) {
-        this.GameId = GameId;
-        this._name = PlayerId;
+        Joc.GameId = GameId;
+        Jugador._name = PlayerId;
         time = 0;
         hints = 0;
         result = -1;  //no hi ha resultat encara
