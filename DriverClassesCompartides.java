@@ -61,10 +61,13 @@ public class DriverClassesCompartides {
         System.out.println();
         Funcions.imprimeixValors(Taulell);
         System.out.println();
-
+        //cela 0 3 haurai de sortir com a no escrita
+        if (Taulell.getWrittenCell(0,3))  System.out.println("ESCRITA");
+        else  System.out.println("NO ESCRITA");
         System.out.println("Poso un 3 a la [0][3]");
         Taulell.setValueCell(3,0,3);
         Taulell.setVisibleCell(0,3); //Fer cell visible
+
 
         //Imprimeix el taulell
         System.out.println();
@@ -75,10 +78,13 @@ public class DriverClassesCompartides {
         System.out.println("Posicio[0][3]? " + Taulell.getValueCell(0,3));
         System.out.println("Posicio[4][4]? " + Taulell.getValueCell(4,4));
 
-
-
+        System.out.println("mirem si aquesta cela esta escrita");
+        //hauria de donar ESCRITA
+        if (Taulell.getWrittenCell(0,3))  System.out.println("ESCRITA");
+                else  System.out.println("NO ESCRITA");
 
         System.out.println();
+        /*
         System.out.println("PROVA DE CELA HIDATO");
         System.out.println("Entra una fila i una columna per crear una cela hidato qualsevol:  ");
 
@@ -135,5 +141,6 @@ public class DriverClassesCompartides {
         c.switchVisible();
 
         System.out.println("Esta escrit el c2?: " + c.getVisible());
+        */
     }
 }
