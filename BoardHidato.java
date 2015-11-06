@@ -15,11 +15,11 @@ public class BoardHidato extends Board {
 
     public BoardHidato(int size) {
         super(size); // Fer la creadora
-        ArrayList<ArrayList<Cell>> board = new ArrayList<ArrayList<Cell>>(size); //board = new Cell[size][size];
+        ArrayList<ArrayList<CellHidato>> board = new ArrayList<ArrayList<CellHidato>>(size);
         for (int i=0;i < board.size();++i) {
-            board.add(new ArrayList<Cell>(size));
+            board.add(new ArrayList<CellHidato>(size));
             for (int j = 0; j < board.size(); ++j) {
-                board.get(i).add(new Cell(i,j));
+                board.get(i).add(new CellHidato(i,j));
             }
         }
         max_annotations = size*size; //Si taulell hi han 25 caselles podrà anar-hi del 1 al 25 en una casella.
@@ -31,30 +31,11 @@ public class BoardHidato extends Board {
 
     //public boolean isFinish(int row, int column) {return (board.get(row).get(column).getFinish());}
 
-
-    /* AIXÒ FUNCIONA
-    int boardSize = 3;
-    ArrayList<ArrayList<Character>> board = new ArrayList<ArrayList<Character>>(boardSize);
-    for (int i = 0; i < boardSize; i++) {
-        board.add(new ArrayList<Character>(boardSize));
-        for (int j = 0; j < boardSize; j++){
-            board.get(i).add('0');
-        }
-    }
-
-    COM VA DIR EL JOAN
-    ArrayList< ArrayList< Cell > > A(size) = new ArrayList< ArrayList< Cell > >
-    for (int i = 0; i < A.size(); ++i) {
-    A[i] = new ArrayList< Cell> (size);
-    for (int j = 0; j < A[i].size(); ++j) {
-    A[i][j] = new Cell;
-    } }
-
-    */
-
-
-
     public static int consult_max_annotations(){
         return max_annotations;
     }
+
+    public boolean getValidaCell(int row, int column) {return (board.get(row).get(column).getValida());}
+
+    public void setValidaCell (int row, int column) {board.get(row).get(column).switchValida();}
 }

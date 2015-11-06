@@ -12,6 +12,7 @@ package domini;
 public class CellHidato extends Cell {
     boolean start; //marca si la casella es la primera
     boolean finish; //marca si la casella es la ultima
+    boolean valida; //per si la casella és vàlida
     public CellHidato(int row, int column) {
         super(column, row);
         this.column = column;
@@ -19,6 +20,7 @@ public class CellHidato extends Cell {
         written = false;
         visible = false;
         value = 0;  // 0 = cela buida
+        valida = true;
         start = false;
         finish = false;
 
@@ -40,10 +42,18 @@ public class CellHidato extends Cell {
 
     public boolean getStart() {return start;}
 
-    public void setStart() {start = true;}
+    public void switchStart() {this.start ^= true;}
 
     public boolean getFinish() {return finish;}
 
-    public void setFinish() {finish = true;}
+    public void switchFinish() {this.finish ^= true;}
+
+    public boolean getValida(){
+        return valida;
+    }
+
+    public void switchValida(){  //Aclarar perquè = visible.
+        this.valida ^= true;
+    }
 
 }

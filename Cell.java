@@ -16,14 +16,12 @@ public class Cell {
     boolean[] annotations = new boolean[Board.consult_max_annotations()]; //marques
     boolean visible; //per veure si la casella és visible
     boolean written; //per veure si el valor ja venia donat en el joc o no
-    boolean valida; //per si la casella és vàlida
 
     public Cell(int row, int column) {
         this.column = column;
         this.row = row;
         written = false;
         visible = false;
-        valida = true;
         value = -1;
 
         for (int i = 0; i < annotations.length; i++) annotations[i] = false;
@@ -59,14 +57,6 @@ public class Cell {
 
     public void switchVisible(){  //Aclarar perquè = visible.
         this.visible ^= true;
-    }
-
-    public boolean getValida(){
-        return valida;
-    }
-
-    public void switchValida(){  //Aclarar perquè = visible.
-        this.valida ^= true;
     }
 
 }

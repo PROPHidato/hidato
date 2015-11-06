@@ -13,14 +13,14 @@ import java.util.*;
 public class Board {
     static int size;
     static int max_annotations = 9; //màxim nombre de marques que poden tenir les celes del taulell
-    ArrayList<ArrayList<Cell>> board = new ArrayList<ArrayList<Cell>>(size);
+    ArrayList<ArrayList<CellHidato>> board = new ArrayList<ArrayList<CellHidato>>(size);
 
     public Board(int size) {
         setSize(size);
         for (int i=0;i < size;++i) {
-            board.add(new ArrayList<Cell>(size));
+            board.add(new ArrayList<CellHidato>(size));
             for (int j = 0; j < size; ++j) {
-                board.get(i).add(new Cell(i,j));
+                board.get(i).add(new CellHidato(i,j));
             }
         }
     }
@@ -57,9 +57,6 @@ public class Board {
 
     public void setWrittenCell (int row, int column) {board.get(row).get(column).switchWritten();}
 
-    public boolean getValidaCell(int row, int column) {return (board.get(row).get(column).getValida());}
-
-    public void setValidaCell (int row, int column) {board.get(row).get(column).switchValida();}
 }
 
 
