@@ -17,9 +17,7 @@ public class Match implements Serializable {
     int hints; //número de pistes que porta el player.
     int result; //resultat de puntuació final del Match.
 
-    public Match(int GameId, int PlayerId, int difficult) {
-        Joc.GameId = GameId;
-        //Jugador.setName("");
+    public Match(int difficult) {
         time = 0;
         hints = 0;
         result = -1;  //no hi ha resultat encara
