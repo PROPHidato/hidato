@@ -71,9 +71,15 @@ public class DriverClassesCompartides {
                     System.out.println("Valor introduit.");
                 }
             } /*else if(entrada == 6) {
-
+                System.out.println("Resolent el taulell . . .");
+                //funcio que resolgui el taulell
+                System.out.println("Resolt:");
+                Funcions.imprimeixValors(Taulell);
             } *//*else if(entrada == 7) {
-
+                System.out.println("Generant un taulell qualsevol . . .");
+                //funcio que generi el taulell
+                System.out.println("Generat:");
+                Funcions.imprimeixValors(Taulell);
             } */
             entrada = input.nextInt();
         }
