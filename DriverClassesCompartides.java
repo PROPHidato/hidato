@@ -25,8 +25,8 @@ public class DriverClassesCompartides {
         System.out.println("3 : Consultar estat actual del taulell.");
         System.out.println("4 : Consultar el valor d'una certa cela.");
         System.out.println("5 : Canviar el valor d'una certa cela.");
-        System.out.println("6 : Resoldre el taulell.");
-        System.out.println("7 : Crear un taulell aleatoriament.");
+        System.out.println("6 : Resoldre el taulell (Encara s'ha d'implementar).");
+        System.out.println("7 : Crear un taulell aleatoriament (Encara s'ha d'implementar).");
         System.out.println("-1 : Per acabar amb les proves.");
         System.out.println("(Si t'oblides dels numeros, posant la paraula el numero 0 et sortirà un manual per recordar-t'ho)");
         System.out.println();
@@ -41,21 +41,19 @@ public class DriverClassesCompartides {
                 System.out.println("3 : Consultar estat actual del taulell.");
                 System.out.println("4 : Consultar el valor d'una certa cela.");
                 System.out.println("5 : Canviar el valor d'una certa cela.");
-                System.out.println("6 : Resoldre el taulell.");
-                System.out.println("7 : Crear un taulell aleatoriament.");
+                System.out.println("6 : Resoldre el taulell (Encara s'ha d'implementar).");
+                System.out.println("7 : Crear un taulell aleatoriament (Encara s'ha d'implementar).");
                 System.out.println("-1 : Per acabar amb les proves.");
                 System.out.println();
             } else if(entrada == 1) {
                 System.out.println("Mida del taulell: " + Taulell.getSize());
             } else if(entrada == 2) {
-                System.out.println("Introdueix els valors del taullel (Recorda 0 = cela buida)");
-
-
+                System.out.println("Introdueix els valors del taullel per ordre (Recorda 0 = cela buida)");
+                Funcions.llegirTaulell(Taulell, size);
                 System.out.println("Taulell actualitzat.");
             } else if(entrada == 3) {
                 System.out.println("Taulell actual:");
                 Funcions.imprimeixValors(Taulell);
-                System.out.println();
             } else if(entrada == 4) {
                 System.out.println("Introdueix  la fila i columna de la cela que vols consultar:");
                 val1 = input.nextInt();

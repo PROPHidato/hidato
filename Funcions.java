@@ -9,7 +9,7 @@ import java.util.*;
 
 
 public class Funcions {
-    public static void imprimeixValors(Board Taulell) {
+    public static void imprimeixValors(BoardHidato Taulell) {
         for (int i = 0; i < Taulell.getSize();i++) {
             for (int j = 0; j < Taulell.getSize();j++) {
                 System.out.print(Taulell.getValueCell(i,j) + " ");
@@ -19,7 +19,7 @@ public class Funcions {
         }
     }
 
-    public static void imprimeixVisibles(Board Taulell) {
+    public static void imprimeixVisibles(BoardHidato Taulell) {
         System.out.println("+: Visible, _: No visible");
         for (int i = 0; i < Taulell.getSize();i++) {
             for (int j = 0; j < Taulell.getSize();j++) {
@@ -30,19 +30,17 @@ public class Funcions {
         }
     }
 
-    /*public void llegirTaulell (int start, int finish, int size)   {
-
+    public static void llegirTaulell(BoardHidato Taulell, int size)   {
+        int valor;
         Scanner input = new Scanner( System.in );
 
         for (int i = 0; i < size; ++i)  {
             for (int j = 0; j < size; ++j)  {
-
-
-                num = input.nextInt();
-                dif = input.nextInt();
+                valor = input.nextInt();
+                Taulell.setValueCell(valor, i, j);
             }
         }
-    }*/
+    }
 
 
 
