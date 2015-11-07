@@ -53,10 +53,10 @@ public class Funcions {
     }
 
 
-    public void solve (Board Taulell, int size)    {   //de moment ho farem amb un taulell arbitrari
+    public void solve (BoardHidato Taulell, int size)    {   //de moment ho farem amb un taulell arbitrari
         Scanner input = new Scanner( System.in );
-        int size = 5;
-        BoardHidato Taulell = new BoardHidato(size);       //creem board arbitrari de mida 5
+        size = 5;
+        Taulell = new BoardHidato(size);       //creem board arbitrari de mida 5
 
         Taulell.setValueCell(-1, 0, 0);
         Taulell.setValueCell(-1, 0, 1);
@@ -96,7 +96,7 @@ public class Funcions {
         int finish = 0;
         int finishx = 0; //i  de la ultima cela
         int finishy = 0; //j de la ultima cela
-        //readBoard(start, finish, size);
+        //llegirTaulell(start, finish, size);
         boolean visitats[][] = new boolean[size][size];
         for (int i = 0; i < size; ++i)  {
             for (int j = 0; j < size; ++j)  {
