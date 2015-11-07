@@ -9,138 +9,68 @@ import java.util.*;
 public class DriverClassesCompartides {
     public static void main(String[] args) {
         Scanner input = new Scanner( System.in );
-        int size,num,dif;
-        int column;
-        int row;
+        int size;
+        int entrada;
+        int column, row;
+        int val1, val2, val3;
         System.out.printf("Entra mida taulell:  ");
+        System.out.println();
 
         size = input.nextInt();
         BoardHidato Taulell = new BoardHidato(size); //cambiat Board per BoardHidato
 
-        System.out.printf("numero del joc i dificultat:  ");
-        num = input.nextInt();
-        dif = input.nextInt();
-        Game joc = new Game(num,dif); //id 1 difficult 2
-
-        System.out.println("GameId?:" + joc.getGameId());
-        System.out.println("Canvio GameId a 23");
-        joc.setGameId(23);
-        System.out.println("GameId?:" + joc.getGameId());
-
-        System.out.println("Dificultat? " + joc.getDifficult());
-        System.out.println("Canvio Dificult a 3");
-        joc.setDifficult(3);
-        System.out.println("Dificultat:" + joc.getDifficult());
-
-
-
-
-        System.out.println("mida taulell:" + Taulell.getSize()); //treu mida taulell
-
-        System.out.println("Nombre maxim de marques? (size*size):" + Taulell.consult_max_annotations());
-
-        //Imprimeix el taulell
-        System.out.println();
-        Funcions.imprimeixValors(Taulell);
+        System.out.printf("Benvingut a les proves de les classes Taulell i Cela. \nApretant els seguents numeros podras fer les seguents coses:\n");
+        System.out.println("1 : Consultar la mida del taulell creat.");
+        System.out.println("2 : .");
+        System.out.println("3 : Consultar estat actual del taulell.");
+        System.out.println("4 : Consultar el valor d'una certa cela.");
+        System.out.println("5 : Canviar el valor d'una certa cela.");
+        System.out.println("6 : .");
+        System.out.println("-1 : Per acabar amb les proves.");
+        System.out.println("(Si t'oblides dels numeros, posant la paraula el numero 0 et sortirà un manual per recordar-t'ho)");
         System.out.println();
 
-        System.out.println("Poso un 2 a la [1][1]");
-        Taulell.setValueCell(2, 1, 1); //Posar el 2
-        Taulell.setVisibleCell(1, 1); //Fer cell visible
+        //CONTROLAR ERRORS DE SORTIR-SE DE MIDA, ETC
 
-        //Imprimeix el taulell
-        System.out.println();
-        Funcions.imprimeixValors(Taulell);
-        System.out.println();
+        entrada = input.nextInt();
+        while(entrada != -1) {
+            if (entrada == 0) {
+                System.out.println("1 : Consultar la mida del taulell creat.");
+                System.out.println("2 : .");
+                System.out.println("3 : Consultar estat actual del taulell.");
+                System.out.println("4 : Consultar el valor d'una certa cela.");
+                System.out.println("5 : Canviar el valor d'una certa cela.");
+                System.out.println("6 : .");
+                System.out.println("-1 : Per acabar amb les proves.");
+                System.out.println();
+            } else if(entrada == 1) {
+                System.out.println("Mida del taulell: " + Taulell.getSize());
+            } else if(entrada == 2) {
 
-        System.out.println("Poso un 23 a la [3][3]");
-        Taulell.setValueCell(23, 3, 3);
-        Taulell.setVisibleCell(3, 3); //Fer cell visible
+            } else if(entrada == 3) {
+                System.out.println("Taulell actual:");
+                System.out.println();
+                Funcions.imprimeixValors(Taulell);
+                System.out.println();
+            } else if(entrada == 4) {
+                System.out.println("Introdueix  la fila i columna de la cela que vols consultar:");
+                val1 = input.nextInt();
+                val2 = input.nextInt();
+                System.out.println(Taulell.getValueCell(val1,val2));
+            } else if(entrada == 5) {
+                System.out.println("Introdueix el valor que vols posar i la fila i columna de la cela on ho vols posar:");
+                val1 = input.nextInt();
+                val2 = input.nextInt();
+                val3 = input.nextInt();
+                Taulell.setValueCell(val1, val2, val3);
+            } else if(entrada == 6) {
 
-        //Imprimeix el taulell
-        System.out.println();
-        Funcions.imprimeixValors(Taulell);
-        System.out.println();
-        //cela 0 3 haurai de sortir com a no escrita
-        if (Taulell.getWrittenCell(0,3))  System.out.println("ESCRITA");
-        else  System.out.println("NO ESCRITA");
-        System.out.println("Poso un 3 a la [0][3]");
-        Taulell.setValueCell(3,0,3);
-        Taulell.setVisibleCell(0,3); //Fer cell visible
+            } else if(entrada == 7) {
 
+            } else if(entrada == 8) {
 
-        //Imprimeix el taulell
-        System.out.println();
-        Funcions.imprimeixValors(Taulell);
-        System.out.println();
-
-        System.out.println("Posicio[0][0]? " + Taulell.getValueCell(0,0));
-        System.out.println("Posicio[0][3]? " + Taulell.getValueCell(0,3));
-        System.out.println("Posicio[4][4]? " + Taulell.getValueCell(4,4));
-
-        System.out.println("mirem si aquesta cela esta escrita");
-        //hauria de donar ESCRITA
-        if (Taulell.getWrittenCell(0,3))  System.out.println("ESCRITA");
-                else  System.out.println("NO ESCRITA");
-
-        System.out.println();
-        /*
-        System.out.println("PROVA DE CELA HIDATO");
-        System.out.println("Entra una fila i una columna per crear una cela hidato qualsevol:  ");
-
-        row = input.nextInt();
-        column = input.nextInt();
-
-        System.out.println("Es crea una cela c amb fila i columna que acabes de posar");
-
-        CellHidato c = new CellHidato(row, column);
-
-        System.out.println("Valor de la Cela? (Hauria de veure 0, valor per defecte): " + c.getValue());
-
-        System.out.println("Columna de la cela? (Hauria de veure la columna que he posat): " + c.getColumn());
-
-        System.out.println("Fila de la cela? (Hauria de veure la fila que he posat): " + c.getRow());
-
-        System.out.println("Marca 2 en la cela? (false): " + c.getAnnotation(2));
-
-        System.out.println("Fas switchAnnotation de la marca 2");
-        c.switchAnnotation(2);
-
-        System.out.println("Marca 2 en la cela? (true): " + c.getAnnotation(2));
-
-        System.out.println("Fas un setAnnotation per posar la marca 3 a true");
-        c.setAnnotation(3, true);
-
-        System.out.println("Marca 3 en la cela? (true): " + c.getAnnotation(3));
-
-
-        System.out.println("Esta escrit el c2?: " + c.getWritten());
-
-        System.out.println("Faig un switchWritten per canviar l'estat de Escrit");
-
-        c.switchWritten();
-
-        System.out.println("Esta escrit el c2?: " + c.getWritten());
-
-        System.out.println("Faig un switchWritten per canviar l'estat de Escrit");
-
-        c.switchWritten();
-
-        System.out.println("Esta escrit el c2?: " + c.getWritten());
-
-        System.out.println("Esta visible el c2?: " + c.getVisible());
-
-        System.out.println("Faig un switchVisible per canviar l'estat de Escrit");
-
-        c.switchVisible();
-
-        System.out.println("Esta visible el c2?: " + c.getVisible());
-
-        System.out.println("Faig un switchVisible per canviar l'estat de Escrit");
-
-        c.switchVisible();
-
-        System.out.println("Esta escrit el c2?: " + c.getVisible());
-        */
+            }
+            entrada = input.nextInt();
+        }
     }
 }

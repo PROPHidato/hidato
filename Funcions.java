@@ -46,7 +46,7 @@ public class Funcions {
 
 
 
-/*
+
     public void backtrack(BoardHidato Taulell, boolean[][] visitats, int size, int start, int startx, int starty, int finish, int finishx, int finishy)   {
     // Fent servir el taulell, la matriu de visitats, el punt de start i el punt de finish,
     // resoldre el taulell i posar els valors 0 als que toquen
@@ -118,5 +118,5 @@ public class Funcions {
         }
         backtrack(Taulell, visitats, size, start, startx, starty, finish, finishx, finishy);  //resoldre taulell
         imprimeixValors(Taulell);   //escriure taulell
-    }*/
+    }
 }
