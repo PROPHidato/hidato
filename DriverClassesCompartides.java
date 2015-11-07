@@ -21,11 +21,14 @@ public class DriverClassesCompartides {
 
         System.out.printf("Benvingut a les proves de les classes Taulell i Cela. \nApretant els seguents numeros podras fer les seguents coses:\n");
         System.out.println("1 : Consultar la mida del taulell creat.");
-        System.out.println("2 : .");
+        System.out.println("2 : Introduir un taulell (0 = cela buida).");
         System.out.println("3 : Consultar estat actual del taulell.");
         System.out.println("4 : Consultar el valor d'una certa cela.");
         System.out.println("5 : Canviar el valor d'una certa cela.");
-        System.out.println("6 : .");
+        System.out.println("6 : Resoldre el taulell.");
+        System.out.println("7 : .");
+        System.out.println("8 : .");
+
         System.out.println("-1 : Per acabar amb les proves.");
         System.out.println("(Si t'oblides dels numeros, posant la paraula el numero 0 et sortirà un manual per recordar-t'ho)");
         System.out.println();
