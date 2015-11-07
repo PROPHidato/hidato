@@ -19,17 +19,6 @@ public class Funcions {
         }
     }
 
-    public static void imprimeixVisibles(BoardHidato Taulell) {
-        System.out.println("+: Visible, _: No visible");
-        for (int i = 0; i < Taulell.getSize();i++) {
-            for (int j = 0; j < Taulell.getSize();j++) {
-                if (Taulell.getVisibleCell(i,j)) System.out.print ("+ _");
-                else System.out.print("_ ");
-            }
-            System.out.println();
-        }
-    }
-
     public static void llegirTaulell(BoardHidato Taulell, int size)   {
         int valor;
         Scanner input = new Scanner( System.in );
@@ -40,6 +29,7 @@ public class Funcions {
                 Taulell.setValueCell(valor, i, j);
             }
         }
+        //Aquí mirar si aquest taulell posat té solució, si en té ok, sinó tot a 0 altre cop.
     }
 
 

@@ -142,4 +142,15 @@ public class ProvesQueHaviemFet {
         System.out.println("Esta escrit el c2?: " + c.getVisible());
         */
     }
+
+    public static void imprimeixVisibles(BoardHidato Taulell) {
+        System.out.println("+: Visible, _: No visible");
+        for (int i = 0; i < Taulell.getSize();i++) {
+            for (int j = 0; j < Taulell.getSize();j++) {
+                if (Taulell.getVisibleCell(i,j)) System.out.print ("+ _");
+                else System.out.print("_ ");
+            }
+            System.out.println();
+        }
+    }
 }
