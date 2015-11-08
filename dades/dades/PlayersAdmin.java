@@ -1,4 +1,4 @@
-package domini.dades;
+package dades;
 
 import java.security.MessageDigest;
 import java.util.Arrays;

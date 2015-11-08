@@ -1,5 +1,5 @@
-package domini.domini;
-import domini.dades.Player;
+package domini;
+import dades.*;
 import java.io.Serializable;
 
 /**

@@ -1,5 +1,5 @@
-package domini.drivers;
-import domini.domini.*;
+package drivers;
+import domini.*;
 
 import java.util.*;
 
