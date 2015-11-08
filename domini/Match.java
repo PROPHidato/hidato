@@ -1,5 +1,5 @@
-package domini;
-
+package domini.domini;
+import domini.dades.Player;
 import java.io.Serializable;
 
 /**
@@ -18,6 +18,7 @@ public class Match implements Serializable {
     int result; //resultat de puntuació final del Match.
 
     public Match(int difficult) {
+        //hem d'agafar el idi del player q esta iniciat a la base de dades i el id del Game
         time = 0;
         hints = 0;
         result = -1;  //no hi ha resultat encara

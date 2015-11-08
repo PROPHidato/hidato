@@ -1,4 +1,6 @@
-package domini;
+package domini.drivers;
+import domini.domini.*;
+
 import java.util.*;
 
 /**
@@ -28,7 +30,7 @@ public class DriverClassesCompartides {
         System.out.println("6 : Resoldre el taulell (Encara s'ha d'implementar).");
         System.out.println("7 : Crear un taulell aleatoriament (Encara s'ha d'implementar).");
         System.out.println("-1 : Per acabar amb les proves.");
-        System.out.println("(Si t'oblides dels numeros, posant la paraula el numero 0 et sortirà un manual per recordar-t'ho)");
+        System.out.println("(Si t'oblides dels numeros, posant la paraula el numero 0 et sortirï¿½ un manual per recordar-t'ho)");
         System.out.println();
 
         //CONTROLAR ERRORS DE SORTIR-SE DE MIDA, ETC

@@ -1,4 +1,6 @@
-package domini;
+package domini.drivers;
+import domini.domini.*;
+
 import java.util.*;
 
 
@@ -29,7 +31,7 @@ public class Funcions {
                 Taulell.setValueCell(valor, i, j);
             }
         }
-        //Aquí mirar si aquest taulell posat té solució, si en té ok, sinó tot a 0 altre cop.
+        //Aquï¿½ mirar si aquest taulell posat tï¿½ soluciï¿½, si en tï¿½ ok, sinï¿½ tot a 0 altre cop.
     }
 
 

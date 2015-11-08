@@ -1,4 +1,6 @@
-package domini;
+package domini.drivers;
+import domini.domini.*;
+
 import java.util.*;
 
 /**

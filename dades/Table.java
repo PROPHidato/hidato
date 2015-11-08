@@ -1,4 +1,4 @@
-package domini;
+package domini.dades;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

@@ -1,4 +1,4 @@
-package domini;
+package domini.domini;
 
 
 /**
@@ -12,7 +12,7 @@ package domini;
 public class CellHidato extends Cell {
     boolean start; //marca si la casella es la primera
     boolean finish; //marca si la casella es la ultima
-    boolean valida; //per si la casella és vàlida
+    boolean valida; //per si la casella ï¿½s vï¿½lida
     public CellHidato(int row, int column) {
         super(column, row);
         this.column = column;
@@ -52,7 +52,7 @@ public class CellHidato extends Cell {
         return valida;
     }
 
-    public void switchValida(){  //Aclarar perquè = visible.
+    public void switchValida(){  //Aclarar perquï¿½ = visible.
         this.valida ^= true;
     }
 
