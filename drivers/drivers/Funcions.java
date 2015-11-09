@@ -11,6 +11,31 @@ import java.util.*;
 
 
 public class Funcions {
+    public static void colocar_celesinvalides(BoardHidato Taulell) {
+        int sizeT, ncelesvalT;
+        sizeT = Taulell.getSize();
+
+       /* colocarem aleatoriament 10 celes invalides.
+        haurem de tenir en compte:
+        - que no es divideixi el taulell en regions
+        - que cap cela es quedi aillada (vindria a ser una especificacio de regio)
+        */
+        //note a single Random object is reused here
+        Random posi = new Random();
+        Random posj = new Random();
+        int posades = 0;
+        while (posades <= 9) {
+            ncelesvalT = sizeT - Taulell.consultar_num_celesinvalides();
+            int row = posi.nextInt(ncelesvalT);
+            int column = posj.nextInt(ncelesvalT);
+            if (!Taulell.getValidaCell(row, column)) {
+                Taulell.incrementar_celesinvalides(row, column);
+                ++posades;
+            }
+            //consultarem el nombre de celes possibles cada cop
+        }
+    }
+
     public static void imprimeixValors(BoardHidato Taulell) {
         for (int i = 0; i < Taulell.getSize();i++) {
             for (int j = 0; j < Taulell.getSize();j++) {
