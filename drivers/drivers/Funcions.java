@@ -105,13 +105,13 @@ public class Funcions {
     }
 
 
-    public static void solve (/*BoardHidato Taulell, int size*/)    {   //de moment ho farem amb un taulell arbitrari
+    public static void solve (BoardHidato Taulell, int size)    {   //de moment ho farem amb un taulell arbitrari
         Scanner input = new Scanner( System.in );
 
 
 
-        int size = 5;
-        BoardHidato Taulell = new BoardHidato(size);       //creem board arbitrari de mida 5
+        //int size = 5;
+        //BoardHidato Taulell = new BoardHidato(size);       //creem board arbitrari de mida 5
 
         Taulell.setValueCell(-1, 0, 0);
         //Taulell.get(0).get(0).switchValida();
