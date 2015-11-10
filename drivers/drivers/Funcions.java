@@ -3,6 +3,8 @@ import domini.*;
 
 import java.util.*;
 
+import static java.lang.System.out;
+
 
 /**
  * Created by Jordi Guiu on 02/11/2015.
@@ -19,30 +21,35 @@ public class Funcions {
         haurem de tenir en compte:
         - que no es divideixi el taulell en regions
         - que cap cela es quedi aillada (vindria a ser una especificacio de regio)
+        Random randomGenerator = new Random();
+      int randomInt = randomGenerator.nextInt(100);
         */
         //note a single Random object is reused here
         Random posi = new Random();
         Random posj = new Random();
-        int posades = 0;
+        double deuxcent = sizeT*0.1;
+        int posades = (int) deuxrcent;
+        ncelesvalT = sizeT - 1;
+        System.out.println(ncelesvalT);
         while (posades <= 9) {
-            ncelesvalT = sizeT - Taulell.consultar_num_celesinvalides();
-            int row = posi.nextInt(ncelesvalT);
-            int column = posj.nextInt(ncelesvalT);
-            if (!Taulell.getValidaCell(row, column)) {
+            int row = posi.nextInt(ncelesvalT);   //fila random entre totes les celes totals
+            int column = posj.nextInt(ncelesvalT); //columan random entre totes les celes totals valides
+            if (Taulell.getValidaCell(row, column)) {   //la cela q hem triat aleatoriament, si no es invalida la posem
+                // la posem a invalida
+                System.out.println("fila " + row + " columna " + column);
                 Taulell.incrementar_celesinvalides(row, column);
                 ++posades;
             }
-            //consultarem el nombre de celes possibles cada cop
         }
     }
 
     public static void imprimeixValors(BoardHidato Taulell) {
         for (int i = 0; i < Taulell.getSize();i++) {
             for (int j = 0; j < Taulell.getSize();j++) {
-                System.out.print(Taulell.getValueCell(i,j) + " ");
+                out.print(Taulell.getValueCell(i,j) + " ");
 
             }
-            System.out.println();
+            out.println();
         }
     }
 
