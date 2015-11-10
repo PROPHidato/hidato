@@ -72,12 +72,15 @@ public class DriverClassesCompartides {
                     Taulell.setValueCell(val1, val2, val3);
                     System.out.println("Valor introduit.");
                 }
-            } /*else if(entrada == 6) {
+            } else if(entrada == 6) {
                 System.out.println("Resolent el taulell . . .");
+
                 //funcio que resolgui el taulell
-                System.out.println("Resolt:");
-                Funcions.imprimeixValors(Taulell);
-            } *//*else if(entrada == 7) {
+                //System.out.println("Resolt:");
+                Funcions.solve(/*Taulell, size*/);
+                //Funcions.imprimeixValors(Taulell);
+            }
+            /*//*else if(entrada == 7) {
                 System.out.println("Generant un taulell qualsevol . . .");
                 //funcio que generi el taulell
                 System.out.println("Generat:");

@@ -49,4 +49,7 @@ public class BoardHidato extends Board {
     public boolean getValidaCell(int row, int column) {return (board.get(row).get(column).getValida());}
 
     public void setValidaCell (int row, int column) {board.get(row).get(column).switchValida();}
+
+    public CellHidato getCell(int i, int j) {return board.get(i).get(j);}
+
 }
