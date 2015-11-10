@@ -33,7 +33,7 @@ public class DriverClassesCompartides {
         System.out.println("(Si t'oblides dels numeros, posant la paraula el numero 0 et sortira un manual per recordar-t'ho)");
         System.out.println();
 
-        //CONTROLAR ERRORS DE SORTIR-SE DE MIDA, ETC
+        //CONTROLAR ERRORS DE QUE NO T'INDRODUEIXIN UN ALTRE TIPUS.
 
         entrada = input.nextInt();
         while(entrada != -1) {
@@ -97,6 +97,10 @@ public class DriverClassesCompartides {
                 System.out.println("Generat:");
                 Funcions.imprimeixValors(Taulell);
             } */
+            else{
+                System.out.println("Entrada invalida");
+                System.out.println("\nAltre cop al Menu Principal. (0 = instruccions)");
+            }
             entrada = input.nextInt();
         }
     }
