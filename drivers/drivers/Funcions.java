@@ -59,7 +59,7 @@ public class Funcions {
         //Aqu� mirar si aquest taulell posat t� soluci�, si en t� ok, sin� tot a 0 altre cop.
     }
 
-    public boolean comprovar (BoardHidato Taulell, ArrayList<CellHidato> intermitjos, Integer X[], Integer Y[] ) {
+    public boolean comprovar (BoardHidato Taulell, ArrayList<CellHidato> intermitjos, Integer X[], Integer Y[]) {
 
         //boolean resposta = false;
         int size = intermitjos.size();
@@ -185,7 +185,7 @@ public class Funcions {
 
             }
         }
-        int current = 1;
+        int current = 2;
         backtrack(Taulell, visitats, intermitjos, startx, starty, /*finish, finishx, finishy,*/ X, Y, current);  //resoldre taulell
     }
 }
