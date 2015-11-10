@@ -59,20 +59,22 @@ public class Funcions {
         //Aqu� mirar si aquest taulell posat t� soluci�, si en t� ok, sin� tot a 0 altre cop.
     }
 
-    public boolean comprovar (BoardHidato Taulell, ArrayList<CellHidato> intermitjos, Integer X[], Integer Y[]) {
+    public static boolean comprovar (BoardHidato Taulell, ArrayList<CellHidato> intermitjos, Integer X[], Integer Y[], int countsize) {
 
         //boolean resposta = false;
-        int size = intermitjos.size();
-        int comparador = (size-1)*2+1;  //aquest es el numero al qual ha de ser igual el comprovant si totes les caselles intermitjes tenen una casella adjecent de valor +1 i -1 respecte el seu propi valor i la final nomes en te una -1
+        //int size = intermitjos.size();
+        //System.out.println(countsize);
+        int comparador = (countsize-1)*2+1;  //aquest es el numero al qual ha de ser igual el comprovant si totes les caselles intermitjes tenen una casella adjecent de valor +1 i -1 respecte el seu propi valor i la final nomes en te una -1
         int comprovant = 0;
-        for(int i=0; i<size-1; ++i) { //tots els intermitjos
+        int i=0;
+        for(/*int*/ i=0; i<countsize-1; ++i) { //tots els intermitjos
             for (int j=0; j < 8;++j) {
                 if (intermitjos.get(i).getValue() == Taulell.getValueCell(intermitjos.get(i).getRow()+X[j],intermitjos.get(i).getColumn()+Y[j])+1 ||
                         intermitjos.get(i).getValue() == Taulell.getValueCell(intermitjos.get(i).getRow()+X[j],intermitjos.get(i).getColumn()+Y[j])-1) ++comprovant;
             }
         }
         for (int k=0; k < 8;++k) { //el finish va a part perque al comprovacio es diferent
-            if (intermitjos.get(size-1).getValue() == Taulell.getValueCell(intermitjos.get(k).getRow()+X[k],intermitjos.get(k).getColumn()+Y[k])+1) ++comprovant;
+            if (intermitjos.get(countsize-1).getValue() == Taulell.getValueCell(intermitjos.get(k).getRow()+X[k],intermitjos.get(k).getColumn()+Y[k])+1) ++comprovant;
         }
         return (comprovant==comparador);
     }
@@ -80,32 +82,32 @@ public class Funcions {
 
 
 
-    public void backtrack(BoardHidato Taulell, boolean[][] visitats, ArrayList<CellHidato> intermitjos,int startx, int starty, /*int finish, int finishx, int finishy,*/ Integer X[], Integer Y[], int current)   {
+    public static void backtrack(BoardHidato Taulell, boolean[][] visitats, ArrayList<CellHidato> intermitjos,int startx, int starty, Integer X[], Integer Y[], int current, int countsize)   {
     // Fent servir el taulell, la matriu de visitats, el punt de start i el punt de finish,
     // resoldre el taulell i posar els valors de caselles not written als que toquen
-        if (comprovar(Taulell, intermitjos,X,Y)) imprimeixValors(Taulell);
+        if (comprovar(Taulell, intermitjos, X, Y,countsize)) imprimeixValors(Taulell);
         else {
             for (int i= 0; i < 8; ++i ) {
                 if (!visitats[startx+X[i]][starty+Y[i]])  {
                     if (!Taulell.getWrittenCell(startx+X[i],starty+Y[i])) Taulell.setValueCell(current, startx + X[i], starty + Y[i]);
                     visitats[startx+X[i]][starty+Y[i]] = true;
-                    backtrack(Taulell,visitats,intermitjos,startx+X[i],starty+Y[i],X,Y,current+1);
+                    backtrack(Taulell,visitats,intermitjos,startx+X[i],starty+Y[i],X,Y,current+1, countsize);
                 }
             }
         }
     }
 
 
-    public void solve (BoardHidato Taulell, int size)    {   //de moment ho farem amb un taulell arbitrari
+    public static void solve (/*BoardHidato Taulell, int size*/)    {   //de moment ho farem amb un taulell arbitrari
         Scanner input = new Scanner( System.in );
 
 
 
-        size = 5;
-        Taulell = new BoardHidato(size);       //creem board arbitrari de mida 5
+        int size = 5;
+        BoardHidato Taulell = new BoardHidato(size);       //creem board arbitrari de mida 5
 
         Taulell.setValueCell(-1, 0, 0);
-        //Taulell.get(0).get(0).set
+        //Taulell.get(0).get(0).switchValida();
         Taulell.setValueCell(-1, 0, 1);
         Taulell.setValueCell(-1, 0, 2);            //Forma del taulell
         Taulell.setValueCell(-1, 0, 3);
@@ -153,8 +155,9 @@ public class Funcions {
         int startx = 0;  //i de la primera cela
         int starty = 0;  //j de la ultima cela
         int finish = 1;
-        int finishx = 0; //i  de la ultima cela
-        int finishy = 0; //j de la ultima cela
+        int countsize = 0;
+        //int finishx = 0; //i  de la ultima cela
+        //int finishy = 0; //j de la ultima cela
         //llegirTaulell(start, finish, size);
         boolean visitats[][] = new boolean[size][size];
         ArrayList<CellHidato> intermitjos = new ArrayList<CellHidato>();
@@ -165,27 +168,32 @@ public class Funcions {
             for (int j = 0; j < size; ++j)  {
 
                 if (Taulell.getValidaCell(i,j)) {
+                    //System.out.println("sargasdfgrads");
                     if (Taulell.getValueCell(i,j) == 1)   {
                         visitats[i][j] = true;               //guardem casella start i la marquem com a visitada
                         startx = i;
                         starty = j;
                     }
                     else visitats[i][j] = false; //caselles a omplir marcades com a "no visitades"
-                }
-                else /*if (!Taulell.getValidaCell(i, j))*/ visitats[i][j] = true; //caselles invalides marcades com a "visitades"
 
 
+
+                System.out.println(Taulell.getValueCell(i,j));
                 if (Taulell.getWrittenCell(i,j) && Taulell.getValueCell(i,j) > finish)    {
                     finish = Taulell.getValueCell(i,j);
-                    finishx = i;                                 //guerdem la casella amb el valor mes alt del taulell
-                    finishy = j;                                 //com a casella finish
-                    intermitjos.add(new CellHidato(i,j));        //afegim els written = true al Array intermitjos
+                    //finishx = i;                                  //guerdem la casella amb el valor mes alt del taulell
+                    //finishy = j;
+                    ++countsize;
+                    System.out.println(countsize);                  //com a casella finish
+                    intermitjos.add(new CellHidato(i,j));           //afegim els written = true al Array intermitjos
 
                 }
+                }
+                else /*if (!Taulell.getValidaCell(i, j))*/ visitats[i][j] = true; //caselles invalides marcades com a "visitades"
 
             }
         }
         int current = 2;
-        backtrack(Taulell, visitats, intermitjos, startx, starty, /*finish, finishx, finishy,*/ X, Y, current);  //resoldre taulell
+        backtrack(Taulell, visitats, intermitjos, startx, starty, /*finish, finishx, finishy,*/ X, Y, current,countsize);  //resoldre taulell
     }
 }
