@@ -12,6 +12,7 @@ import java.util.*;
 
 public class BoardHidato extends Board {
     static int max_annotations; //màxim nombre de marques que poden tenir les cel·es del taulell.
+    public static int num_celesinvalides;
 
     public BoardHidato(int size) {
         super(size); // Fer la creadora
@@ -34,6 +35,16 @@ public class BoardHidato extends Board {
     public static int consult_max_annotations(){
         return max_annotations;
     }
+
+    public int consultar_num_celesinvalides(){
+        return num_celesinvalides;
+    }
+
+    // //posem una cela a invalida: casella q no formara part
+    //hidato en si, pero si del taulell;}
+    public void incrementar_celesinvalides (int row, int column) {
+        ++num_celesinvalides;
+        board.get(row).get(column).switchVisible();}
 
     public boolean getValidaCell(int row, int column) {return (board.get(row).get(column).getValida());}
 

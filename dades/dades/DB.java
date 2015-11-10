@@ -1,4 +1,4 @@
-package domini;
+package dades;
 
 import java.io.*;
 import java.nio.file.*;
