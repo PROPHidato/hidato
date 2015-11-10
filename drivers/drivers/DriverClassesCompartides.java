@@ -29,7 +29,6 @@ public class DriverClassesCompartides {
         System.out.println("5 : Canviar el valor d'una certa cela.");
         System.out.println("6 : Resoldre el taulell (Encara s'ha d'implementar).");
         System.out.println("7 : Crear un taulell aleatoriament (Encara s'ha d'implementar).");
-        System.out.println("8 : posar celes invalides");
         System.out.println("-1 : Per acabar amb les proves.");
         System.out.println("(Si t'oblides dels numeros, posant la paraula el numero 0 et sortir� un manual per recordar-t'ho)");
         System.out.println();
@@ -46,7 +45,6 @@ public class DriverClassesCompartides {
                 System.out.println("5 : Canviar el valor d'una certa cela.");
                 System.out.println("6 : Resoldre el taulell (Encara s'ha d'implementar).");
                 System.out.println("7 : Crear un taulell aleatoriament (Encara s'ha d'implementar).");
-                System.out.println("8 : posar celes invalides");
                 System.out.println("-1 : Per acabar amb les proves.");
                 System.out.println();
             } else if(entrada == 1) {
@@ -74,16 +72,7 @@ public class DriverClassesCompartides {
                     Taulell.setValueCell(val1, val2, val3);
                     System.out.println("Valor introduit.");
                 }
-            }
-            else if(entrada == 8) {
-                System.out.println("creem un 10% de les posicions del taulell de manera random per posar celes invalides");
-                Funcions.colocar_celesinvalides(Taulell);
-            }
-
-
-
-
-             /*else if(entrada == 6) {
+            } /*else if(entrada == 6) {
                 System.out.println("Resolent el taulell . . .");
                 //funcio que resolgui el taulell
                 System.out.println("Resolt:");
