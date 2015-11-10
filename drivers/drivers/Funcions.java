@@ -27,8 +27,8 @@ public class Funcions {
         //note a single Random object is reused here
         Random posi = new Random();
         Random posj = new Random();
-        double deupercent = sizeT*0.1;
-        int posades = (int) deupercent;
+        double deuxcent = sizeT*0.1;
+        int posades = (int) deuxrcent;
         ncelesvalT = sizeT - 1;
         System.out.println(ncelesvalT);
         while (posades <= 9) {
