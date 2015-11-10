@@ -44,7 +44,7 @@ public class BoardHidato extends Board {
     //hidato en si, pero si del taulell;}
     public void incrementar_celesinvalides (int row, int column) {
         ++num_celesinvalides;
-        board.get(row).get(column).switchVisible();}
+        board.get(row).get(column).switchValida();}
 
     public boolean getValidaCell(int row, int column) {return (board.get(row).get(column).getValida());}
 
