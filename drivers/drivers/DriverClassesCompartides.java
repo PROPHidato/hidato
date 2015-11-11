@@ -29,6 +29,7 @@ public class DriverClassesCompartides {
         System.out.println("5 : Canviar el valor d'una certa cela.");
         System.out.println("6 : Resoldre el taulell (Encara s'ha d'implementar).");
         System.out.println("7 : Crear un taulell aleatoriament (Encara s'ha d'implementar).");
+        System.out.println("8 : generar celes invalides aleatoriament.");
         System.out.println("-1 : Per acabar amb les proves.");
         System.out.println("(Si t'oblides dels numeros, posant la paraula el numero 0 et sortir� un manual per recordar-t'ho)");
         System.out.println();
@@ -45,6 +46,7 @@ public class DriverClassesCompartides {
                 System.out.println("5 : Canviar el valor d'una certa cela.");
                 System.out.println("6 : Resoldre el taulell (Encara s'ha d'implementar).");
                 System.out.println("7 : Crear un taulell aleatoriament (Encara s'ha d'implementar).");
+                System.out.println("8 : generar celes invalides aleatoriament.");
                 System.out.println("-1 : Per acabar amb les proves.");
                 System.out.println();
             } else if(entrada == 1) {
@@ -86,6 +88,7 @@ public class DriverClassesCompartides {
                 System.out.println("Generat:");
                 Funcions.imprimeixValors(Taulell);
             } */
+            else if(entrada == 8)Funcions.colocar_celesinvalides(Taulell);
             entrada = input.nextInt();
         }
     }

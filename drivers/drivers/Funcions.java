@@ -13,8 +13,16 @@ import static java.lang.System.out;
 
 
 public class Funcions {
+    static boolean invalidesveines(BoardHidato Taulell, int row,int column){//mirem si alguna cela veina es invalida
+        boolean candidatesxvalides = false;
+        if (!Taulell.getValidaCell(row+1,column) || !Taulell.getValidaCell(row,column+1) || !Taulell.getValidaCell(row+1,column+1)
+        || !Taulell.getValidaCell(row-1,column) || !Taulell.getValidaCell(row,column-1) || !Taulell.getValidaCell(row-1,column-1)
+        || !Taulell.getValidaCell(row+1,column-1) || !Taulell.getValidaCell(row-1,column+1)) candidatesxvalides = true;
+        return candidatesxvalides;
+    }
+
     public static void colocar_celesinvalides(BoardHidato Taulell) {
-        int sizeT, ncelesvalT;
+        int sizeT, ncelesvalT, posades;
         sizeT = Taulell.getSize();
 
        /* colocarem aleatoriament 10 celes invalides.
@@ -27,18 +35,23 @@ public class Funcions {
         //note a single Random object is reused here
         Random posi = new Random();
         Random posj = new Random();
-        double deuxcent = sizeT*0.1;
-        int posades = (int) deuxrcent;
+        posades = 0;
+        double deuxcent = sizeT * sizeT * 0.1;
+        int maxinvalides = (int) deuxcent;
         ncelesvalT = sizeT - 1;
-        System.out.println(ncelesvalT);
-        while (posades <= 9) {
+        System.out.println(deuxcent);
+        System.out.println(maxinvalides);
+        while (posades < maxinvalides) {
             int row = posi.nextInt(ncelesvalT);   //fila random entre totes les celes totals
-            int column = posj.nextInt(ncelesvalT); //columan random entre totes les celes totals valides
-            if (Taulell.getValidaCell(row, column)) {   //la cela q hem triat aleatoriament, si no es invalida la posem
-                // la posem a invalida
-                System.out.println("fila " + row + " columna " + column);
-                Taulell.incrementar_celesinvalides(row, column);
-                ++posades;
+            int column = posj.nextInt(ncelesvalT); //columan random entre totes les celes totals
+            if (invalidesveines(Taulell,row,column)) {
+                if (Taulell.getValidaCell(row, column)) {   //la cela q hem triat aleatoriament, si no es invalida la posem
+                    // la posem a invalida
+                    System.out.println("fila " + row + " columna " + column);
+                    Taulell.incrementar_celesinvalides(row, column);
+                    ++posades;
+                }
+
             }
         }
     }
