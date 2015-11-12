@@ -23,7 +23,7 @@ public class DriverClassesCompartides {
 
         System.out.printf("Benvingut a les proves de les classes Taulell i Cela. \nApretant els seguents numeros podras fer les seguents coses:\n");
         System.out.println("1 : Consultar la mida del taulell creat.");
-        System.out.println("2 : Introduir un taulell (0 = cela buida).");
+        System.out.println("2 : Introduir un taulell (0 = cela buida)."); //Comprovar que sigui un Hidato amb resoldre taulell.
         System.out.println("3 : Consultar estat actual del taulell.");
         System.out.println("4 : Consultar el valor d'una certa cela.");
         System.out.println("5 : Canviar el valor d'una certa cela.");
@@ -88,7 +88,7 @@ public class DriverClassesCompartides {
 
                 //funcio que resolgui el taulell
                 //System.out.println("Resolt:");
-                Funcions.solve(/*Taulell, size*/);
+                Funcions.solve(Taulell, size);
                 //Funcions.imprimeixValors(Taulell);
             }
             /*//*else if(entrada == 7) {
