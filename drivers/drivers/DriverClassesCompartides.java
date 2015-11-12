@@ -33,6 +33,7 @@ public class DriverClassesCompartides {
         System.out.println("7 : Crear un taulell aleatoriament (Encara s'ha d'implementar).");
         System.out.println("8 : Generar celes invalides aleatoriament.");
         System.out.println("9 : Jugar partida.");
+        System.out.println("10 : Introduir jugador.");
         System.out.println("-1 : Per acabar amb les proves.");
         System.out.println("(Si t'oblides dels numeros, posant la paraula el numero 0 et sortira un manual per recordar-t'ho)");
         System.out.println();
@@ -108,6 +109,11 @@ public class DriverClassesCompartides {
                 dificultat = input.nextInt();
                 Game Joc = new Game(GameId, dificultat);
                 ++GameId;
+                //guarda la partida (numjoc i usuari)
+                //
+                //
+                //
+                //
             }
             else {
                 System.out.println("Numero no valid . . .");
