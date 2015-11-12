@@ -1,5 +1,4 @@
 package domini;
-import dades.*;
 import java.io.Serializable;
 
 /**
@@ -46,5 +45,13 @@ public class Match implements Serializable {
 
     public void setResult(int result) {
         this.result = result;
+    }
+
+    public String getPlayerName() {
+        return Jugador.getName();
+    }
+
+    public int getGameId() {
+        return Joc.getGameId();
     }
 }

@@ -1,4 +1,4 @@
-package dades;
+package domini;
 
 import java.io.Serializable;
 

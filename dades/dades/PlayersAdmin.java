@@ -1,5 +1,7 @@
 package dades;
 
+import domini.Player;
+
 import java.security.MessageDigest;
 import java.util.Arrays;
 
