@@ -12,14 +12,13 @@ package domini;
 public class Game {
     int GameId;
     int difficult;    // 1 = fàcil, 2 = mitjà, 3 = difícil
+    //dificil 5% celes invalides
+    //mitja 10% celes invalides
+    //facil 20% celes invalides
 
     public Game(int GameId, int difficult) {
         this.GameId = GameId;
         this.difficult = difficult;
-    }
-
-    public Game() {
-
     }
 
     public int getGameId() {
