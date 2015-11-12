@@ -113,48 +113,46 @@ public class Funcions {
     }
 
 
-    public static void solve (/*BoardHidato Taulell, int size*/)    {   //de moment ho farem amb un taulell arbitrari
-        Scanner input = new Scanner( System.in );
+    public static void solve (BoardHidato Taulell, int size)    {   //de moment ho farem amb un taulell arbitrari
 
 
 
-        int size = 5;
-        BoardHidato Taulell = new BoardHidato(size);       //creem board arbitrari de mida 5
 
         Taulell.setValueCell(-1, 0, 0);
-        //Taulell.get(0).get(0).switchValida();
+        Taulell.switchValidaCell(0,0);
+        System.out.println("[0][0] Valida?: " + Taulell.getValidaCell(0,0));
         Taulell.setValueCell(-1, 0, 1);
         Taulell.setValueCell(-1, 0, 2);            //Forma del taulell
         Taulell.setValueCell(-1, 0, 3);
         Taulell.setValueCell(-1, 0, 4);            // -1 -1 -1 -1 -1
-                                                   // -1  0  0  3 -1
+        // -1  0  0  3 -1
         Taulell.setValueCell(-1, 1, 0);            // -1  0  1  0 -1     // els 0 son caselles
-        //Taulell.setValueCell(0, 1, 1);           // -1  0  0  9 -1     // a omplir
-        Taulell.setValidaCell(1,1);
-        //Taulell.setValueCell(0, 1, 2);
-        Taulell.setValidaCell(1,2);
+        Taulell.setValueCell(0, 1, 1);             // -1  0  0  9 -1     // a omplir
+        Taulell.switchValidaCell(1,1);
+        Taulell.setValueCell(0, 1, 2);
+        Taulell.switchValidaCell(1,2);
         Taulell.setValueCell(3, 1, 3); //casella intermitja
-        Taulell.setValidaCell(1,3);
+        Taulell.switchValidaCell(1,3);
         Taulell.switchWrittenCell(1,3); //written intermitja (3)
         Taulell.setValueCell(-1, 1, 4);
 
         Taulell.setValueCell(-1, 2, 0);
-        //Taulell.setValueCell(0, 2, 1);
-        Taulell.setValidaCell(2,1);
+        Taulell.setValueCell(0, 2, 1);
+        Taulell.switchValidaCell(2,1);
         Taulell.setValueCell(1, 2, 2); //casella start
-        Taulell.setValidaCell(2,2);
+        Taulell.switchValidaCell(2,2);
         Taulell.switchWrittenCell(2,2); //written start
-        //Taulell.setValueCell(0, 2, 3);
-        Taulell.setValidaCell(2,3);
+        Taulell.setValueCell(0, 2, 3);
+        Taulell.switchValidaCell(2,3);
         Taulell.setValueCell(-1, 2, 4);
 
         Taulell.setValueCell(-1, 3, 0);
-        //Taulell.setValueCell(0, 3, 1);
-        Taulell.setValidaCell(3,1);
-        //Taulell.setValueCell(0, 3, 2);
-        Taulell.setValidaCell(3,2);
+        Taulell.setValueCell(0, 3, 1);
+        Taulell.switchValidaCell(3,1);
+        Taulell.setValueCell(0, 3, 2);
+        Taulell.switchValidaCell(3,2);
         Taulell.setValueCell(9, 3, 3); //casella finish
-        Taulell.setValidaCell(3,3);
+        Taulell.switchValidaCell(3,3);
         Taulell.switchWrittenCell(3,3);//written finish
         Taulell.setValueCell(-1, 3, 4);
 
@@ -163,8 +161,6 @@ public class Funcions {
         Taulell.setValueCell(-1, 4, 2);
         Taulell.setValueCell(-1, 4, 3);
         Taulell.setValueCell(-1, 4, 4);
-
-
 
 
         int startx = 0;  //i de la primera cela

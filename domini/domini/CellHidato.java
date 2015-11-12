@@ -52,7 +52,7 @@ public class CellHidato extends Cell {
         return valida;
     }
 
-    public void switchValida(){  //Aclarar perqu� = visible.
+    public void switchValida(){  //Aclarar perque = visible.
         this.valida ^= true;
     }
 
