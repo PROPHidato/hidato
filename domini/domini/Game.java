@@ -18,10 +18,6 @@ public class Game {
         this.difficult = difficult;
     }
 
-    public Game() {
-
-    }
-
     public int getGameId() {
         return GameId;
     }

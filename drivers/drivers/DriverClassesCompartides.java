@@ -15,11 +15,13 @@ public class DriverClassesCompartides {
         int entrada;
         int column, row;
         int val1, val2, val3;
+        int GameId = 1;
+        int dificultat;
         System.out.printf("Entra mida taulell:  ");
         System.out.println();
 
         size = input.nextInt();
-        BoardHidato Taulell = new BoardHidato(size); //cambiat Board per BoardHidato
+        BoardHidato Taulell = new BoardHidato(size);
 
         System.out.printf("Benvingut a les proves de les classes Taulell i Cela. \nApretant els seguents numeros podras fer les seguents coses:\n");
         System.out.println("1 : Consultar la mida del taulell creat.");
@@ -35,7 +37,7 @@ public class DriverClassesCompartides {
         System.out.println("(Si t'oblides dels numeros, posant la paraula el numero 0 et sortira un manual per recordar-t'ho)");
         System.out.println();
 
-        //CONTROLAR ERRORS DE SORTIR-SE DE MIDA, ETC
+        //CONTROLAR ENRTADA DE TEXT  (no chars etc)
 
         entrada = input.nextInt();
         while(entrada != -1) {
@@ -98,7 +100,15 @@ public class DriverClassesCompartides {
                 System.out.println("Generat:");
                 Funcions.imprimeixValors(Taulell);
             } */
-            else if(entrada == 8)Funcions.colocar_celesinvalides(Taulell);
+            else if(entrada == 8) {
+                Funcions.colocar_celesinvalides(Taulell);
+            }
+            else if(entrada == 9) {
+                System.out.println("Introdueix la dificultat (1 = fàcil, 2 = mitjà, 3 = difícil)");
+                dificultat = input.nextInt();
+                Game Joc = new Game(GameId, dificultat);
+                ++GameId;
+            }
             else {
                 System.out.println("Numero no valid . . .");
             }
