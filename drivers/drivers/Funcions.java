@@ -1,6 +1,5 @@
 package drivers;
 import domini.*;
-
 import java.util.*;
 
 import static java.lang.System.out;
@@ -13,14 +12,14 @@ import static java.lang.System.out;
 
 
 public class Funcions {
-    static boolean invalidesveines(BoardHidato Taulell, int row,int column){//mirem si alguna cela veina es invalida
+   /* static boolean invalidesveines(BoardHidato Taulell, int row,int column){//mirem si alguna cela veina es invalida
         boolean candidatesxvalides = false;
         if (!Taulell.getValidaCell(row+1,column) || !Taulell.getValidaCell(row,column+1) || !Taulell.getValidaCell(row+1,column+1)
         || !Taulell.getValidaCell(row-1,column) || !Taulell.getValidaCell(row,column-1) || !Taulell.getValidaCell(row-1,column-1)
         || !Taulell.getValidaCell(row+1,column-1) || !Taulell.getValidaCell(row-1,column+1)) candidatesxvalides = true;
         return candidatesxvalides;
     }
-
+     */
     public static void colocar_celesinvalides(BoardHidato Taulell) {
         int sizeT, ncelesvalT, posades;
         sizeT = Taulell.getSize();
@@ -28,11 +27,7 @@ public class Funcions {
        /* colocarem aleatoriament 10 celes invalides.
         haurem de tenir en compte:
         - que no es divideixi el taulell en regions
-        - que cap cela es quedi aillada (vindria a ser una especificacio de regio)
-        Random randomGenerator = new Random();
-      int randomInt = randomGenerator.nextInt(100);
-        */
-        //note a single Random object is reused here
+        - que cap cela es quedi aillada (vindria a ser una especificacio de regio)*/
         Random posi = new Random();
         Random posj = new Random();
         posades = 0;
@@ -44,8 +39,8 @@ public class Funcions {
         while (posades < maxinvalides) {
             int row = posi.nextInt(ncelesvalT);   //fila random entre totes les celes totals
             int column = posj.nextInt(ncelesvalT); //columan random entre totes les celes totals
-            if (invalidesveines(Taulell,row,column)) {
-                if (Taulell.getValidaCell(row, column)) {   //la cela q hem triat aleatoriament, si no es invalida la posem
+            //if (invalidesveines(Taulell,row,column)) {
+            if (Taulell.getValidaCell(row, column)) {   //la cela q hem triat aleatoriament, si no es invalida la posem
                     // la posem a invalida
                     System.out.println("fila " + row + " columna " + column);
                     Taulell.incrementar_celesinvalides(row, column);
@@ -53,7 +48,7 @@ public class Funcions {
                 }
 
             }
-        }
+
     }
 
     public static void imprimeixValors(BoardHidato Taulell) {
