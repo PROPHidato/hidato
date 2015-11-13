@@ -11,8 +11,8 @@ import java.util.*;
 
 
 public class Board {
-    static int size;
-    static int max_annotations = 9; //màxim nombre de marques que poden tenir les celes del taulell
+    private static int size;
+    private static int max_annotations = 9; //màxim nombre de marques que poden tenir les celes del taulell
     ArrayList<ArrayList<CellHidato>> board = new ArrayList<ArrayList<CellHidato>>(size);
 
     public Board(int size) {
