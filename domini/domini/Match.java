@@ -12,9 +12,9 @@ import java.io.Serializable;
 public class Match implements Serializable {
     private Game Joc;
     private Player Jugador;     //No sabem si es fa així.
-    int time;
-    int hints; //número de pistes que porta el player.
-    int result; //resultat de puntuació final del Match.
+    private int time;
+    private int hints; //número de pistes que porta el player.
+    private int result; //resultat de puntuació final del Match.
 
     public Match(int difficult) {
         //hem d'agafar el idi del player q esta iniciat a la base de dades i el id del Game
