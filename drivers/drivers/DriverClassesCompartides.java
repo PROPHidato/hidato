@@ -130,7 +130,7 @@ public class DriverClassesCompartides {
                     System.out.print("La dificultat és: ");
                     if (Joc.getDifficult() == 1) System.out.println("facil.");
                     else if (Joc.getDifficult() == 2) System.out.println("mitja.");
-                    else if (Joc.getDifficult() == 3) System.out.println("dificil.");
+                    else if (Joc.getDifficult() == 3) System.out.println("dificil. ");
                 }
                 else {
                     System.out.println("Numero no valid . . .");
