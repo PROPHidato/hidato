@@ -28,12 +28,13 @@ public class DriverClassesCompartides {
         while(sortida == 'n') {
             System.out.println("Estàs al Joc " + GameId + ".");
             System.out.printf("Entra mida taulell:  ");
+            size = input.nextInt();
+            BoardHidato Taulell = new BoardHidato(size);
+
             System.out.println("Introdueix la dificultat (1 = facil, 2 = mitja, 3 = dificil)");
             dificultat = input.nextInt();
             Game Joc = new Game(GameId, dificultat);
 
-            size = input.nextInt();
-            BoardHidato Taulell = new BoardHidato(size);
 
             System.out.printf("Benvingut a les proves de les classes Taulell i Cela. \nApretant els seguents numeros podras fer les seguents coses:\n");
             System.out.println("1 : Consultar la mida del taulell creat.");
@@ -69,20 +70,16 @@ public class DriverClassesCompartides {
                     System.out.println("-1 : Sortir.");
                     System.out.println();
 
-                }
-                else if(entrada == 1) {
+                } else if(entrada == 1) {
                     System.out.println("Mida del taulell: " + Taulell.getSize());
-                }
-                else if(entrada == 2) {
+                } else if(entrada == 2) {
                     System.out.println("Introdueix els valors del taullel per ordre (Recorda 0 = cela buida)");
                     Funcions.llegirTaulell(Taulell, size);
                     System.out.println("Taulell actualitzat.");
-                }
-                else if(entrada == 3) {
+                } else if(entrada == 3) {
                     System.out.println("Taulell actual:");
                     Funcions.imprimeixValors(Taulell);
-                }
-                /*else if(entrada == 4) {
+                } /*else if(entrada == 4) {
                     while (sn == 's') {
                         System.out.println("Introdueix  la fila i columna de la cela que vols consultar:");
                         val1 = input.nextInt();
@@ -120,9 +117,9 @@ public class DriverClassesCompartides {
                     System.out.println("Generat:");
                     Funcions.imprimeixValors(Taulell);
                 } */
-                //else if(entrada == 6) {
-                  //  Taulell.colocar_celesinvalides(Taulell);
-               // }
+                else if(entrada == 6) {
+                    Funcions.colocar_celesinvalides(Taulell);
+                }
                 else if(entrada == 7) {
 
                 }
