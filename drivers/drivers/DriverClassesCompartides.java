@@ -45,7 +45,7 @@ public class DriverClassesCompartides {
             System.out.println("5 : Introduir un taulell (0 = cela buida, -1 = invalida).");
             System.out.println("6 : Crear un taulell aleatoriament (Encara s'ha d'implementar).");
             System.out.println("7 : Resoldre el taulell la màquina (Encara s'ha d'implementar).");
-            System.out.println("8 : Juga al taulell.");
+            System.out.println("8 : Partida al joc.");
             System.out.println("-1 : Sortir.");
             System.out.println("(Si t'oblides dels numeros, posant la paraula el numero 0 et sortira un manual per recordar-t'ho)");
             System.out.println();
@@ -61,7 +61,7 @@ public class DriverClassesCompartides {
                     System.out.println("5 : Introduir un taulell (0 = cela buida, -1 = invalida).");
                     System.out.println("6 : Crear un taulell aleatoriament (Encara s'ha d'implementar).");
                     System.out.println("7 : Resoldre el taulell la màquina (Encara s'ha d'implementar).");
-                    System.out.println("8 : Juga al taulell.");
+                    System.out.println("8 : Partida al joc.");
                     System.out.println("-1 : Sortir.");
                     System.out.println();
 
