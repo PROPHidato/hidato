@@ -83,18 +83,41 @@ public class Funcions {
         //Aqu� mirar si aquest taulell posat t� soluci�, si en t� ok, sin� tot a 0 altre cop.
     }
 
-    public static void verificadorSolucio(BoardHidato Taulell) {
+    public static boolean verificadorSolucio(BoardHidato Taulell) {
         int actual_i = Taulell.getStart_i();;
         int actual_j = Taulell.getStart_j();
         int val_actual;
-        while (actual_i != Taulell.getFinish_i() && actual_j != Taulell.getFinish_j()) {
-            val_actual = Taulell.getValueCell(actual_i, actual_j);
+        boolean verificat = true;
+        val_actual = Taulell.getValueCell(actual_i, actual_j);
+
+        while ((actual_i != Taulell.getFinish_i() && actual_j != Taulell.getFinish_j()) && !verificat) {
             if ((val_actual + 1) == Taulell.getValueCell(actual_i+1, actual_j)) ++actual_i;
             else if ((val_actual + 1) == Taulell.getValueCell(actual_i-1, actual_j)) --actual_i;
-            else if ((val_actual + 1) == Taulell.getValueCell(actual_i-1, actual_j)) {
+            else if ((val_actual + 1) == Taulell.getValueCell(actual_i, actual_j+1))  ++actual_j;
+            else if ((val_actual + 1) == Taulell.getValueCell(actual_i, actual_j-1))  --actual_j;
+
+            else if ((val_actual + 1) == Taulell.getValueCell(actual_i-1, actual_j-1)) {
                 --actual_i;
+                --actual_j;
             }
+            else if ((val_actual + 1) == Taulell.getValueCell(actual_i+1, actual_j+1)) {
+                ++actual_i;
+                ++actual_j;
+            }
+            else if ((val_actual + 1) == Taulell.getValueCell(actual_i-1, actual_j+1))  {
+                --actual_i;
+                ++actual_j;
+            }
+            else if ((val_actual + 1) == Taulell.getValueCell(actual_i+1, actual_j-1)) {
+                ++actual_i;
+                --actual_j;
+            }
+            else {
+                verificat = false;
+            }
+            ++val_actual;
         }
+        return verificat;
     }
 
     public static boolean comprovar (BoardHidato Taulell, CellHidato[] intermitjos, Integer X[], Integer Y[], int countsize) {
