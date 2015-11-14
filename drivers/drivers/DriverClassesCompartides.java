@@ -33,6 +33,7 @@ public class DriverClassesCompartides {
             dificultat = input.nextInt();
             Game Joc = new Game(GameId, dificultat);
             BoardHidato Taulell = new BoardHidato(size);
+            Funcions.colocar_celesinvalides(Taulell);
 
 
             System.out.printf("Benvingut a les proves de les classes Taulell i Cela. \nApretant els seguents numeros podras fer les seguents coses:\n");
