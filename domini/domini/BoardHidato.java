@@ -8,6 +8,9 @@ import java.util.*;
  * Date: 29/10/15
  * Time: 17:49
  * To change this template use File | Settings | File Templates.
+ * POSAR FUNCIONS A CLASSE FUNCIONS i llavors treure els statics
+ * CREAR FUNCIO GENERAR POSICIO RANDOM per reduir codi
+ *
  */
 
 
@@ -40,8 +43,16 @@ public class BoardHidato extends Board {
     }
 
     public static void generar_written(){//posem al taulell les celes que al ppi estaran escrites
-        int numcela,numvisibles;
+        //anar passant per totes les celes sensse repetirne cap
+        //aleatoriament, anar posant visibles fins a arribar al maxim de visibles permeses per la dificultat
+        int numcela,numvisibles,posactui,posactuj;
         numcela = numvisibles = 1; //comencem per la 1 i amb 1 cela visible
+        posactui = getStart_i();
+        posactuj = getStart_j();
+        Random posiini = new Random();
+        Random posjini = new Random();
+
+
 
     }
 
@@ -88,6 +99,7 @@ public class BoardHidato extends Board {
             if (!getValidaCell(row - 1, column + 1)) ++inva;
             if (inva >= 7) return true;
         }
+        System.out.println(inva + " invalides veines");
         return false;
     }
     static double percentatgeceles(){
@@ -124,8 +136,8 @@ public class BoardHidato extends Board {
         Random posjini = new Random();
         int rowini, columnini;
         while(!posatinici) {
-            rowini = posi.nextInt(ncelesvalT);
-            columnini = posj.nextInt(ncelesvalT);
+            rowini = posiini.nextInt(ncelesvalT);
+            columnini = posjini.nextInt(ncelesvalT);
             if (getValidaCell(rowini,columnini)){
                 board.get(rowini).get(columnini).setValue(1);
                 board.get(rowini).get(columnini).switchWritten();
@@ -136,8 +148,9 @@ public class BoardHidato extends Board {
         }
         for (int i = 0; i < size; ++i) {
             for (int j = 0; j < size; ++j) {
-                if (!getValidaCell(i, j)) {//si no es invalida mirem les del seu voltant
+                if (getValidaCell(i, j)) {//si no es invalida mirem les del seu voltant
                     //si totes o totes menys una son invalides, la canviem a invalida tambe
+                    System.out.println("comprovem " + i + " " + j);
                     if (posarainvalida(i, j))
                         System.out.println("posem a invalida la casella " + i + " " + j);
                         switchValidaCell(i, j);

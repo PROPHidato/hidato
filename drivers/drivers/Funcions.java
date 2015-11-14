@@ -4,13 +4,6 @@ import java.util.*;
 
 import static java.lang.System.out;
 
-
-/**
- * Created by Jordi Guiu on 02/11/2015.
- * Classe per ficar-hi algunes funcions, mes endavant decidirem com ho fem.
- */
-
-
 public class Funcions {
 
     public static void imprimeixValors(BoardHidato Taulell) {
