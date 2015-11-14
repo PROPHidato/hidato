@@ -90,25 +90,24 @@ public class Funcions {
         boolean verificat = true;
         val_actual = Taulell.getValueCell(actual_i, actual_j);
 
-        while ((actual_i != Taulell.getFinish_i() && actual_j != Taulell.getFinish_j()) && !verificat) {
-            if ((val_actual + 1) == Taulell.getValueCell(actual_i+1, actual_j)) ++actual_i;
-            else if ((val_actual + 1) == Taulell.getValueCell(actual_i-1, actual_j)) --actual_i;
-            else if ((val_actual + 1) == Taulell.getValueCell(actual_i, actual_j+1))  ++actual_j;
-            else if ((val_actual + 1) == Taulell.getValueCell(actual_i, actual_j-1))  --actual_j;
-
-            else if ((val_actual + 1) == Taulell.getValueCell(actual_i-1, actual_j-1)) {
+        while ((actual_i != Taulell.getFinish_i() || actual_j != Taulell.getFinish_j()) && verificat) {
+            if (actual_i < Taulell.getSize()-1 && (val_actual + 1) == Taulell.getValueCell(actual_i+1, actual_j)) ++actual_i;
+            else if (actual_i > 0 && (val_actual + 1) == Taulell.getValueCell(actual_i-1, actual_j)) --actual_i;
+            else if (actual_j < Taulell.getSize()-1 && (val_actual + 1) == Taulell.getValueCell(actual_i, actual_j+1))  ++actual_j;
+            else if (actual_j > 0 && (val_actual + 1) == Taulell.getValueCell(actual_i, actual_j-1))  --actual_j;
+            else if (actual_i > 0 && actual_j > 0 && (val_actual + 1) == Taulell.getValueCell(actual_i-1, actual_j-1)) {
                 --actual_i;
                 --actual_j;
             }
-            else if ((val_actual + 1) == Taulell.getValueCell(actual_i+1, actual_j+1)) {
+            else if (actual_i < Taulell.getSize()-1 && actual_j < Taulell.getSize()-1 && (val_actual + 1) == Taulell.getValueCell(actual_i+1, actual_j+1)) {
                 ++actual_i;
                 ++actual_j;
             }
-            else if ((val_actual + 1) == Taulell.getValueCell(actual_i-1, actual_j+1))  {
+            else if (actual_i > 0 && actual_j < Taulell.getSize()-1 && (val_actual + 1) == Taulell.getValueCell(actual_i-1, actual_j+1))  {
                 --actual_i;
                 ++actual_j;
             }
-            else if ((val_actual + 1) == Taulell.getValueCell(actual_i+1, actual_j-1)) {
+            else if (actual_j > 0 && actual_i < Taulell.getSize()-1 && (val_actual + 1) == Taulell.getValueCell(actual_i+1, actual_j-1)) {
                 ++actual_i;
                 --actual_j;
             }
