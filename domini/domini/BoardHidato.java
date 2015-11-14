@@ -32,7 +32,7 @@ public class BoardHidato extends Board {
             }
         }
         max_annotations = size*size; //Si taulell hi han 25 caselles podrà anar-hi del 1 al 25 en una casella.
-        colocar_celesinvalides();
+        //colocar_celesinvalides();
     }
 
     //public boolean isStart(int row, int column) {return (board.get(row).get(column).getStart());}
