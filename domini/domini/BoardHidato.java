@@ -1,4 +1,5 @@
 package domini;
+import domini.Game;
 import java.util.*;
 
 
@@ -86,18 +87,21 @@ public class BoardHidato extends Board {
         }
         return false;
     }
+    static double percentatgeceles(){
+        double percentatge = Game.getDifficult();
+        if (percentatge == 1) percentatge = 0.2;
+        else if (percentatge == 2) percentatge = 0.1;
+        else percentatge = 0.05;
+        return percentatge;
 
+    }
     public static void colocar_celesinvalides() {
         int sizeT, ncelesvalT, posades;
-       /* colocarem aleatoriament 10 celes invalides.
-        haurem de tenir en compte:
-        - que no es divideixi el taulell en regions
-        - que cap cela es quedi aillada (vindria a ser una especificacio de regio)*/
+       //colocarem aleatoriament 10 celes invalides.
         Random posi = new Random();
         Random posj = new Random();
         posades = 0;
-
-        double tantpercent = size * size * 0.1;
+        double tantpercent = size * size * percentatgeceles();
         int maxinvalides = (int) tantpercent;
         ncelesvalT = size - 1;
         System.out.println(tantpercent);
@@ -112,7 +116,6 @@ public class BoardHidato extends Board {
                 incrementar_celesinvalides(row, column);
                 ++posades;
             }
-
         }
         for (int i = 0; i < size; ++i) {
             for (int j = 0; j < size; ++j) {
