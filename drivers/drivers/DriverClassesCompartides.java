@@ -43,8 +43,8 @@ public class DriverClassesCompartides {
             System.out.println("3: Consultar dificultat del joc actual.");
             System.out.println("4 : Consultar estat actual del taulell.");
             System.out.println("5 : Introduir un taulell (0 = cela buida, -1 = invalida)."); //Comprovar que sigui un Hidato amb resoldre taulell.
-            System.out.println("6 : Resoldre el taulell la màquina (Encara s'ha d'implementar).");
-            System.out.println("7 : Crear un taulell aleatoriament (Encara s'ha d'implementar).");
+            System.out.println("6 : Crear un taulell aleatoriament (Encara s'ha d'implementar).");
+            System.out.println("7 : Resoldre el taulell la màquina (Encara s'ha d'implementar).");
             System.out.println("8 : Juga al taulell.");
             System.out.println("-1 : Sortir.");
             System.out.println("(Si t'oblides dels numeros, posant la paraula el numero 0 et sortira un manual per recordar-t'ho)");
@@ -59,8 +59,8 @@ public class DriverClassesCompartides {
                     System.out.println("3: Consultar dificultat del joc actual.");
                     System.out.println("4 : Consultar estat actual del taulell.");
                     System.out.println("5 : Introduir un taulell (0 = cela buida, -1 = invalida)."); //Comprovar que sigui un Hidato amb resoldre taulell.
-                    System.out.println("6 : Resoldre el taulell la màquina (Encara s'ha d'implementar).");
-                    System.out.println("7 : Crear un taulell aleatoriament (Encara s'ha d'implementar).");
+                    System.out.println("6 : Crear un taulell aleatoriament (Encara s'ha d'implementar).");
+                    System.out.println("7 : Resoldre el taulell la màquina (Encara s'ha d'implementar).");
                     System.out.println("8 : Juga al taulell.");
                     System.out.println("-1 : Sortir.");
                     System.out.println();
@@ -81,7 +81,12 @@ public class DriverClassesCompartides {
                     System.out.println("Introdueix els valors del taullel per ordre (Recorda 0 = cela buida)");
                     Funcions.llegirTaulell(Taulell, size);
                     System.out.println("Taulell actualitzat.");
-                } else if(entrada == 6) {
+                }/*else if(entrada == 6) {
+                    System.out.println("Generant un taulell qualsevol . . .");
+                    //funcio que generi el taulell
+                    System.out.println("Generat:");
+                    Funcions.imprimeixValors(Taulell);
+                } */ else if(entrada == 7) {
                     System.out.println("Resolent el taulell . . .");
 
                     //funcio que resolgui el taulell
@@ -89,17 +94,11 @@ public class DriverClassesCompartides {
                     Funcions.solve(Taulell, size);
                     //Funcions.imprimeixValors(Taulell);
                 }
-                /*//*else if(entrada == 7) {
-                    System.out.println("Generant un taulell qualsevol . . .");
-                    //funcio que generi el taulell
-                    System.out.println("Generat:");
-                    Funcions.imprimeixValors(Taulell);
-                } */
                 else if(entrada == 8) {
 
                 }
                 else {
-                    System.out.println("Numero no valid . . .");
+                    System.out.println("Numero no valid.");
                 }
                 entrada = input.nextInt();
             }
