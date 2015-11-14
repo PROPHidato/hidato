@@ -35,8 +35,6 @@ public class DriverClassesCompartides {
             BoardHidato Taulell = new BoardHidato(size);
 
 
-
-
             System.out.printf("Benvingut a les proves de les classes Taulell i Cela. \nApretant els seguents numeros podras fer les seguents coses:\n");
             System.out.println("1 : Consultar la mida del taulell creat.");
             System.out.println("2: Consultar usuari actual.");
