@@ -13,6 +13,10 @@ import java.util.*;
 public class BoardHidato extends Board {
     private static int max_annotations; //màxim nombre de marques que poden tenir les cel·es del taulell.
     private static int num_celesinvalides;
+    private static int start_i;
+    private static int start_j;
+    private static int finish_i;
+    private static int finish_j;
 
     public BoardHidato(int size) {
         super(size); // Fer la creadora
@@ -53,5 +57,22 @@ public class BoardHidato extends Board {
     public void switchValidaCell (int row, int column) {board.get(row).get(column).switchValida();}
 
     public CellHidato getCell(int i, int j) {return board.get(i).get(j);}
+
+    public void setStart_i(int i) {this.start_i = i;}
+
+    public int getStart_i() {return start_i;}
+
+    public void setStart_j(int j) {this.start_j = j;}
+
+    public int getStart_j() {return start_j;}
+
+    public void setFinish_i(int i) {this.finish_i = i;}
+
+    public int getFinish_i() {return finish_i;}
+
+    public void setFinish_j(int j) {this.finish_j = j;}
+
+    public int getFinish_j() {return finish_j;}
+
 
 }

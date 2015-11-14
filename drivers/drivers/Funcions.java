@@ -63,15 +63,38 @@ public class Funcions {
 
     public static void llegirTaulell(BoardHidato Taulell, int size)   {
         int valor;
+        int valormax = 1;
         Scanner input = new Scanner( System.in );
 
         for (int i = 0; i < size; ++i)  {
             for (int j = 0; j < size; ++j)  {
                 valor = input.nextInt();
+                if (valor == 1) {
+                    Taulell.setStart_i(i);
+                    Taulell.setStart_j(j);
+                } else if (valor > valormax) {
+                    Taulell.setFinish_i(i);
+                    Taulell.setFinish_j(j);
+                    valormax = valor;
+                }
                 Taulell.setValueCell(valor, i, j);
             }
         }
         //Aqu� mirar si aquest taulell posat t� soluci�, si en t� ok, sin� tot a 0 altre cop.
+    }
+
+    public static void verificadorSolucio(BoardHidato Taulell) {
+        int actual_i = Taulell.getStart_i();;
+        int actual_j = Taulell.getStart_j();
+        int val_actual;
+        while (actual_i != Taulell.getFinish_i() && actual_j != Taulell.getFinish_j()) {
+            val_actual = Taulell.getValueCell(actual_i, actual_j);
+            if ((val_actual + 1) == Taulell.getValueCell(actual_i+1, actual_j)) ++actual_i;
+            else if ((val_actual + 1) == Taulell.getValueCell(actual_i-1, actual_j)) --actual_i;
+            else if ((val_actual + 1) == Taulell.getValueCell(actual_i-1, actual_j)) {
+                --actual_i;
+            }
+        }
     }
 
     public static boolean comprovar (BoardHidato Taulell, CellHidato[] intermitjos, Integer X[], Integer Y[], int countsize) {
