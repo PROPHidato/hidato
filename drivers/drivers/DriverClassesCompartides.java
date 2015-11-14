@@ -58,8 +58,6 @@ public class DriverClassesCompartides {
                     System.out.println("1 : Consultar la mida del taulell creat.");
                     System.out.println("2 : Introduir un taulell (0 = cela buida)."); //Comprovar que sigui un Hidato amb resoldre taulell.
                     System.out.println("3 : Consultar estat actual del taulell.");
-            /*System.out.println("4 : Consultar el valor d'una certa cela.");
-            System.out.println("5 : Canviar el valor d'una certa cela.");  */
                     System.out.println("4 : Resoldre el taulell la màquina (Encara s'ha d'implementar).");
                     System.out.println("5 : Crear un taulell aleatoriament (Encara s'ha d'implementar).");
                     System.out.println("6 : Generar celes invalides aleatoriament.");  //Sha de posar dins de taulell aleatoriament
@@ -78,31 +76,7 @@ public class DriverClassesCompartides {
                 } else if(entrada == 3) {
                     System.out.println("Taulell actual:");
                     Funcions.imprimeixValors(Taulell);
-                } /*else if(entrada == 4) {
-                    while (sn == 's') {
-                        System.out.println("Introdueix  la fila i columna de la cela que vols consultar:");
-                        val1 = input.nextInt();
-                        val2 = input.nextInt();
-                        if ((val1 | val2) >= size) System.out.println("Has sortit fora del taulell.");
-                        else System.out.println(Taulell.getValueCell(val1,val2));
-                        System.out.println("Vols consultar una altra cela? (s/n):");
-                        sn = input.next().charAt(0);
-                    }
-                } else if(entrada == 5) {
-                    while (sn == 's') {
-                        System.out.println("Introdueix el valor que vols posar i la fila i columna de la cela on ho vols posar:");
-                        val1 = input.nextInt();
-                        val2 = input.nextInt();
-                        val3 = input.nextInt();
-                        if ((val2 | val3) >= size) System.out.println("Has sortit fora del taulell.");
-                        else {
-                            Taulell.setValueCell(val1, val2, val3);
-                            System.out.println("Valor introduit.");
-                        }
-                        System.out.println("Vols introduir una altra cela? (s/n):");
-                        sn = input.next().charAt(0);
-                    }
-                } */else if(entrada == 4) {
+                } else if(entrada == 4) {
                     System.out.println("Resolent el taulell . . .");
 
                     //funcio que resolgui el taulell
@@ -120,7 +94,8 @@ public class DriverClassesCompartides {
                     Funcions.colocar_celesinvalides(Taulell);
                 }
                 else if(entrada == 7) {
-
+                    if (Funcions.verificadorSolucio(Taulell)) System.out.println("Hidato correcte.");
+                    else System.out.println("Hidato incorrecte");
                 }
                 else if (entrada == 8) {
                     System.out.println("L'usuari actual és: " + Jugador.getName());
@@ -148,3 +123,30 @@ public class DriverClassesCompartides {
         System.out.println("Fi de les proves.");
     }
 }
+
+
+/*else if(entrada == 4) {
+                    while (sn == 's') {
+                        System.out.println("Introdueix  la fila i columna de la cela que vols consultar:");
+                        val1 = input.nextInt();
+                        val2 = input.nextInt();
+                        if ((val1 | val2) >= size) System.out.println("Has sortit fora del taulell.");
+                        else System.out.println(Taulell.getValueCell(val1,val2));
+                        System.out.println("Vols consultar una altra cela? (s/n):");
+                        sn = input.next().charAt(0);
+                    }
+                } else if(entrada == 5) {
+                    while (sn == 's') {
+                        System.out.println("Introdueix el valor que vols posar i la fila i columna de la cela on ho vols posar:");
+                        val1 = input.nextInt();
+                        val2 = input.nextInt();
+                        val3 = input.nextInt();
+                        if ((val2 | val3) >= size) System.out.println("Has sortit fora del taulell.");
+                        else {
+                            Taulell.setValueCell(val1, val2, val3);
+                            System.out.println("Valor introduit.");
+                        }
+                        System.out.println("Vols introduir una altra cela? (s/n):");
+                        sn = input.next().charAt(0);
+                    }
+                    */

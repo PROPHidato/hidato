@@ -80,7 +80,7 @@ public class Funcions {
                 Taulell.setValueCell(valor, i, j);
             }
         }
-        //Aqu� mirar si aquest taulell posat t� soluci�, si en t� ok, sin� tot a 0 altre cop.
+        //Aqui mirar si es podria resoldre, si es pot ok, sinó merda.
     }
 
     public static boolean verificadorSolucio(BoardHidato Taulell) {
