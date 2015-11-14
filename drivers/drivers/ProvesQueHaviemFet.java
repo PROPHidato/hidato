@@ -156,3 +156,36 @@ public class ProvesQueHaviemFet {
         }
     }
 }
+
+
+
+//PROVES DE CONSULTAR I EDITAR VALOR DE CELA
+
+/*System.out.println("4 : Consultar el valor d'una certa cela.");
+            System.out.println("5 : Canviar el valor d'una certa cela.");  */
+
+/*else if(entrada == 4) {
+                    while (sn == 's') {
+                        System.out.println("Introdueix  la fila i columna de la cela que vols consultar:");
+                        val1 = input.nextInt();
+                        val2 = input.nextInt();
+                        if ((val1 | val2) >= size) System.out.println("Has sortit fora del taulell.");
+                        else System.out.println(Taulell.getValueCell(val1,val2));
+                        System.out.println("Vols consultar una altra cela? (s/n):");
+                        sn = input.next().charAt(0);
+                    }
+                } else if(entrada == 5) {
+                    while (sn == 's') {
+                        System.out.println("Introdueix el valor que vols posar i la fila i columna de la cela on ho vols posar:");
+                        val1 = input.nextInt();
+                        val2 = input.nextInt();
+                        val3 = input.nextInt();
+                        if ((val2 | val3) >= size) System.out.println("Has sortit fora del taulell.");
+                        else {
+                            Taulell.setValueCell(val1, val2, val3);
+                            System.out.println("Valor introduit.");
+                        }
+                        System.out.println("Vols introduir una altra cela? (s/n):");
+                        sn = input.next().charAt(0);
+                    }
+                } */
