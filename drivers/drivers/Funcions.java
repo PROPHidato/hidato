@@ -9,7 +9,7 @@ public class Funcions {
     public static void imprimeixValors(BoardHidato Taulell) {
         for (int i = 0; i < Taulell.getSize();i++) {
             for (int j = 0; j < Taulell.getSize();j++) {
-                if (!Taulell.getValidaCell(i,j)) out.print("X" + " ");
+                if (Taulell.getValueCell(i,j) == -1) out.print("X" + " ");
                 else out.print(Taulell.getValueCell(i,j) + " ");
 
             }

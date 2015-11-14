@@ -68,6 +68,7 @@ public class BoardHidato extends Board {
                 if ((!getValidaCell(row - 1, column))) ++inva;
             if (column == size - 1)
                 if ((!getValidaCell(row, column - 1))) ++inva;
+            System.out.println(inva + " invalides veines");
             if (inva >= 2) return true;
         } else if ((row > 0 && row < size - 1) && column == 0 || (column > 0 && column < size - 1) && row == 0 ||
                 (row > 0 && row < size - 1) && column == size - 1 || (column > 0 && column < size - 1) && row == size - 1) {
@@ -87,6 +88,7 @@ public class BoardHidato extends Board {
                 if ((!getValidaCell(row + 1, column + 1))) ++inva;//abaix dreat
             if (row < size - 1 && column > 0)
                 if ((!getValidaCell(row + 1, column - 1))) ++inva; //abaix esq
+            System.out.println(inva + " invalides veines");
             if (inva >= 4) return true;
         } else {
             if (!getValidaCell(row, column + 1)) ++inva;
@@ -97,9 +99,9 @@ public class BoardHidato extends Board {
             if (!getValidaCell(row - 1, column - 1)) ++inva;
             if (!getValidaCell(row + 1, column - 1)) ++inva;
             if (!getValidaCell(row - 1, column + 1)) ++inva;
+            System.out.println(inva + " invalides veines");
             if (inva >= 7) return true;
         }
-        System.out.println(inva + " invalides veines");
         return false;
     }
     static double percentatgeceles(){
@@ -153,7 +155,7 @@ public class BoardHidato extends Board {
                     System.out.println("comprovem " + i + " " + j);
                     if (posarainvalida(i, j))
                         System.out.println("posem a invalida la casella " + i + " " + j);
-                        switchValidaCell(i, j);
+                        incrementar_celesinvalides(i, j);
                 }
             }
         }
