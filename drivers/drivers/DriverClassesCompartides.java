@@ -29,11 +29,12 @@ public class DriverClassesCompartides {
             System.out.println("Estàs al Joc " + GameId + ".");
             System.out.printf("Entra mida taulell:  ");
             size = input.nextInt();
-            BoardHidato Taulell = new BoardHidato(size);
-
             System.out.println("Introdueix la dificultat (1 = facil, 2 = mitja, 3 = dificil)");
             dificultat = input.nextInt();
             Game Joc = new Game(GameId, dificultat);
+            BoardHidato Taulell = new BoardHidato(size);
+
+
 
 
             System.out.printf("Benvingut a les proves de les classes Taulell i Cela. \nApretant els seguents numeros podras fer les seguents coses:\n");
@@ -117,9 +118,6 @@ public class DriverClassesCompartides {
                     System.out.println("Generat:");
                     Funcions.imprimeixValors(Taulell);
                 } */
-                else if(entrada == 6) {
-                    Funcions.colocar_celesinvalides(Taulell);
-                }
                 else if(entrada == 7) {
 
                 }
