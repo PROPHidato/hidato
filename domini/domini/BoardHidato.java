@@ -10,6 +10,7 @@ import java.util.*;
  * To change this template use File | Settings | File Templates.
  * POSAR FUNCIONS A CLASSE FUNCIONS i llavors treure els statics
  * CREAR FUNCIO GENERAR POSICIO RANDOM per reduir codi
+ * TAMBE AJUNTAR LU DE PERCENTATGECELES per a les valides i les visibles
  *
  */
 
@@ -45,12 +46,21 @@ public class BoardHidato extends Board {
     public static void generar_written(){//posem al taulell les celes que al ppi estaran escrites
         //anar passant per totes les celes sensse repetirne cap
         //aleatoriament, anar posant visibles fins a arribar al maxim de visibles permeses per la dificultat
-        int numcela,numvisibles,posactui,posactuj;
+        int numcela,numvisibles,posactui,posactuj,posi,posj;
         numcela = numvisibles = 1; //comencem per la 1 i amb 1 cela visible
         posactui = getStart_i();
         posactuj = getStart_j();
-        Random posiini = new Random();
-        Random posjini = new Random();
+        Random segi = new Random();
+        Random segj = new Random();
+        double tantpercent = size*size*percentatgeceles();
+        int totalsvisibles = (int)tantpercent;
+        while (numvisibles < totalsvisibles){
+            //generem dos nombres aleatories entre -1 i 1 inclosos
+            posi = segi.nextInt(3) -1;
+            posj = segj.nextInt(3) -1;
+
+            //if ()
+        }
 
 
 
@@ -113,19 +123,18 @@ public class BoardHidato extends Board {
 
     }
     public static void colocar_celesinvalides() {
-        int sizeT, ncelesvalT, posades;
+        int posades;
        //colocarem aleatoriament 10 celes invalides.
         Random posi = new Random();
         Random posj = new Random();
         posades = 0;
         double tantpercent = size * size * percentatgeceles();
         int maxinvalides = (int) tantpercent;
-        ncelesvalT = size - 1;
         System.out.println(tantpercent);
         System.out.println(maxinvalides);
         while (posades < maxinvalides) {
-            int row = posi.nextInt(ncelesvalT);   //fila random entre totes les celes totals
-            int column = posj.nextInt(ncelesvalT); //columan random entre totes les celes totals
+            int row = posi.nextInt(size);   //fila random entre totes les celes totals
+            int column = posj.nextInt(size); //columan random entre totes les celes totals
             if (getValidaCell(row, column)) {   //la cela q hem triat aleatoriament, si no es invalida la posem
                 // la posem a invalida
                 System.out.println("fila " + row + " columna " + column);
@@ -138,8 +147,8 @@ public class BoardHidato extends Board {
         Random posjini = new Random();
         int rowini, columnini;
         while(!posatinici) {
-            rowini = posiini.nextInt(ncelesvalT);
-            columnini = posjini.nextInt(ncelesvalT);
+            rowini = posiini.nextInt(size);
+            columnini = posjini.nextInt(size);
             if (getValidaCell(rowini,columnini)){
                 board.get(rowini).get(columnini).setValue(1);
                 board.get(rowini).get(columnini).switchWritten();
