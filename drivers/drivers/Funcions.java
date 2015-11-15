@@ -134,7 +134,7 @@ public class Funcions {
             imprimeixValors(Taulell);
         }*/
         //System.out.println("ara mirem si te solucio ");
-        solveBool(Taulell, size);
+        solve(Taulell, size);
         if (solution) {
             System.out.println("Solucio trobada.");
         } else {
@@ -269,6 +269,7 @@ public class Funcions {
         numcelesinvalides = Taulell.consultar_num_celesinvalides();
         numfinal = numfinal - numcelesinvalides;
         posa_final(Taulell, numfinal); //POSEM LA ULTIMA CELA AL TAULELL
+        imprimeixValors(Taulell);
     }
     public static boolean verificadorSolucio(BoardHidato Taulell) {
         int actual_i = Taulell.getStart_i();;
