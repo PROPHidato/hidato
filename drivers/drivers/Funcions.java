@@ -43,23 +43,39 @@ public class Funcions {
     public static void generar_written(BoardHidato Taulell){//posem al taulell les celes que al ppi estaran escrites
         //anar passant per totes les celes sensse repetirne cap
         //aleatoriament, anar posant visibles fins a arribar al maxim de visibles permeses per la dificultat
-        int numcela,numvisibles,posactui,posactuj,posi,posj,size;
+        int numcela,numvisibles,posactui,posactuj,posi,posj,size,numfinal;
         size = Taulell.getSize();
+        numfinal = size*size - Taulell.consultar_num_celesinvalides();
         numcela = numvisibles = 1; //comencem per la 1 i amb 1 cela visible
         posactui = Taulell.getStart_i();
         posactuj = Taulell.getStart_j();
         Random segi = new Random();
         Random segj = new Random();
         double tantpercent = size*size*percentatgeceles();
+
         int totalsvisibles = (int)tantpercent;
-        while (numvisibles < totalsvisibles){
+
+        while (numcela < numfinal){
+            //numvisibles < totalsvisibles
             //generem dos nombres aleatories entre -1 i 1 inclosos
             posi = segi.nextInt(3) -1;
             posj = segj.nextInt(3) -1;
-            if (Taulell.getValidaCell(posactui + posi, posactuj + posj)) {
+            if (Taulell.getValidaCell(posactui + posi, posactuj + posj) && Taulell.getValueCell(posactui+posi,posactuj+posj) == 0){
+              //si la q volem anar es valida i no te valor, hi anem
+                posactui = posactuj + posi;
+                posactuj = posactuj + posj;
+                ++numcela;
+                if(numvisibles < totalsvisibles){//mentre no arribem al maxim de visibles segons la dificultat
+                    ++numvisibles;
+                    Taulell.setValueCell(numcela,posactui,posactuj);
+                    Taulell.switchWrittenCell(posactui,posactuj);
+                }
+
             }
         }
-        //if ()
+        //posem tambe la ultima cela
+        Taulell.setValueCell(numcela,posactui,posactuj);
+        Taulell.switchWrittenCell(posactui,posactuj);
     }
 
     static boolean posarainvalida(BoardHidato Taulell,int row,int column) {//si totes les celes veines o totes menys una son invalides, return true
@@ -160,7 +176,7 @@ public class Funcions {
                 if (Taulell.getValidaCell(i, j)) {//si no es invalida mirem les del seu voltant
                     //si totes o totes menys una son invalides, la canviem a invalida tambe
                     System.out.println("comprovem " + i + " " + j);
-                    if (posarainvalida(Taulell,i,j)) {
+                    if (Taulell.getValueCell(i,j) == 0 && posarainvalida(Taulell,i,j)) {
                         System.out.println("posem a invalida la casella " + i + " " + j);
                         Taulell.incrementar_celesinvalides(i, j);
                     }
