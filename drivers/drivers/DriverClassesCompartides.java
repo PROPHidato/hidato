@@ -109,7 +109,8 @@ public class DriverClassesCompartides {
                 } else if(entrada == 5) {
                     System.out.println("Resolent el taulell . . .");
                     System.out.println("Resolt:");
-                    Funcions.solve(Taulell, size);
+                    Taulell = Funcions.solve(Taulell, size);
+
                 }
                 else if(entrada == 6) {
                     Match Partida = new Match(dificultat);

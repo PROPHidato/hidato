@@ -363,7 +363,7 @@ public class Funcions {
 
 
 
-    public static void backtrack(BoardHidato Taulell, boolean[][] visitats, CellHidato[] intermitjos,int startx, int starty, Integer X[], Integer Y[], int current, int countsize, int size)   {
+    public static BoardHidato backtrack(BoardHidato Taulell, boolean[][] visitats, CellHidato[] intermitjos,int startx, int starty, Integer X[], Integer Y[], int current, int countsize, int size)   {
         // Fent servir el taulell, la matriu de visitats, el punt de start i el punt de finish,
         // resoldre el taulell i posar els valors de caselles not written als que toquen
         //Boolean acabat = false;
@@ -372,9 +372,10 @@ public class Funcions {
             imprimeixValors(Taulell);
             solution = true;
 
+
         }
 
-        else  {
+        else {
             if (!solution) {
                 //imprimeixValors(Taulell);
                 //System.out.println();
@@ -406,12 +407,14 @@ public class Funcions {
                     }
                 }
             }
+
         }
+        return Taulell;
         //System.out.println("acabat");
     }
 
 
-    public static void solve (BoardHidato Taulell, int size)    {   //de moment ho farem amb un taulell arbitrari
+    public static BoardHidato solve (BoardHidato Taulell, int size)    {   //de moment ho farem amb un taulell arbitrari
 
         /*Taulell.setValueCell(1, 0, 0);
 
@@ -493,7 +496,8 @@ public class Funcions {
         //System.out.println("valor de 2 " + intermitjos[2].getValue());
 
         int current = 2;
-        backtrack(Taulell, visitats, intermitjos, startx, starty, X, Y, current,countsize,size);  //resoldre taulell
+        Taulell = backtrack(Taulell, visitats, intermitjos, startx, starty, X, Y, current,countsize,size);  //resoldre taulell
+        return Taulell;
     }
 
     public static void backtrackBool(BoardHidato Taulell, boolean[][] visitats, CellHidato[] intermitjos,int startx, int starty, Integer X[], Integer Y[], int current, int countsize, int size)   {
@@ -617,6 +621,7 @@ public class Funcions {
 
         int current = 2;
         backtrackBool(Taulell, visitats, intermitjos, startx, starty, X, Y, current, countsize, size);  //resoldre taulell
+
         return solucio;
     }
 }
