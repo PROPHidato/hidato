@@ -71,6 +71,7 @@ public class Funcions {
                 TaulellCopiat.setFinish_j(Taulell.getFinish_j());
                 TaulellCopiat.setStart_i(Taulell.getStart_i());
                 TaulellCopiat.setStart_j(Taulell.getStart_j());
+                System.out.print(Taulell.getWrittenCell(i,j) + " ");
                 if (Taulell.getWrittenCell(i,j) != TaulellCopiat.getWrittenCell(i,j)) TaulellCopiat.switchWrittenCell(i,j);
                 if (Taulell.getStartCell(i,j) != TaulellCopiat.getStartCell(i, j)) TaulellCopiat.switchStartCell(i,j);
                 if (Taulell.getFinishCell(i, j) != TaulellCopiat.getFinishCell(i, j)) TaulellCopiat.switchFinishCell(i,j);

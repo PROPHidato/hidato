@@ -50,7 +50,7 @@ public class BoardHidato extends Board {
 
     // //posem una cela a invalida: casella q no formara part
     //hidato en si, pero si del taulell;}
-    public static void incrementar_celesinvalides(int row, int column) {
+    public void incrementar_celesinvalides(int row, int column) {
         ++num_celesinvalides;
         switchValidaCell(row,column);
         board.get(row).get(column).setValue(-1);
@@ -70,7 +70,7 @@ public class BoardHidato extends Board {
 
     public boolean getValidaCell(int row, int column) {return board.get(row).get(column).getValida();}
 
-    public static void switchValidaCell (int row, int column) {board.get(row).get(column).switchValida();}
+    public void switchValidaCell (int row, int column) {board.get(row).get(column).switchValida();}
 
     public boolean getStartCell(int row, int column) {return board.get(row).get(column).getStart();}
 

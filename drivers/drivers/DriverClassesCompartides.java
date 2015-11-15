@@ -112,9 +112,7 @@ public class DriverClassesCompartides {
                     //fer coses amb partida
 
                     BoardHidato TaulellAux = new BoardHidato(size);
-                    Funcions.imprimeixValors(TaulellAux);
                     Funcions.copiarBoard(TaulellAux, Taulell);
-                    Funcions.imprimeixValors(TaulellAux);
 
                     System.out.println("Benvingut a la partida del joc "+ Joc.getGameId() + ":");
                     System.out.printf("Apretant els seguents numeros podras fer les seguents coses:\n");
@@ -173,7 +171,6 @@ public class DriverClassesCompartides {
                                 System.out.println("Mal resolt :( Tornar-ho a intentar.");
                             }
                         } else if (entrada2 == -1) {
-                            //tornar valor a abans
                             fi_joc = true;
                         }
                         if (fi_joc == false) {
