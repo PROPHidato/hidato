@@ -39,7 +39,7 @@ public class Funcions {
                     Taulell.setValueCell(valor, i, j);
                 }
             }
-            correcte = true; //per fer que funcioni ara, dsp més tard esborrar-ho
+            correcte = true; //per fer que funcioni ara, dsp mï¿½s tard esborrar-ho
             solveBool(Taulell, Taulell.getSize());
             if (solution) {
                 System.out.println("Hidato possible de resoldre.");
@@ -111,31 +111,38 @@ public class Funcions {
     public static void generar_written(BoardHidato Taulell) {//posem al taulell les celes que al ppi estaran escrites
         //anar passant per totes les celes sensse repetirne cap
         //aleatoriament, anar posant visibles fins a arribar al maxim de visibles permeses per la dificultat
-        int numcela, numvisibles, posactui, posactuj, posi, posj, size;
+        int numcela, numvisibles, posactui, posactuj, posi, posj, size, valor;
         size = Taulell.getSize();
         numcela = numvisibles = 1; //comencem per la 1 i amb 1 cela visible
         posactui = Taulell.getStart_i();
         posactuj = Taulell.getStart_j();
         Random segi = new Random();
         Random segj = new Random();
+        Random valoract = new Random();
         double tantpercent = size * size * percentatgeceles();
         int totalsvisibles = (int) tantpercent;
-        while (numvisibles < totalsvisibles) {
+        /*while (numvisibles < totalsvisibles) {
             posi = segi.nextInt(size);
             posj = segj.nextInt(size);
-            if (perafegir(Taulell,posi,posj)){  //si la q volem anar es valida i no te valor, hi anem
-                posactui = posactuj + posi;
-                posactuj = posactuj + posj;
+            valor = valoract.nextInt(size-2);
+            if (perafegir(Taulell,posi,posj)) {  //si la q volem anar es valida i no te valor, hi anem
                 ++numcela;
                 ++numvisibles;
-                Taulell.setValueCell(numcela, posactui, posactuj);
+                Taulell.setValueCell(valor, posactui, posactuj);
                 Taulell.switchWrittenCell(posactui, posactuj);
             }
+            imprimeixValors(Taulell);
+        }*/
+        //System.out.println("ara mirem si te solucio ");
+        solveBool(Taulell, size);
+        if (solution) {
+            System.out.println("Solucio trobada.");
+        } else {
+            System.out.println("Hidato sense solucio possible. Torna-ho a provar.");
+            System.out.println("generem un altre taulell.");
         }
+        solution = false;
     }
-    //if ()
-    //posem tambe la ultima cela
-
 
     static boolean posarainvalida(BoardHidato Taulell,int row,int column) {//si totes les celes veines o totes menys una son invalides, return true
         //primer les q tenen 3 al voltant
