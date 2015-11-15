@@ -81,41 +81,62 @@ public class Funcions {
         }
     }
 
-    public static void generar_written(BoardHidato Taulell){//posem al taulell les celes que al ppi estaran escrites
+    public static boolean perafegir(BoardHidato Taulell, int row, int column){
+        if (Taulell.getValidaCell(row, column) && Taulell.getValueCell(row,column) == 0) return true;
+        else return false;
+    }
+
+    public static void posa_final(BoardHidato Taulell,int numfinal) {
+        boolean posatfinal = false;
+        int size = Taulell.getSize();
+        Random posifi = new Random();
+        Random posjfi = new Random();
+        int rowfi, columnfi;
+        while (!posatfinal) {
+            rowfi = posifi.nextInt(size);
+            columnfi = posjfi.nextInt(size);
+            if (Taulell.getValidaCell(rowfi, columnfi)) {
+                Taulell.setValueCell(numfinal, rowfi, columnfi);
+                Taulell.switchWrittenCell(rowfi, columnfi);
+                Taulell.setStart_i(rowfi);
+                Taulell.setStart_j(columnfi);
+                posatfinal = true;
+            }
+        }
+    }
+
+    public static void generar_written(BoardHidato Taulell) {//posem al taulell les celes que al ppi estaran escrites
         //anar passant per totes les celes sensse repetirne cap
         //aleatoriament, anar posant visibles fins a arribar al maxim de visibles permeses per la dificultat
-        int numcela,numvisibles,posactui,posactuj,posi,posj,size,numfinal;
+        int numcela, numvisibles, posactui, posactuj, posi, posj, size, numfinal;
         size = Taulell.getSize();
-        numfinal = size*size - Taulell.consultar_num_celesinvalides();
+        numfinal = size * size - Taulell.consultar_num_celesinvalides();
         numcela = numvisibles = 1; //comencem per la 1 i amb 1 cela visible
         posactui = Taulell.getStart_i();
         posactuj = Taulell.getStart_j();
         Random segi = new Random();
         Random segj = new Random();
-        double tantpercent = size*size*percentatgeceles();
-        int totalsvisibles = (int)tantpercent;
-        while (numcela < numfinal){
-            //numvisibles < totalsvisibles
-            //generem dos nombres aleatories entre -1 i 1 inclosos
-            posi = segi.nextInt(3) -1;
-            posj = segj.nextInt(3) -1;
-            if (Taulell.getValidaCell(posactui + posi, posactuj + posj) && Taulell.getValueCell(posactui+posi,posactuj+posj) == 0){
-                //si la q volem anar es valida i no te valor, hi anem
+        double tantpercent = size * size * percentatgeceles();
+        int totalsvisibles = (int) tantpercent;
+        posa_final(Taulell,numfinal); //POSEM LA ULTIMA CELA AL TAULELL
+        while (numvisibles < totalsvisibles) {
+            posi = segi.nextInt(size);
+            posj = segj.nextInt(size);
+            if (perafegir(Taulell,posi,posj)){  //si la q volem anar es valida i no te valor, hi anem
                 posactui = posactuj + posi;
                 posactuj = posactuj + posj;
                 ++numcela;
-                if(numvisibles < totalsvisibles){//mentre no arribem al maxim de visibles segons la dificultat
-                    ++numvisibles;
-                    Taulell.setValueCell(numcela,posactui,posactuj);
-                    Taulell.switchWrittenCell(posactui,posactuj);
-                    }
+                ++numvisibles;
+                Taulell.setValueCell(numcela, posactui, posactuj);
+                Taulell.switchWrittenCell(posactui, posactuj);
             }
         }
-        //if ()
-        //posem tambe la ultima cela
         Taulell.setValueCell(numcela,posactui,posactuj);
         Taulell.switchWrittenCell(posactui,posactuj);
     }
+    //if ()
+    //posem tambe la ultima cela
+
 
     static boolean posarainvalida(BoardHidato Taulell,int row,int column) {//si totes les celes veines o totes menys una son invalides, return true
         //primer les q tenen 3 al voltant
@@ -130,9 +151,18 @@ public class Funcions {
                 if ((!Taulell.getValidaCell(row - 1, column))) ++inva;
             if (column == size - 1)
                 if ((!Taulell.getValidaCell(row, column - 1))) ++inva;
+            if (row == 0 && column == 0)
+                if ((!Taulell.getValidaCell(row + 1, column + 1))) ++inva;
+            if (row == 0 && column == size - 1)
+                if ((!Taulell.getValidaCell(row + 1, column - 1))) ++inva;
+            if (row == size - 1 && column == 0)
+                if ((!Taulell.getValidaCell(row - 1, column + 1))) ++inva;
+            if (row == size - 1 && column == size - 1)
+                if ((!Taulell.getValidaCell(row - 1, column - 1))) ++inva;
             System.out.println(inva + " invalides veines");
             if (inva >= 2) return true;
-        } else if ((row > 0 && row < size - 1) && column == 0 || (column > 0 && column < size - 1) && row == 0 ||
+        }
+        else if ((row > 0 && row < size - 1) && column == 0 || (column > 0 && column < size - 1) && row == 0 ||
                 (row > 0 && row < size - 1) && column == size - 1 || (column > 0 && column < size - 1) && row == size - 1) {
             if (row > 0)
                 if ((!Taulell.getValidaCell(row - 1, column))) ++inva; //amunt
@@ -167,13 +197,12 @@ public class Funcions {
         return false;
     }
     static double percentatgeceles(){
-        double percentatge = Game.getDifficult();
-        if (percentatge == 1) percentatge = 0.2;
-        else if (percentatge == 2) percentatge = 0.1;
-        else percentatge = 0.05;
-        return percentatge;
-
+        int percentatge = Game.getDifficult();
+        if (percentatge == 1) return 0.2;
+        else if (percentatge == 2) return 0.1;
+        else return 0.05;
     }
+
 
     public static void posa_start(BoardHidato Taulell){
         boolean posatinici = false;
@@ -202,6 +231,9 @@ public class Funcions {
         posades = 0;
         double tantpercent = size * size * percentatgeceles();
         int maxinvalides = (int) tantpercent;
+        System.out.println(percentatgeceles());
+        System.out.println(size);
+        System.out.println(size*size);
         System.out.println(tantpercent);
         System.out.println(maxinvalides);
         while (posades < maxinvalides) {

@@ -19,7 +19,7 @@ public class DriverClassesCompartides {
         int val1, val2, val3;
         int marca;
         int GameId = 1;
-        int dificultat = 1;
+        int dificultat;
         Character sortida = 'n';
         Boolean generat = false;
 
@@ -30,10 +30,13 @@ public class DriverClassesCompartides {
 
         //CONTROLAR ENRTADA DE TEXT A LES OPCIONS (no chars etc)
         while(sortida == 'n') {
+
             System.out.println("Estàs al Joc " + GameId + ".");
             System.out.printf("Entra mida del taulell:  ");
             size = input.nextInt();
-
+            System.out.println("Introdueix la dificultat (1 = facil, 2 = mitja, 3 = dificil)");
+            dificultat = input.nextInt();
+            Game Joc = new Game(GameId, dificultat);
             BoardHidato Taulell = new BoardHidato(size);
             System.out.println("Voldràs introduir tu el taulell o que el generi la maquina aleatoriament?");
             System.out.println("0 : Introduir el taulell.");
@@ -45,9 +48,6 @@ public class DriverClassesCompartides {
                 Funcions.llegirTaulell(Taulell);
                 generat = false;
             } else if (select == 1) {
-                System.out.println("Introdueix la dificultat (1 = facil, 2 = mitja, 3 = dificil)");
-                dificultat = input.nextInt();
-
                 System.out.println("Generant un taulell qualsevol . . .");
                 //funcio que generi el taulell
                 Funcions.colocar_celesinvalides(Taulell);
@@ -59,7 +59,6 @@ public class DriverClassesCompartides {
                 generat = true;
             }
 
-            Game Joc = new Game(GameId, dificultat);
             Boolean fi_joc = false;
 
             System.out.printf("Benvingut a les proves de les classes Taulell i Cela. \nApretant els seguents numeros podras fer les seguents coses:\n");
