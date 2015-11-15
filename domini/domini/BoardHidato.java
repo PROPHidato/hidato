@@ -56,6 +56,18 @@ public class BoardHidato extends Board {
         board.get(row).get(column).setValue(-1);
     }
 
+    public boolean getAnnotationCell(int value, int row, int column) {
+        return board.get(row).get(column).getAnnotation(value);
+    }
+
+    public void switchAnnotationCell(int value, int row, int column) {
+        board.get(row).get(column).switchAnnotation(value);
+    }
+
+    public void setAnnotationCell(int value, boolean annotation, int row, int column) {
+        board.get(row).get(column).setAnnotation(value, annotation);
+    }
+
     public boolean getValidaCell(int row, int column) {return board.get(row).get(column).getValida();}
 
     public static void switchValidaCell (int row, int column) {board.get(row).get(column).switchValida();}

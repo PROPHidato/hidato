@@ -16,6 +16,7 @@ public class DriverClassesCompartides {
         int entrada2;
         int column, row;
         int val1, val2, val3;
+        int marca;
         int GameId = 1;
         int dificultat;
         Character sortida = 'n';
@@ -101,9 +102,8 @@ public class DriverClassesCompartides {
                     System.out.printf("Apretant els seguents numeros podras fer les seguents coses:\n");
                     System.out.println("1 : Introduir valor a una cela.");
                     System.out.println("2: Posar una marca a una cela.");
-                    System.out.println("3: Treure una marca a una cela.");
-                    System.out.println("4: Consultar marques que tenim a una cela.");
-                    System.out.println("5: Verificar si taulell ben resolt (un cop taulell complert).");
+                    System.out.println("3: Consultar marques que tenim a una cela.");
+                    System.out.println("4: Verificar si taulell ben resolt (un cop taulell complert).");
                     System.out.println("-1: Sortir de la partida.");
                     System.out.println("(0: ajuda)");
                     entrada2 = input.nextInt();
@@ -111,9 +111,8 @@ public class DriverClassesCompartides {
                         if (entrada2 == 0) {
                             System.out.println("1 : Introduir valor a una cela.");
                             System.out.println("2: Posar una marca a una cela.");
-                            System.out.println("3: Treure una marca a una cela.");
-                            System.out.println("4: Consultar marques que tenim a una cela.");
-                            System.out.println("5: Verificar si taulell ben resolt (un cop taulell complert).");
+                            System.out.println("3: Consultar marques que tenim a una cela.");
+                            System.out.println("4: Verificar si taulell ben resolt (un cop taulell complert).");
                             System.out.println("-1: Sortir de la partida.");
                         } else if (entrada2 == 1) {
                             while (s == 's') {
@@ -130,12 +129,23 @@ public class DriverClassesCompartides {
                                 s = input.next().charAt(0);
                             }
                         } else if (entrada2 == 2) {
+                            System.out.println("Introdueix fila i columna de cela on vols posar/treure la marca.");
+                            val1 = input.nextInt();
+                            val2 = input.nextInt();
+                            System.out.println("Indica quina marca vols posar/treure a la cela escollida:");
+                            marca = input.nextInt();
+                            Taulell.switchAnnotationCell(marca, val1, val2);
 
                         } else if (entrada2 == 3) {
+                            System.out.println("Introdueix fila i columna de cela que vols veure les marques.");
+                            val1 = input.nextInt();
+                            val2 = input.nextInt();
+                            System.out.println("Valors: ");
+                            for (int i = 0; i < Taulell.consult_max_annotations(); ++i) {
+                                System.out.println(Taulell.getAnnotationCell(i, val1, val2) + " ");
+                            }
 
                         } else if (entrada2 == 4) {
-
-                        } else if (entrada2 == 5) {
                             if(Funcions.verificadorSolucio(Taulell)) {
                                 System.out.println("Ben resolt! Felicitats :)");
                                 fi_joc = true;

@@ -38,7 +38,7 @@ public class Funcions {
                     Taulell.setValueCell(valor, i, j);
                 }
             }
-            if (true/*si solver = true*/) {
+            if (solve(Taulell, Taulell.getSize()) > 0) {
                 System.out.println("Hidato possible de resoldre.");
                 val = 'n';
             } else {
