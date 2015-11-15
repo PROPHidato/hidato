@@ -36,6 +36,7 @@ public class Funcions {
                         valormax = valor;
                     }
                     Taulell.setValueCell(valor, i, j);
+                    if (valor != 0) Taulell.switchWrittenCell(i,j);
                 }
             }
             val = 'n'; //per fer que funcioni ara

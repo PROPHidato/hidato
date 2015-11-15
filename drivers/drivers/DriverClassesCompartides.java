@@ -124,7 +124,8 @@ public class DriverClassesCompartides {
                                 val1 = input.nextInt();
                                 val2 = input.nextInt();
                                 val3 = input.nextInt();
-                                if ((val2 | val3) >= size) System.out.println("Has sortit fora del taulell.");
+                                if ((val2 | val3) >= Taulell.getSize()) System.out.println("Has sortit fora del taulell.");
+                                else if (Taulell.getWrittenCell(val2,val3) == true)  System.out.println("Cela no modificable.");
                                 else {
                                     Taulell.setValueCell(val1, val2, val3);
                                     Funcions.imprimeixValors(Taulell);
@@ -146,7 +147,7 @@ public class DriverClassesCompartides {
                             val2 = input.nextInt();
                             System.out.println("Valors: ");
                             for (int i = 0; i < Taulell.consult_max_annotations(); ++i) {
-                                System.out.println(Taulell.getAnnotationCell(i, val1, val2) + " ");
+                                if (Taulell.getAnnotationCell(i, val1, val2) == true) System.out.println(i + " ");
                             }
 
                         } else if (entrada2 == 4) {
