@@ -68,6 +68,15 @@ public class Funcions {
         for (int i = 0; i < Taulell.getSize();i++) {
             for (int j = 0; j < Taulell.getSize();j++) {
                 TaulellCopiat.setValueCell(Taulell.getValueCell(i,j), i, j);
+                TaulellCopiat.setFinish_i(Taulell.getFinish_i());
+                TaulellCopiat.setFinish_j(Taulell.getFinish_j());
+                TaulellCopiat.setStart_i(Taulell.getStart_i());
+                TaulellCopiat.setStart_j(Taulell.getStart_j());
+                if (Taulell.getWrittenCell(i,j) != TaulellCopiat.getWrittenCell(i,j)) TaulellCopiat.switchWrittenCell(i,j);
+                if (Taulell.getStartCell(i,j) != TaulellCopiat.getStartCell(i, j)) TaulellCopiat.switchStartCell(i,j);
+                if (Taulell.getFinishCell(i,j) != TaulellCopiat.getFinishCell(i,j)) TaulellCopiat.switchFinishCell(i,j);
+                if (Taulell.getVisibleCell(i,j) != TaulellCopiat.getVisibleCell(i,j)) TaulellCopiat.switchVisibleCell(i,j);
+                if (Taulell.getValidaCell(i,j) != TaulellCopiat.getValidaCell(i,j)) TaulellCopiat.switchValidaCell(i,j);
             }
         }
     }
