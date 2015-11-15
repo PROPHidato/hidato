@@ -130,6 +130,7 @@ public class DriverClassesCompartides {
                                 s = input.next().charAt(0);
                             }
                         } else if (entrada2 == 2) {
+                            Taulell.
 
                         } else if (entrada2 == 3) {
 
