@@ -36,7 +36,6 @@ public class Funcions {
                         valormax = valor;
                     }
                     Taulell.setValueCell(valor, i, j);
-                    if (valor == -1) Taulell.switchValidaCell(i, j);
                 }
             }
             correcte = true; //per fer que funcioni ara, dsp més tard esborrar-ho
@@ -54,7 +53,7 @@ public class Funcions {
     public static void copiarBoard(BoardHidato TaulellCopiat, BoardHidato Taulell) {
         for (int i = 0; i < Taulell.getSize();i++) {
             for (int j = 0; j < Taulell.getSize();j++) {
-                TaulellCopiat.setValueCell(Taulell.getValueCell(i,j), i, j);
+                TaulellCopiat.setValueCell(Taulell.getValueCell(i, j), i, j);
                 TaulellCopiat.setFinish_i(Taulell.getFinish_i());
                 TaulellCopiat.setFinish_j(Taulell.getFinish_j());
                 TaulellCopiat.setStart_i(Taulell.getStart_i());
@@ -87,6 +86,7 @@ public class Funcions {
     }
 
     public static void posa_final(BoardHidato Taulell,int numfinal) {
+        System.out.println("lultim numero a posar es " + numfinal);
         boolean posatfinal = false;
         int size = Taulell.getSize();
         Random posifi = new Random();
@@ -108,9 +108,8 @@ public class Funcions {
     public static void generar_written(BoardHidato Taulell) {//posem al taulell les celes que al ppi estaran escrites
         //anar passant per totes les celes sensse repetirne cap
         //aleatoriament, anar posant visibles fins a arribar al maxim de visibles permeses per la dificultat
-        int numcela, numvisibles, posactui, posactuj, posi, posj, size, numfinal;
+        int numcela, numvisibles, posactui, posactuj, posi, posj, size;
         size = Taulell.getSize();
-        numfinal = size * size - Taulell.consultar_num_celesinvalides();
         numcela = numvisibles = 1; //comencem per la 1 i amb 1 cela visible
         posactui = Taulell.getStart_i();
         posactuj = Taulell.getStart_j();
@@ -118,7 +117,6 @@ public class Funcions {
         Random segj = new Random();
         double tantpercent = size * size * percentatgeceles();
         int totalsvisibles = (int) tantpercent;
-        posa_final(Taulell,numfinal); //POSEM LA ULTIMA CELA AL TAULELL
         while (numvisibles < totalsvisibles) {
             posi = segi.nextInt(size);
             posj = segj.nextInt(size);
@@ -131,8 +129,6 @@ public class Funcions {
                 Taulell.switchWrittenCell(posactui, posactuj);
             }
         }
-        Taulell.setValueCell(numcela,posactui,posactuj);
-        Taulell.switchWrittenCell(posactui,posactuj);
     }
     //if ()
     //posem tambe la ultima cela
@@ -223,19 +219,20 @@ public class Funcions {
         }
     }
     public static void colocar_celesinvalides(BoardHidato Taulell) {
-        int posades, size;
+        int posades, size, numfinal,numcelesinvalides;
         size = Taulell.getSize();
-        //colocarem aleatoriament 10 celes invalides.
+        numfinal = (size * size);
+        //System.out.println(numfinal);
         Random posi = new Random();
         Random posj = new Random();
         posades = 0;
         double tantpercent = size * size * percentatgeceles();
         int maxinvalides = (int) tantpercent;
-        System.out.println(percentatgeceles());
-        System.out.println(size);
-        System.out.println(size*size);
-        System.out.println(tantpercent);
-        System.out.println(maxinvalides);
+       // System.out.println(percentatgeceles());
+        //System.out.println(size);
+        //System.out.println(size*size);
+        //System.out.println(tantpercent);
+        //System.out.println(maxinvalides);
         while (posades < maxinvalides) {
             int row = posi.nextInt(size);   //fila random entre totes les celes totals
             int column = posj.nextInt(size); //columan random entre totes les celes totals
@@ -259,6 +256,9 @@ public class Funcions {
                 }
             }
         }
+        numcelesinvalides = Taulell.consultar_num_celesinvalides();
+        numfinal = numfinal - numcelesinvalides;
+        posa_final(Taulell,numfinal); //POSEM LA ULTIMA CELA AL TAULELL
     }
     public static boolean verificadorSolucio(BoardHidato Taulell) {
         int actual_i = Taulell.getStart_i();;
