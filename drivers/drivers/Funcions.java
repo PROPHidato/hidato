@@ -107,7 +107,7 @@ public class Funcions {
             if (!Taulell.getValidaCell(row + 1, column - 1)) ++inva;
             if (!Taulell.getValidaCell(row - 1, column + 1)) ++inva;
             System.out.println(inva + " invalides veines");
-            if (inva >= 7) return true;
+            if (inva >= 4) return true;
         }
         return false;
     }
