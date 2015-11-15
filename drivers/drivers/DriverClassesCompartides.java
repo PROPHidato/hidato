@@ -13,6 +13,7 @@ public class DriverClassesCompartides {
         Scanner input = new Scanner( System.in );
         int size;
         int entrada;
+        int entrada2;
         int column, row;
         int val1, val2, val3;
         int GameId = 1;
@@ -33,6 +34,7 @@ public class DriverClassesCompartides {
             dificultat = input.nextInt();
             Game Joc = new Game(GameId, dificultat);
             BoardHidato Taulell = new BoardHidato(size);
+            Boolean fi = false;
 
             System.out.printf("Benvingut a les proves de les classes Taulell i Cela. \nApretant els seguents numeros podras fer les seguents coses:\n");
             System.out.println("1 : Consultar la mida del taulell creat.");
@@ -50,6 +52,7 @@ public class DriverClassesCompartides {
             entrada = input.nextInt();
             while(entrada != -1) {
                 Character sn = 's';
+                Character s = 's';
                 if (entrada == 0) {
                     System.out.println("1 : Consultar la mida del taulell creat.");
                     System.out.println("2: Consultar usuari actual.");
@@ -93,6 +96,57 @@ public class DriverClassesCompartides {
                     Funcions.solve(Taulell, size);
                 }
                 else if(entrada == 8) {
+                    System.out.println("Benvingut a la partida del joc "+ Joc.getGameId() + ":");
+                    System.out.printf("Apretant els seguents numeros podras fer les seguents coses:\n");
+                    System.out.println("1 : Introduir valor a una cela.");
+                    System.out.println("2: Posar una marca a una cela.");
+                    System.out.println("3: Treure una marca a una cela.");
+                    System.out.println("4: Consultar marques que tenim a una cela.");
+                    System.out.println("5: Verificar si taulell ben resolt (un cop taulell complert).");
+                    System.out.println("-1: Sortir de la partida.");
+                    System.out.println("(0: ajuda)");
+                    entrada2 = input.nextInt();
+                    while(fi == false) {
+                        if (entrada2 == 0) {
+                            System.out.println("1 : Introduir valor a una cela.");
+                            System.out.println("2: Posar una marca a una cela.");
+                            System.out.println("3: Treure una marca a una cela.");
+                            System.out.println("4: Consultar marques que tenim a una cela.");
+                            System.out.println("5: Verificar si taulell ben resolt (un cop taulell complert).");
+                            System.out.println("-1: Sortir de la partida.");
+                        } else if (entrada2 == 1) {
+                            while (s == 's') {
+                                System.out.println("Introdueix el valor que vols posar i la fila i columna de la cela on ho vols posar:");
+                                val1 = input.nextInt();
+                                val2 = input.nextInt();
+                                val3 = input.nextInt();
+                                if ((val2 | val3) >= size) System.out.println("Has sortit fora del taulell.");
+                                else {
+                                    Taulell.setValueCell(val1, val2, val3);
+                                    Funcions.imprimeixValors(Taulell);
+                                }
+                                System.out.println("Vols introduir una altra cela? (s/n):");
+                                s = input.next().charAt(0);
+                            }
+                        } else if (entrada2 == 2) {
+
+                        } else if (entrada2 == 3) {
+
+                        } else if (entrada2 == 4) {
+
+                        } else if (entrada2 == 5) {
+                            if(Funcions.verificadorSolucio(Taulell)) {
+                                System.out.println("Ben resolt! Felicitats :)");
+                                fi = true;
+                            }
+                            else {
+                                System.out.println("Mal resolt :( Tornar-ho a intentar.");
+                            }
+                        } else if (entrada2 == -1) {
+                            //tornar a l'estat anterior.
+                        }
+                        entrada2 = input.nextInt();
+                    }
 
                 } else {
                     System.out.println("Numero no valid.");
@@ -107,7 +161,7 @@ public class DriverClassesCompartides {
                 System.out.println("Segur que no vols jugar un altre joc? (s/n)");
                 sortida = input.next().charAt(0);
             }
-            if (sortida == 'n') {
+                if (sortida == 'n') {
                 Funcions.netejaBoard(Taulell);
             }
         }
