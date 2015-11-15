@@ -57,7 +57,8 @@ public class DriverClassesCompartides {
                 Funcions.colocar_celesinvalides(Taulell);
                 System.out.println("numero celes invalides: " + Taulell.consultar_num_celesinvalides());
                 System.out.println("numero final: " + size*size+(-Taulell.consultar_num_celesinvalides()));
-                //Funcions.generar_written(Taulell);
+                Funcions.imprimeixValors(Taulell);
+                Funcions.generar_written(Taulell);
                 System.out.println("Generat:");
                 Funcions.imprimeixValors(Taulell);
                 generat = true;
