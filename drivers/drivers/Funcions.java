@@ -36,7 +36,6 @@ public class Funcions {
                         valormax = valor;
                     }
                     Taulell.setValueCell(valor, i, j);
-                    if (valor == -1) Taulell.switchValidaCell(i, j);
                 }
             }
             correcte = true; //per fer que funcioni ara, dsp més tard esborrar-ho
