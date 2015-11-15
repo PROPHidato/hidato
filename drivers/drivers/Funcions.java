@@ -38,14 +38,14 @@ public class Funcions {
                     Taulell.setValueCell(valor, i, j);
                 }
             }
-            if (solveBool(Taulell, Taulell.getSize())) {
+          /*  if (solveBool(Taulell, Taulell.getSize())) {
                 System.out.println("Hidato possible de resoldre.");
                 val = 'n';
             } else {
                 System.out.println("Hidato sense solucio possible. Vols tornar-ho a provar? (s/n)");
                 val = input.next().charAt(0);
                 if (val == 'n') netejaBoard(Taulell);
-            }
+            }*/
         }
     }
 
