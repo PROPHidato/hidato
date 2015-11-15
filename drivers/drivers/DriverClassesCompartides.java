@@ -82,7 +82,6 @@ public class DriverClassesCompartides {
                     System.out.println("Introdueix els valors del taullel per ordre.");
                     System.out.println("(Recorda: Com a minim s'han d'introduir el primer i ultim valor del Hidato. 0 = cela buida, -1 = cela invalida.)");
                     Funcions.llegirTaulell(Taulell);
-                    System.out.println("Taulell actualitzat.");
                 }else if(entrada == 6) {
                     System.out.println("Generant un taulell qualsevol . . .");
                     //funcio que generi el taulell
@@ -98,6 +97,11 @@ public class DriverClassesCompartides {
                     Funcions.solve(Taulell, size);
                 }
                 else if(entrada == 8) {
+                    Match Partida = new Match(dificultat);
+                    //fer coses amb partida
+                    BoardHidato TaulellAux = new BoardHidato(size);
+                    Funcions.copiarBoard(TaulellAux, Taulell);
+
                     System.out.println("Benvingut a la partida del joc "+ Joc.getGameId() + ":");
                     System.out.printf("Apretant els seguents numeros podras fer les seguents coses:\n");
                     System.out.println("1 : Introduir valor a una cela.");
@@ -155,6 +159,7 @@ public class DriverClassesCompartides {
                             }
                         } else if (entrada2 == -1) {
                             //tornar a l'estat anterior.
+                            Funcions.copiarBoard(Taulell,TaulellAux);
                             fi_joc = true;
                         }
                         entrada2 = input.nextInt();

@@ -62,6 +62,14 @@ public class Funcions {
         }
     }
 
+    public static void copiarBoard(BoardHidato TaulellCopiat, BoardHidato Taulell) {
+        for (int i = 0; i < Taulell.getSize();i++) {
+            for (int j = 0; j < Taulell.getSize();j++) {
+                TaulellCopiat.setValueCell(Taulell.getValueCell(i,j), i, j);
+            }
+        }
+    }
+
     public static void generar_written(BoardHidato Taulell){//posem al taulell les celes que al ppi estaran escrites
         //anar passant per totes les celes sensse repetirne cap
         //aleatoriament, anar posant visibles fins a arribar al maxim de visibles permeses per la dificultat
