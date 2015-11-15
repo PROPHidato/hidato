@@ -145,6 +145,7 @@ public class Funcions {
         solution = false;
     }
 
+
     static boolean posarainvalida(BoardHidato Taulell,int row,int column) {//si totes les celes veines o totes menys una son invalides, return true
         //primer les q tenen 3 al voltant
         int inva = 0;
@@ -229,6 +230,22 @@ public class Funcions {
             }
         }
     }
+    static void repassem_invalides(BoardHidato Taulell) {
+        int size = Taulell.getSize();
+        for (int i = 0; i < size; ++i) {
+            for (int j = 0; j < size; ++j) {
+                if (Taulell.getValidaCell(i, j)) {//si no es invalida mirem les del seu voltant
+                    //si totes o totes menys una son invalides, la canviem a invalida tambe
+                    System.out.println("comprovem " + i + " " + j);
+                    if (Taulell.getValueCell(i, j) == 0 && posarainvalida(Taulell, i, j)) {
+                        System.out.println("posem a invalida la casella " + i + " " + j);
+                        Taulell.incrementar_celesinvalides(i, j);
+                    }
+                }
+            }
+        }
+    }
+
     public static void colocar_celesinvalides(BoardHidato Taulell) {
         int posades, size, numfinal,numcelesinvalides;
         size = Taulell.getSize();
@@ -239,11 +256,6 @@ public class Funcions {
         posades = 0;
         double tantpercent = size * size * percentatgeceles();
         int maxinvalides = (int) tantpercent;
-       // System.out.println(percentatgeceles());
-        //System.out.println(size);
-        //System.out.println(size*size);
-        //System.out.println(tantpercent);
-        //System.out.println(maxinvalides);
         while (posades < maxinvalides) {
             int row = posi.nextInt(size);   //fila random entre totes les celes totals
             int column = posj.nextInt(size); //columan random entre totes les celes totals
@@ -255,18 +267,7 @@ public class Funcions {
             }
         }
         posa_start(Taulell);
-        for (int i = 0; i < size; ++i) {
-            for (int j = 0; j < size; ++j) {
-                if (Taulell.getValidaCell(i, j)) {//si no es invalida mirem les del seu voltant
-                    //si totes o totes menys una son invalides, la canviem a invalida tambe
-                    System.out.println("comprovem " + i + " " + j);
-                    if (Taulell.getValueCell(i,j) == 0 && posarainvalida(Taulell,i,j)) {
-                        System.out.println("posem a invalida la casella " + i + " " + j);
-                        Taulell.incrementar_celesinvalides(i, j);
-                    }
-                }
-            }
-        }
+        repassem_invalides(Taulell);
         numcelesinvalides = Taulell.consultar_num_celesinvalides();
         numfinal = numfinal - numcelesinvalides;
         posa_final(Taulell, numfinal); //POSEM LA ULTIMA CELA AL TAULELL
