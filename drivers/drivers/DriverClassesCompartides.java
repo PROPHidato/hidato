@@ -33,11 +33,8 @@ public class DriverClassesCompartides {
             dificultat = input.nextInt();
             Game Joc = new Game(GameId, dificultat);
             BoardHidato Taulell = new BoardHidato(size);
-            System.out.println("numero celes invalides: " + Taulell.consultar_num_celesinvalides());
-            System.out.println("numero final: " + size*size+(-Taulell.consultar_num_celesinvalides()));
 
-
-                    System.out.printf("Benvingut a les proves de les classes Taulell i Cela. \nApretant els seguents numeros podras fer les seguents coses:\n");
+            System.out.printf("Benvingut a les proves de les classes Taulell i Cela. \nApretant els seguents numeros podras fer les seguents coses:\n");
             System.out.println("1 : Consultar la mida del taulell creat.");
             System.out.println("2: Consultar usuari actual.");
             System.out.println("3: Consultar dificultat del joc actual.");
@@ -85,13 +82,16 @@ public class DriverClassesCompartides {
                     System.out.println("Generant un taulell qualsevol . . .");
                     //funcio que generi el taulell
                     Funcions.colocar_celesinvalides(Taulell);
-                    Funcions.generar_written(Taulell);
+                    System.out.println("numero celes invalides: " + Taulell.consultar_num_celesinvalides());
+                    System.out.println("numero final: " + size*size+(-Taulell.consultar_num_celesinvalides()));
+                    //Funcions.generar_written(Taulell);
                     System.out.println("Generat:");
                     Funcions.imprimeixValors(Taulell);
                 } else if(entrada == 7) {
                     System.out.println("Resolent el taulell . . .");
                     System.out.println("Resolt:");
                     Funcions.solve(Taulell, size);
+                    Funcions.imprimeixValors(Taulell);
                 }
                 else if(entrada == 8) {
 
