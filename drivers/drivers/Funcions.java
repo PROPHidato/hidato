@@ -358,11 +358,11 @@ public class Funcions {
         //System.out.println("comparador " + comparador);
         //System.out.println();
         //imprimeixValors(Taulell);
-        /*for (int k=0; k <size; ++k) {
+        for (int k=0; k <size; ++k) {
             for (int p = 0; p < size; ++p){
                 if (Taulell.getValidaCell(k,p) && Taulell.getValueCell(k,p) == 0) espais_blancs= true;
             }
-        }*/
+        }
 
 
         return (comprovant==comparador && !espais_blancs);
