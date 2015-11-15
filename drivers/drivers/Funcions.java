@@ -36,7 +36,6 @@ public class Funcions {
                         valormax = valor;
                     }
                     Taulell.setValueCell(valor, i, j);
-                    if (valor != 0) Taulell.switchWrittenCell(i,j);
                 }
             }
             val = 'n'; //per fer que funcioni ara
@@ -74,9 +73,9 @@ public class Funcions {
                 TaulellCopiat.setStart_j(Taulell.getStart_j());
                 if (Taulell.getWrittenCell(i,j) != TaulellCopiat.getWrittenCell(i,j)) TaulellCopiat.switchWrittenCell(i,j);
                 if (Taulell.getStartCell(i,j) != TaulellCopiat.getStartCell(i, j)) TaulellCopiat.switchStartCell(i,j);
-                if (Taulell.getFinishCell(i,j) != TaulellCopiat.getFinishCell(i,j)) TaulellCopiat.switchFinishCell(i,j);
-                if (Taulell.getVisibleCell(i,j) != TaulellCopiat.getVisibleCell(i,j)) TaulellCopiat.switchVisibleCell(i,j);
-                if (Taulell.getValidaCell(i,j) != TaulellCopiat.getValidaCell(i,j)) TaulellCopiat.switchValidaCell(i,j);
+                if (Taulell.getFinishCell(i, j) != TaulellCopiat.getFinishCell(i, j)) TaulellCopiat.switchFinishCell(i,j);
+                if (Taulell.getVisibleCell(i, j) != TaulellCopiat.getVisibleCell(i, j)) TaulellCopiat.switchVisibleCell(i,j);
+                if (Taulell.getValidaCell(i, j) != TaulellCopiat.getValidaCell(i, j)) TaulellCopiat.switchValidaCell(i,j);
             }
         }
     }

@@ -110,6 +110,7 @@ public class DriverClassesCompartides {
                 else if(entrada == 6) {
                     Match Partida = new Match(dificultat);
                     //fer coses amb partida
+
                     BoardHidato TaulellAux = new BoardHidato(size);
                     Funcions.imprimeixValors(TaulellAux);
                     Funcions.copiarBoard(TaulellAux, Taulell);
