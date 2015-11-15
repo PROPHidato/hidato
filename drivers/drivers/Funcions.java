@@ -132,6 +132,25 @@ public class Funcions {
         return percentatge;
 
     }
+
+    public static void posa_start(BoardHidato Taulell){
+        boolean posatinici = false;
+        int size = Taulell.getSize();
+        Random posiini = new Random();
+        Random posjini = new Random();
+        int rowini, columnini;
+        while (!posatinici) {
+            rowini = posiini.nextInt(size);
+            columnini = posjini.nextInt(size);
+            if (Taulell.getValidaCell(rowini, columnini)) {
+                Taulell.setValueCell(1, rowini, columnini);
+                Taulell.switchWrittenCell(rowini, columnini);
+                Taulell.setStart_i(rowini);
+                Taulell.setStart_j(columnini);
+                posatinici = true;
+            }
+        }
+    }
     public static void colocar_celesinvalides(BoardHidato Taulell) {
         int posades, size;
         size = Taulell.getSize();
@@ -153,21 +172,7 @@ public class Funcions {
                 ++posades;
             }
         }
-        boolean posatinici = false;
-        Random posiini = new Random();
-        Random posjini = new Random();
-        int rowini, columnini;
-        while (!posatinici) {
-            rowini = posiini.nextInt(size);
-            columnini = posjini.nextInt(size);
-            if (Taulell.getValidaCell(rowini, columnini)) {
-                Taulell.setValueCell(1, rowini, columnini);
-                Taulell.switchWrittenCell(rowini, columnini);
-                Taulell.setStart_i(rowini);
-                Taulell.setStart_j(columnini);
-                posatinici = true;
-            }
-        }
+        posa_start(Taulell);
         for (int i = 0; i < size; ++i) {
             for (int j = 0; j < size; ++j) {
                 if (Taulell.getValidaCell(i, j)) {//si no es invalida mirem les del seu voltant
