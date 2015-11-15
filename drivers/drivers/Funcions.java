@@ -38,7 +38,7 @@ public class Funcions {
                     Taulell.setValueCell(valor, i, j);
                 }
             }
-            correcte = true; //per fer que funcioni ara
+            correcte = true; //per fer que funcioni ara, dsp més tard esborrar-ho
           /*  if (solveBool(Taulell, Taulell.getSize())) {
                 System.out.println("Hidato possible de resoldre.");
                 correcte = true;
