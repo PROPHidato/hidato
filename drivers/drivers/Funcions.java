@@ -18,13 +18,13 @@ public class Funcions {
         out.println();
     }
 
-    public static void llegirTaulell(BoardHidato Taulell)   {
+    public static void llegirTaulell(BoardHidato Taulell, int size)   {
         int valor;
         int valormax = 1;
         Scanner input = new Scanner( System.in );
 
-        for (int i = 0; i < Taulell.getSize(); ++i)  {
-            for (int j = 0; j < Taulell.getSize(); ++j)  {
+        for (int i = 0; i < size; ++i)  {
+            for (int j = 0; j < size; ++j)  {
                 valor = input.nextInt();
                 if (valor == 1) {
                     Taulell.setStart_i(i);
@@ -38,20 +38,6 @@ public class Funcions {
             }
         }
         //Aqui mirar si es podria resoldre, si es pot ok, sinó merda.
-    }
-
-    public static void netejaBoard(BoardHidato Taulell) {
-        for (int i = 0; i < Taulell.getSize(); ++i) {
-            for (int j = 0; j < Taulell.getSize(); ++j) {
-                Taulell.setValueCell(0,i,j);
-                if (Taulell.getWrittenCell(i, j) == true) Taulell.switchWrittenCell(i, j);
-                else if (Taulell.getVisibleCell(i, j) == true) Taulell.switchVisibleCell(i, j);
-                else if (Taulell.getValidaCell(i,j) == false) Taulell.switchValidaCell(i,j);
-                else if (Taulell.getStartCell(i,j) == true) Taulell.switchStartCell(i, j);
-                else if (Taulell.getFinishCell(i,j) == true) Taulell.switchFinishCell(i, j);
-            }
-        }
-
     }
 
     public static void generar_written(BoardHidato Taulell){//posem al taulell les celes que al ppi estaran escrites
@@ -162,29 +148,26 @@ public class Funcions {
             rowini = posiini.nextInt(size);
             columnini = posjini.nextInt(size);
             if (Taulell.getValidaCell(rowini, columnini)) {
-                if (Taulell.getValidaCell(rowini, columnini)) {
-                    Taulell.setValueCell(1, rowini, columnini);
-                    Taulell.switchWrittenCell(rowini, columnini);
-                    Taulell.setStart_i(rowini);
-                    Taulell.setStart_j(columnini);
-                    posatinici = true;
-                }
+                Taulell.setValueCell(1, rowini, columnini);
+                Taulell.switchWrittenCell(rowini, columnini);
+                Taulell.setStart_i(rowini);
+                Taulell.setStart_j(columnini);
+                posatinici = true;
             }
-            for (int i = 0; i < size; ++i) {
-                for (int j = 0; j < size; ++j) {
-                    if (Taulell.getValidaCell(i, j)) {//si no es invalida mirem les del seu voltant
-                        //si totes o totes menys una son invalides, la canviem a invalida tambe
-                        System.out.println("comprovem " + i + " " + j);
-                        if (posarainvalida(Taulell, i, j)) {
-                            System.out.println("posem a invalida la casella " + i + " " + j);
-                            Taulell.incrementar_celesinvalides(i, j);
-                        }
+        }
+        for (int i = 0; i < size; ++i) {
+            for (int j = 0; j < size; ++j) {
+                if (Taulell.getValidaCell(i, j)) {//si no es invalida mirem les del seu voltant
+                    //si totes o totes menys una son invalides, la canviem a invalida tambe
+                    System.out.println("comprovem " + i + " " + j);
+                    if (posarainvalida(Taulell,i,j)) {
+                        System.out.println("posem a invalida la casella " + i + " " + j);
+                        Taulell.incrementar_celesinvalides(i, j);
                     }
                 }
             }
         }
     }
-
     public static boolean verificadorSolucio(BoardHidato Taulell) {
         int actual_i = Taulell.getStart_i();;
         int actual_j = Taulell.getStart_j();
