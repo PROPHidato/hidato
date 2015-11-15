@@ -18,13 +18,13 @@ public class Funcions {
         out.println();
     }
 
-    public static void llegirTaulell(BoardHidato Taulell, int size)   {
+    public static void llegirTaulell(BoardHidato Taulell)   {
         int valor;
         int valormax = 1;
         Scanner input = new Scanner( System.in );
 
-        for (int i = 0; i < size; ++i)  {
-            for (int j = 0; j < size; ++j)  {
+        for (int i = 0; i < Taulell.getSize(); ++i)  {
+            for (int j = 0; j < Taulell.getSize(); ++j)  {
                 valor = input.nextInt();
                 if (valor == 1) {
                     Taulell.setStart_i(i);
