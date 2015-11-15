@@ -34,7 +34,7 @@ public class DriverClassesCompartides {
             dificultat = input.nextInt();
             Game Joc = new Game(GameId, dificultat);
             BoardHidato Taulell = new BoardHidato(size);
-            Boolean fi = false;
+            Boolean fi_joc = false;
 
             System.out.printf("Benvingut a les proves de les classes Taulell i Cela. \nApretant els seguents numeros podras fer les seguents coses:\n");
             System.out.println("1 : Consultar la mida del taulell creat.");
@@ -78,7 +78,8 @@ public class DriverClassesCompartides {
                     System.out.println("Taulell actual:");
                     Funcions.imprimeixValors(Taulell);
                 } else if(entrada == 5) {
-                    System.out.println("Introdueix els valors del taullel per ordre (Recorda 0 = cela buida)");
+                    System.out.println("Introdueix els valors del taullel per ordre.");
+                    System.out.println("(Recorda: Com a minim s'han d'introduir el primer i ultim valor del Hidato. 0 = cela buida, -1 = cela invalida.)");
                     Funcions.llegirTaulell(Taulell);
                     System.out.println("Taulell actualitzat.");
                 }else if(entrada == 6) {
@@ -106,7 +107,7 @@ public class DriverClassesCompartides {
                     System.out.println("-1: Sortir de la partida.");
                     System.out.println("(0: ajuda)");
                     entrada2 = input.nextInt();
-                    while(fi == false) {
+                    while(fi_joc == false) {
                         if (entrada2 == 0) {
                             System.out.println("1 : Introduir valor a una cela.");
                             System.out.println("2: Posar una marca a una cela.");
@@ -137,13 +138,14 @@ public class DriverClassesCompartides {
                         } else if (entrada2 == 5) {
                             if(Funcions.verificadorSolucio(Taulell)) {
                                 System.out.println("Ben resolt! Felicitats :)");
-                                fi = true;
+                                fi_joc = true;
                             }
                             else {
                                 System.out.println("Mal resolt :( Tornar-ho a intentar.");
                             }
                         } else if (entrada2 == -1) {
                             //tornar a l'estat anterior.
+                            fi_joc = true;
                         }
                         entrada2 = input.nextInt();
                     }
