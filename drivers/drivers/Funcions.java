@@ -99,9 +99,9 @@ public class Funcions {
         while (!posatfinal) {
             rowfi = posifi.nextInt(size);
             columnfi = posjfi.nextInt(size);
-            if (Taulell.getValidaCell(rowfi, columnfi)) {
+            if (Taulell.getValidaCell(rowfi, columnfi) && Taulell.getValueCell(rowfi,columnfi) == 0) {
                 Taulell.setValueCell(numfinal, rowfi, columnfi);
-                Taulell.switchWrittenCell(rowfi, columnfi);
+                //Taulell.switchWrittenCell(rowfi, columnfi);
                 Taulell.setStart_i(rowfi);
                 Taulell.setStart_j(columnfi);
                 posatfinal = true;
@@ -222,7 +222,7 @@ public class Funcions {
             columnini = posjini.nextInt(size);
             if (Taulell.getValidaCell(rowini, columnini)) {
                 Taulell.setValueCell(1, rowini, columnini);
-                Taulell.switchWrittenCell(rowini, columnini);
+                //Taulell.switchWrittenCell(rowini, columnini);
                 Taulell.setStart_i(rowini);
                 Taulell.setStart_j(columnini);
                 posatinici = true;
