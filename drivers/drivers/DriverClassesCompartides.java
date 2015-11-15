@@ -75,6 +75,7 @@ public class DriverClassesCompartides {
             System.out.println("5 : Resoldre el taulell la màquina (acabar de fer be)."); //valors dins Taulell, true/false
             System.out.println("6 : Fer una partida al joc.");
             System.out.println("-1 : Sortir.");
+            System.out.println("Com a usuari et volem advertir que les celes van de [0][0] a [size-1][size-1]!");
             System.out.println("(Si t'oblides dels numeros, posant la paraula el numero 0 et sortira un manual per recordar-t'ho)");
             System.out.println();
 
