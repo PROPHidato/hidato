@@ -27,7 +27,7 @@ public class DriverClassesCompartides {
         //CONTROLAR ENRTADA DE TEXT A LES OPCIONS (no chars etc)
         while(sortida == 'n') {
             System.out.println("Estàs al Joc " + GameId + ".");
-            System.out.printf("Entra mida taulell:  ");
+            System.out.printf("Entra mida del taulell:  ");
             size = input.nextInt();
             System.out.println("Introdueix la dificultat (1 = facil, 2 = mitja, 3 = dificil)");
             dificultat = input.nextInt();
@@ -45,7 +45,7 @@ public class DriverClassesCompartides {
             System.out.println("4 : Consultar estat actual del taulell.");
             System.out.println("5 : Introduir un taulell (0 = cela buida, -1 = invalida).");
             System.out.println("6 : Crear un taulell aleatoriament (Encara s'ha d'implementar).");
-            System.out.println("7 : Resoldre el taulell la màquina (Encara s'ha d'implementar).");
+            System.out.println("7 : Resoldre el taulell la màquina (acabar de fer).");
             System.out.println("8 : Partida al joc.");
             System.out.println("-1 : Sortir.");
             System.out.println("(Si t'oblides dels numeros, posant la paraula el numero 0 et sortira un manual per recordar-t'ho)");
@@ -61,7 +61,7 @@ public class DriverClassesCompartides {
                     System.out.println("4 : Consultar estat actual del taulell.");
                     System.out.println("5 : Introduir un taulell (0 = cela buida, -1 = invalida).");
                     System.out.println("6 : Crear un taulell aleatoriament (Encara s'ha d'implementar).");
-                    System.out.println("7 : Resoldre el taulell la màquina (Encara s'ha d'implementar).");
+                    System.out.println("7 : Resoldre el taulell la màquina (acabar de fer).");
                     System.out.println("8 : Partida al joc.");
                     System.out.println("-1 : Sortir.");
                     System.out.println();
@@ -90,16 +90,13 @@ public class DriverClassesCompartides {
                     Funcions.imprimeixValors(Taulell);
                 } else if(entrada == 7) {
                     System.out.println("Resolent el taulell . . .");
-
-                    //funcio que resolgui el taulell
-                    //System.out.println("Resolt:");
+                    System.out.println("Resolt:");
                     Funcions.solve(Taulell, size);
-                    //Funcions.imprimeixValors(Taulell);
+                    Funcions.imprimeixValors(Taulell);
                 }
                 else if(entrada == 8) {
 
-                }
-                else {
+                } else {
                     System.out.println("Numero no valid.");
                 }
                 entrada = input.nextInt();
