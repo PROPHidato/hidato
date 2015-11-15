@@ -5,6 +5,7 @@ import java.util.*;
 import static java.lang.System.out;
 
 public class Funcions {
+    public static boolean solution = false;
 
     public static void imprimeixValors(BoardHidato Taulell) {
         for (int i = 0; i < Taulell.getSize();i++) {
@@ -39,13 +40,15 @@ public class Funcions {
                 }
             }
             correcte = true; //per fer que funcioni ara, dsp més tard esborrar-ho
-          /*  if (solveBool(Taulell, Taulell.getSize())) {
+            solveBool(Taulell, Taulell.getSize());
+            if (solution) {
                 System.out.println("Hidato possible de resoldre.");
                 correcte = true;
             } else {
                 System.out.println("Hidato sense solucio possible. Torna-ho a provar.");
                 netejaBoard(Taulell);
-            }*/
+            }
+            solution = false;
         }
     }
 
@@ -258,7 +261,7 @@ public class Funcions {
         }
         numcelesinvalides = Taulell.consultar_num_celesinvalides();
         numfinal = numfinal - numcelesinvalides;
-        posa_final(Taulell,numfinal); //POSEM LA ULTIMA CELA AL TAULELL
+        posa_final(Taulell, numfinal); //POSEM LA ULTIMA CELA AL TAULELL
     }
     public static boolean verificadorSolucio(BoardHidato Taulell) {
         int actual_i = Taulell.getStart_i();;
@@ -368,38 +371,41 @@ public class Funcions {
         if (comprovar(Taulell, intermitjos, X, Y,countsize, size)) {
             imprimeixValors(Taulell);
 
+
         }
 
         else  {
-            //imprimeixValors(Taulell);
-            //System.out.println();
-            //System.out.println("entro");
-            for (int i= 0; i < 8; ++i ) {
-                if (startx+X[i] >=0 && startx+X[i] < size && starty+Y[i] >= 0 && starty+Y[i] < size) {
-                    //System.out.println((startx + X[i])+ " "+(starty + Y[i]));
-                    //System.out.println(size);
-                    //if (startx + X[i] < size && startx + X[i] >= 0 && startx + Y[i] < size && startx + Y[i] >= 0) {
-                    if (!visitats[startx + X[i]][starty + Y[i]]) {
-                        if (!Taulell.getWrittenCell(startx + X[i], starty + Y[i])|| (Taulell.getWrittenCell(startx + X[i], starty + Y[i]) && Taulell.getValueCell(startx + X[i], starty + Y[i]) == current)) {
-                            if (!Taulell.getWrittenCell(startx + X[i], starty + Y[i])) {
-                                Taulell.setValueCell(current, startx + X[i], starty + Y[i]);
-                                canviat = true;
+
+                //imprimeixValors(Taulell);
+                //System.out.println();
+                //System.out.println("entro");
+                for (int i = 0; i < 8; ++i) {
+                    if (startx + X[i] >= 0 && startx + X[i] < size && starty + Y[i] >= 0 && starty + Y[i] < size) {
+                        //System.out.println((startx + X[i])+ " "+(starty + Y[i]));
+                        //System.out.println(size);
+                        //if (startx + X[i] < size && startx + X[i] >= 0 && startx + Y[i] < size && startx + Y[i] >= 0) {
+                        if (!visitats[startx + X[i]][starty + Y[i]]) {
+                            if (!Taulell.getWrittenCell(startx + X[i], starty + Y[i]) || (Taulell.getWrittenCell(startx + X[i], starty + Y[i]) && Taulell.getValueCell(startx + X[i], starty + Y[i]) == current)) {
+                                if (!Taulell.getWrittenCell(startx + X[i], starty + Y[i])) {
+                                    Taulell.setValueCell(current, startx + X[i], starty + Y[i]);
+                                    canviat = true;
+                                }
+                                visitats[startx + X[i]][starty + Y[i]] = true;
+                                //System.out.println("entro");
+                                backtrack(Taulell, visitats, intermitjos, startx + X[i], starty + Y[i], X, Y, current + 1, countsize, size);
+                                visitats[startx + X[i]][starty + Y[i]] = false;
+                                if (canviat) {
+                                    Taulell.setValueCell(0, startx + X[i], starty + Y[i]);
+                                    Taulell.switchWrittenCell(startx + X[i], starty + Y[i]);
+                                    canviat = false;
+                                }
                             }
-                            visitats[startx + X[i]][starty + Y[i]] = true;
-                            //System.out.println("entro");
-                            backtrack(Taulell, visitats, intermitjos, startx + X[i], starty + Y[i], X, Y, current + 1, countsize, size);
-                            visitats[startx + X[i]][starty + Y[i]] = false;
-                            if (canviat) {
-                                Taulell.setValueCell(0, startx + X[i], starty + Y[i]);
-                                Taulell.switchWrittenCell(startx + X[i], starty + Y[i]);
-                                canviat = false;
-                            }
+
                         }
 
                     }
-
                 }
-            }
+
         }
         //System.out.println("acabat");
     }
@@ -407,15 +413,15 @@ public class Funcions {
 
     public static void solve (BoardHidato Taulell, int size)    {   //de moment ho farem amb un taulell arbitrari
 
-        Taulell.setValueCell(1, 0, 0);
+        /*Taulell.setValueCell(1, 0, 0);
 
         Taulell.setValueCell(-1,1,0);
         Taulell.switchValidaCell(1, 0);
 
-        Taulell.setValueCell(8,2,0);
+        Taulell.setValueCell(8,2,0);*/
 
 
-        imprimeixValors(Taulell);
+        //imprimeixValors(Taulell);
 
         int startx = 0;  //i de la primera cela
         int starty = 0;  //j de la ultima cela
@@ -490,14 +496,14 @@ public class Funcions {
         backtrack(Taulell, visitats, intermitjos, startx, starty, X, Y, current,countsize,size);  //resoldre taulell
     }
 
-    public static boolean backtrackBool(BoardHidato Taulell, boolean[][] visitats, CellHidato[] intermitjos,int startx, int starty, Integer X[], Integer Y[], int current, int countsize, int size, boolean solucio)   {
+    public static void backtrackBool(BoardHidato Taulell, boolean[][] visitats, CellHidato[] intermitjos,int startx, int starty, Integer X[], Integer Y[], int current, int countsize, int size)   {
         // Fent servir el taulell, la matriu de visitats, el punt de start i el punt de finish,
         // resoldre el taulell i posar els valors de caselles not written als que toquen
         //Boolean acabat = false;
         Boolean canviat = false;
         if (comprovar(Taulell, intermitjos, X, Y,countsize, size)) {
             //imprimeixValors(Taulell);
-            solucio = true;
+            solution = true;
 
         }
 
@@ -518,7 +524,7 @@ public class Funcions {
                             }
                             visitats[startx + X[i]][starty + Y[i]] = true;
                             //System.out.println("entro");
-                            backtrackBool(Taulell, visitats, intermitjos, startx + X[i], starty + Y[i], X, Y, current + 1, countsize, size, solucio);
+                            backtrackBool(Taulell, visitats, intermitjos, startx + X[i], starty + Y[i], X, Y, current + 1, countsize, size);
                             visitats[startx + X[i]][starty + Y[i]] = false;
                             if (canviat) {
                                 Taulell.setValueCell(0, startx + X[i], starty + Y[i]);
@@ -533,7 +539,7 @@ public class Funcions {
             }
         }
         //System.out.println("acabat");
-        return solucio;
+
     }
 
     public static boolean solveBool (BoardHidato Taulell, int size)    {   //de moment ho farem amb un taulell arbitrari
@@ -610,7 +616,7 @@ public class Funcions {
         //System.out.println("valor de 2 " + intermitjos[2].getValue());
 
         int current = 2;
-        solucio = backtrackBool(Taulell, visitats, intermitjos, startx, starty, X, Y, current, countsize, size, solucio);  //resoldre taulell
+        backtrackBool(Taulell, visitats, intermitjos, startx, starty, X, Y, current, countsize, size);  //resoldre taulell
         return solucio;
     }
 }
