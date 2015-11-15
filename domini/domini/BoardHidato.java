@@ -16,7 +16,7 @@ import java.util.*;
 
 
 public class BoardHidato extends Board {
-    private static int max_annotations; //màxim nombre de marques que poden tenir les cel·es del taulell.
+    static int max_annotations; //màxim nombre de marques que poden tenir les cel·es del taulell.
     private static int num_celesinvalides;
     private int start_i;
     private int start_j;
@@ -24,7 +24,7 @@ public class BoardHidato extends Board {
     private int finish_j;
 
     public BoardHidato(int size) {
-        super(size); // Fer la creadora
+        super(size);
         ArrayList<ArrayList<CellHidato>> board = new ArrayList<ArrayList<CellHidato>>(size);
         for (int i=0;i < board.size();++i) {
             board.add(new ArrayList<CellHidato>(size));
@@ -56,9 +56,17 @@ public class BoardHidato extends Board {
         board.get(row).get(column).setValue(-1);
     }
 
-    public boolean getValidaCell(int row, int column) {return (board.get(row).get(column).getValida());}
+    public boolean getValidaCell(int row, int column) {return board.get(row).get(column).getValida();}
 
     public static void switchValidaCell (int row, int column) {board.get(row).get(column).switchValida();}
+
+    public boolean getStartCell(int row, int column) {return board.get(row).get(column).getStart();}
+
+    public void switchStartCell(int row, int column) {board.get(row).get(column).switchStart();}
+
+    public boolean getFinishCell(int row, int column) {return board.get(row).get(column).getFinish();}
+
+    public void switchFinishCell(int row, int column) {board.get(row).get(column).switchFinish();}
 
     public CellHidato getCell(int i, int j) {return board.get(i).get(j);}
 

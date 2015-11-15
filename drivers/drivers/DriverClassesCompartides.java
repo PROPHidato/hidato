@@ -78,7 +78,7 @@ public class DriverClassesCompartides {
                     Funcions.imprimeixValors(Taulell);
                 } else if(entrada == 5) {
                     System.out.println("Introdueix els valors del taullel per ordre (Recorda 0 = cela buida)");
-                    Funcions.llegirTaulell(Taulell, size);
+                    Funcions.llegirTaulell(Taulell);
                     System.out.println("Taulell actualitzat.");
                 }/*else if(entrada == 6) {
                     System.out.println("Generant un taulell qualsevol . . .");
@@ -108,6 +108,9 @@ public class DriverClassesCompartides {
                 System.out.println("Valor introduit erroni: s = si, n = no.");
                 System.out.println("Segur que no vols jugar un altre joc? (s/n)");
                 sortida = input.next().charAt(0);
+            }
+            if (sortida == 'n') {
+                Funcions.netejaBoard(Taulell);
             }
         }
         System.out.println("Fi de les proves.");

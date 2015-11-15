@@ -52,9 +52,8 @@ public class Board {
 
     public boolean getVisibleCell(int row, int column) {return (board.get(row).get(column).getVisible());}
 
-    public void setVisibleCell (int row, int column) {board.get(row).get(column).switchVisible();}
+    public void switchVisibleCell (int row, int column) {board.get(row).get(column).switchVisible();}
 
-    // proves daixo
     public boolean getWrittenCell(int row, int column) {return (board.get(row).get(column).getWritten());}
 
     public void switchWrittenCell (int row, int column) {board.get(row).get(column).switchWritten();}
