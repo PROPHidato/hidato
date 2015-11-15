@@ -177,7 +177,7 @@ public class Funcions {
                     //si totes o totes menys una son invalides, la canviem a invalida tambe
                     System.out.println("comprovem " + i + " " + j);
                     if (Taulell.getValueCell(i,j) == 0 && posarainvalida(Taulell,i,j)) {
-                        System.out.println("posem a invalida la casella " + i + " " + j);
+                        System.out.println("posem a invalid la casella " + i + " " + j);
                         Taulell.incrementar_celesinvalides(i, j);
                     }
                 }
