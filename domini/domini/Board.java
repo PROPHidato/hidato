@@ -44,7 +44,7 @@ public class Board {
 
     public void setValueCell(int value, int row, int column) {
         board.get(row).get(column).setValue(value);
-       // if (getValueCell(row,column) != 0) switchWrittenCell(row,column);
+       if (getValueCell(row,column) != 0) switchWrittenCell(row,column);
     }
 
     public void setValProvCell(int value, int row, int column) {

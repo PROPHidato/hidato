@@ -110,7 +110,7 @@ public class DriverClassesCompartides {
                 } else if(entrada == 5) {
                     System.out.println("Resolent el taulell . . .");
                     System.out.println("Resolt:");
-                    Taulell = Funcions.solve(Taulell, size);
+                    Funcions.solve(Taulell, size);
 
                 }
                 else if(entrada == 6) {
