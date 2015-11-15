@@ -329,7 +329,7 @@ public class Funcions {
 
 
 
-
+/*
         //Taulell.setValueCell(17, 0, 0);
         //Taulell.switchValidaCell(0,0);
         //System.out.println("[0][0] Valida?: " + Taulell.getValidaCell(0,0));
@@ -446,7 +446,7 @@ public class Funcions {
         Taulell.switchValidaCell(7,3);
         Taulell.switchValidaCell(7,4);
         Taulell.switchValidaCell(7,5);
-        Taulell.setValueCell(5, 7, 6);
+        Taulell.setValueCell(5, 7, 6);*/
 
 
 
