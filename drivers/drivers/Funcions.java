@@ -370,12 +370,12 @@ public class Funcions {
         Boolean canviat = false;
         if (comprovar(Taulell, intermitjos, X, Y,countsize, size)) {
             imprimeixValors(Taulell);
-
+            solution = true;
 
         }
 
         else  {
-
+            if (!solution) {
                 //imprimeixValors(Taulell);
                 //System.out.println();
                 //System.out.println("entro");
@@ -405,7 +405,7 @@ public class Funcions {
 
                     }
                 }
-
+            }
         }
         //System.out.println("acabat");
     }
