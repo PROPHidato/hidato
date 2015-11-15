@@ -127,6 +127,7 @@ public class DriverClassesCompartides {
                     System.out.println("4: Verificar si taulell ben resolt (un cop taulell complert).");
                     System.out.println("-1: Sortir de la partida.");
                     System.out.println("(0: ajuda)");
+                    Funcions.imprimeixValors(TaulellAux);
                     entrada2 = input.nextInt();
                     while(fi_joc == false) {
                         if (entrada2 == 0) {
@@ -141,10 +142,10 @@ public class DriverClassesCompartides {
                                 val1 = input.nextInt();
                                 val2 = input.nextInt();
                                 val3 = input.nextInt();
-                                if ((val2 | val3) >= TaulellAux.getSize()) System.out.println("Has sortit fora del taulell.");
+                                if ((val2 >= TaulellAux.getSize()) || (val2 >= TaulellAux.getSize())) System.out.println("Has sortit fora del taulell.");
                                 else if (TaulellAux.getWrittenCell(val2,val3) == true)  System.out.println("Cela no modificable.");
                                 else {
-                                    TaulellAux.setValueCell(val1, val2, val3);
+                                    TaulellAux.setValProvCell(val1, val2, val3);
                                     Funcions.imprimeixValors(TaulellAux);
                                 }
                                 System.out.println("Vols introduir una altra cela? (s/n):");
@@ -179,15 +180,18 @@ public class DriverClassesCompartides {
                             fi_joc = true;
                         }
                         if (fi_joc == false) {
-                            System.out.println("Al menu de partida.");
+                            System.out.println("Taulell:");
+                            Funcions.imprimeixValors(TaulellAux);
+                            System.out.println("Estas al menu de partida.");
                             entrada2 = input.nextInt();
                         }
+
                     }
 
                 } else {
                     System.out.println("Numero no valid.");
                 }
-                System.out.println("Al menu del joc.");
+                System.out.println("Estas al menu del joc.");
                 entrada = input.nextInt();
             }
             ++GameId;
