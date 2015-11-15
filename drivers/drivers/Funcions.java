@@ -40,6 +40,19 @@ public class Funcions {
         //Aqui mirar si es podria resoldre, si es pot ok, sinó merda.
     }
 
+    public static void netejaBoard(BoardHidato Taulell) {
+        for (int i = 0; i < Taulell.getSize(); ++i) {
+            for (int j = 0; j < Taulell.getSize(); ++j) {
+                Taulell.setValueCell(0,i,j);
+                if (Taulell.getWrittenCell(i,j) == true) Taulell.switchWrittenCell(i,j);
+                else if (Taulell.getVisibleCell(i,j) == true) Taulell.switchVisibleCell(i,j);
+                else if (Taulell.getStartCell(i,j) == true) Taulell.switchStartCell(i,j);
+                else if (Taulell.getFinishCell(i,j) == true) Taulell.switchFinishCell(i,j);
+                else if (Taulell.getValidaCell(i,j) == false) Taulell.switchValidaCell(i,j);
+            }
+        }
+    }
+
     public static void generar_written(BoardHidato Taulell){//posem al taulell les celes que al ppi estaran escrites
         //anar passant per totes les celes sensse repetirne cap
         //aleatoriament, anar posant visibles fins a arribar al maxim de visibles permeses per la dificultat
