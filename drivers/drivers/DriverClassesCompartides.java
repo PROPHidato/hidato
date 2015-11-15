@@ -15,7 +15,6 @@ public class DriverClassesCompartides {
         int select;
         int entrada;
         int entrada2;
-        int column, row;
         int val1, val2, val3;
         int marca;
         int GameId = 1;
@@ -28,7 +27,6 @@ public class DriverClassesCompartides {
         Player Jugador = new Player(nom);
 
 
-        //CONTROLAR ENRTADA DE TEXT A LES OPCIONS (no chars etc)
         while(sortida == 'n') {
 
             System.out.println("Estàs al Joc " + GameId + ".");
@@ -149,8 +147,13 @@ public class DriverClassesCompartides {
                                     TaulellAux.setValProvCell(val1, val2, val3);
                                     Funcions.imprimeixValors(TaulellAux);
                                 }
-                                System.out.println("Vols introduir una altra cela? (s/n):");
+                                System.out.println("Vols introduir una altra cela? (s/n)");
                                 s = input.next().charAt(0);
+                                while (s != 's' && s != 'n')        {
+                                    System.out.println("Valor introduit erroni: s = si, n = no.");
+                                    System.out.println("Vols introduir una altra cela? (s/n))");
+                                    s = input.next().charAt(0);
+                                }
                             }
                         } else if (entrada2 == 2) {
                             System.out.println("Introdueix fila i columna de cela on vols posar/treure la marca.");
@@ -186,9 +189,7 @@ public class DriverClassesCompartides {
                             System.out.println("Estas al menu de partida.");
                             entrada2 = input.nextInt();
                         }
-
                     }
-
                 } else {
                     System.out.println("Numero no valid.");
                 }

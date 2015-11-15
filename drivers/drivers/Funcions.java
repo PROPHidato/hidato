@@ -21,9 +21,9 @@ public class Funcions {
     public static void llegirTaulell(BoardHidato Taulell)   {
         int valor;
         int valormax = 1;
-        Character val = 's';
+        Boolean correcte = false;
         Scanner input = new Scanner( System.in );
-        while (val == 's') {
+        while (correcte == false) {
             for (int i = 0; i < Taulell.getSize(); ++i) {
                 for (int j = 0; j < Taulell.getSize(); ++j) {
                     valor = input.nextInt();
@@ -38,14 +38,13 @@ public class Funcions {
                     Taulell.setValueCell(valor, i, j);
                 }
             }
-            val = 'n'; //per fer que funcioni ara
+            correcte = true; //per fer que funcioni ara, dsp més tard esborrar-ho
           /*  if (solveBool(Taulell, Taulell.getSize())) {
                 System.out.println("Hidato possible de resoldre.");
-                val = 'n';
+                correcte = true;
             } else {
-                System.out.println("Hidato sense solucio possible. Vols tornar-ho a provar? (s/n)");
-                val = input.next().charAt(0);
-                if (val == 'n') netejaBoard(Taulell);
+                System.out.println("Hidato sense solucio possible. Torna-ho a provar.");
+                netejaBoard(Taulell);
             }*/
         }
     }
@@ -64,6 +63,19 @@ public class Funcions {
                 if (Taulell.getFinishCell(i, j) != TaulellCopiat.getFinishCell(i, j)) TaulellCopiat.switchFinishCell(i,j);
                 if (Taulell.getVisibleCell(i, j) != TaulellCopiat.getVisibleCell(i, j)) TaulellCopiat.switchVisibleCell(i,j);
                 if (Taulell.getValidaCell(i, j) != TaulellCopiat.getValidaCell(i, j)) TaulellCopiat.switchValidaCell(i,j);
+            }
+        }
+    }
+
+    public static void netejaBoard(BoardHidato Taulell) {
+        for (int i = 0; i < Taulell.getSize(); ++i) {
+            for (int j = 0; j < Taulell.getSize(); ++j) {
+                Taulell.setValueCell(0,i,j);
+                if (Taulell.getWrittenCell(i,j) == true) Taulell.switchWrittenCell(i,j);
+                else if (Taulell.getVisibleCell(i, j) == true) Taulell.switchVisibleCell(i, j);
+                else if (Taulell.getStartCell(i, j) == true) Taulell.switchStartCell(i, j);
+                else if (Taulell.getFinishCell(i, j) == true) Taulell.switchFinishCell(i, j);
+                else if (Taulell.getValidaCell(i,j) == false) Taulell.switchValidaCell(i, j);
             }
         }
     }
