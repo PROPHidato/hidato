@@ -21,23 +21,32 @@ public class Funcions {
     public static void llegirTaulell(BoardHidato Taulell)   {
         int valor;
         int valormax = 1;
+        Character val = 's';
         Scanner input = new Scanner( System.in );
-
-        for (int i = 0; i < Taulell.getSize(); ++i)  {
-            for (int j = 0; j < Taulell.getSize(); ++j)  {
-                valor = input.nextInt();
-                if (valor == 1) {
-                    Taulell.setStart_i(i);
-                    Taulell.setStart_j(j);
-                } else if (valor > valormax) {
-                    Taulell.setFinish_i(i);
-                    Taulell.setFinish_j(j);
-                    valormax = valor;
+        while (val == 's') {
+            for (int i = 0; i < Taulell.getSize(); ++i) {
+                for (int j = 0; j < Taulell.getSize(); ++j) {
+                    valor = input.nextInt();
+                    if (valor == 1) {
+                        Taulell.setStart_i(i);
+                        Taulell.setStart_j(j);
+                    } else if (valor > valormax) {
+                        Taulell.setFinish_i(i);
+                        Taulell.setFinish_j(j);
+                        valormax = valor;
+                    }
+                    Taulell.setValueCell(valor, i, j);
                 }
-                Taulell.setValueCell(valor, i, j);
+            }
+            if (/*si solver = true*/) {
+                System.out.println("Hidato possible de resoldre.");
+                val = 'n';
+            } else {
+                System.out.println("Hidato sense solucio possible. Vols tornar-ho a provar? (s/n)");
+                val = input.next().charAt(0);
+                if (val == 'n') netejaBoard(Taulell);
             }
         }
-        //Aqui mirar si es podria resoldre, si es pot ok, sinó merda.
     }
 
     public static void netejaBoard(BoardHidato Taulell) {
@@ -45,10 +54,10 @@ public class Funcions {
             for (int j = 0; j < Taulell.getSize(); ++j) {
                 Taulell.setValueCell(0,i,j);
                 if (Taulell.getWrittenCell(i,j) == true) Taulell.switchWrittenCell(i,j);
-                else if (Taulell.getVisibleCell(i,j) == true) Taulell.switchVisibleCell(i,j);
-                else if (Taulell.getStartCell(i,j) == true) Taulell.switchStartCell(i,j);
-                else if (Taulell.getFinishCell(i,j) == true) Taulell.switchFinishCell(i,j);
-                else if (Taulell.getValidaCell(i,j) == false) Taulell.switchValidaCell(i,j);
+                else if (Taulell.getVisibleCell(i, j) == true) Taulell.switchVisibleCell(i, j);
+                else if (Taulell.getStartCell(i, j) == true) Taulell.switchStartCell(i, j);
+                else if (Taulell.getFinishCell(i, j) == true) Taulell.switchFinishCell(i, j);
+                else if (Taulell.getValidaCell(i,j) == false) Taulell.switchValidaCell(i, j);
             }
         }
     }
