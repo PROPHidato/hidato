@@ -21,6 +21,7 @@ public class Board {
             board.add(new ArrayList<CellHidato>(size));
             for (int j = 0; j < size; ++j) {
                 board.get(i).add(new CellHidato(i,j));
+
             }
         }
     }
