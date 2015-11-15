@@ -309,15 +309,19 @@ public class Funcions {
         for(/*int*/ i=0; i<countsize; ++i) { //tots els intermitjos
             //System.out.println("entro");
             for (int j=0; j < 8;++j) {
-                //System.out.println(intermitjos[i].getValue());
-                //System.out.println("  " + (Taulell.getValueCell(intermitjos[i].getRow() + X[j], intermitjos[i].getColumn() + Y[j])+1));
-                //System.out.println("  " + (Taulell.getValueCell(intermitjos[i].getRow() + X[j], intermitjos[i].getColumn() + Y[j])-1));
+
                 if (intermitjos[i].getRow() + X[j] < size && intermitjos[i].getRow()+X[j] >= 0 && intermitjos[i].getColumn()+Y[j] < size && intermitjos[i].getColumn()+ Y[j] >= 0) {
-                    if (intermitjos[i].getValue() == Taulell.getValueCell(intermitjos[i].getRow() + X[j], intermitjos[i].getColumn() + Y[j]) + 1 ||
-                            intermitjos[i].getValue() == Taulell.getValueCell(intermitjos[i].getRow() + X[j], intermitjos[i].getColumn() + Y[j]) - 1) {
+                    /*System.out.println(intermitjos[i].getValue());
+                    System.out.println((intermitjos[i].getRow()+X[j])+ " " + (intermitjos[i].getColumn() + Y[j]));
+                    System.out.println((intermitjos[i].getRow())+ " " + (intermitjos[i].getColumn()));
+                    System.out.println("  " + (Taulell.getValueCell(intermitjos[i].getRow() + X[j], intermitjos[i].getColumn() + Y[j])+1));
+                    System.out.println("  " + (Taulell.getValueCell(intermitjos[i].getRow() + X[j], intermitjos[i].getColumn() + Y[j])-1));*/
+                    if (intermitjos[i].getValue() == Taulell.getValueCell(intermitjos[i].getColumn() + Y[j],intermitjos[i].getRow() + X[j] ) + 1 ||
+                            intermitjos[i].getValue() == Taulell.getValueCell(intermitjos[i].getColumn() + Y[j],intermitjos[i].getRow() + X[j] ) - 1) {
                         //System.out.println("comprovant " + comprovant);
                         //System.out.println("comprovant " + comprovant);
                         ++comprovant;
+
                     }
                     //System.out.println("entro");
                 }
@@ -403,7 +407,15 @@ public class Funcions {
 
     public static void solve (BoardHidato Taulell, int size)    {   //de moment ho farem amb un taulell arbitrari
 
-        //imprimeixValors(Taulell);
+        Taulell.setValueCell(1, 0, 0);
+
+        Taulell.setValueCell(-1,1,0);
+        Taulell.switchValidaCell(1, 0);
+
+        Taulell.setValueCell(8,2,0);
+
+
+        imprimeixValors(Taulell);
 
         int startx = 0;  //i de la primera cela
         int starty = 0;  //j de la ultima cela
