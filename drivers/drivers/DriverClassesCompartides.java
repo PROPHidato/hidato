@@ -33,7 +33,6 @@ public class DriverClassesCompartides {
             dificultat = input.nextInt();
             Game Joc = new Game(GameId, dificultat);
             BoardHidato Taulell = new BoardHidato(size);
-            Funcions.colocar_celesinvalides(Taulell);
             System.out.println("numero celes invalides: " + Taulell.consultar_num_celesinvalides());
             System.out.println("numero final: " + size*size+(-Taulell.consultar_num_celesinvalides()));
 
@@ -85,6 +84,7 @@ public class DriverClassesCompartides {
                 }else if(entrada == 6) {
                     System.out.println("Generant un taulell qualsevol . . .");
                     //funcio que generi el taulell
+                    Funcions.colocar_celesinvalides(Taulell);
                     Funcions.generar_written(Taulell);
                     System.out.println("Generat:");
                     Funcions.imprimeixValors(Taulell);
@@ -92,7 +92,6 @@ public class DriverClassesCompartides {
                     System.out.println("Resolent el taulell . . .");
                     System.out.println("Resolt:");
                     Funcions.solve(Taulell, size);
-                    Funcions.imprimeixValors(Taulell);
                 }
                 else if(entrada == 8) {
 
