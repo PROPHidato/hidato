@@ -50,18 +50,6 @@ public class Funcions {
         }
     }
 
-    public static void netejaBoard(BoardHidato Taulell) {
-        for (int i = 0; i < Taulell.getSize(); ++i) {
-            for (int j = 0; j < Taulell.getSize(); ++j) {
-                Taulell.setValueCell(0,i,j);
-                if (Taulell.getWrittenCell(i,j) == true) Taulell.switchWrittenCell(i,j);
-                else if (Taulell.getVisibleCell(i, j) == true) Taulell.switchVisibleCell(i, j);
-                else if (Taulell.getStartCell(i, j) == true) Taulell.switchStartCell(i, j);
-                else if (Taulell.getFinishCell(i, j) == true) Taulell.switchFinishCell(i, j);
-                else if (Taulell.getValidaCell(i,j) == false) Taulell.switchValidaCell(i, j);
-            }
-        }
-    }
 
     public static void copiarBoard(BoardHidato TaulellCopiat, BoardHidato Taulell) {
         for (int i = 0; i < Taulell.getSize();i++) {
@@ -71,7 +59,6 @@ public class Funcions {
                 TaulellCopiat.setFinish_j(Taulell.getFinish_j());
                 TaulellCopiat.setStart_i(Taulell.getStart_i());
                 TaulellCopiat.setStart_j(Taulell.getStart_j());
-                System.out.print(Taulell.getWrittenCell(i,j) + " ");
                 if (Taulell.getWrittenCell(i,j) != TaulellCopiat.getWrittenCell(i,j)) TaulellCopiat.switchWrittenCell(i,j);
                 if (Taulell.getStartCell(i,j) != TaulellCopiat.getStartCell(i, j)) TaulellCopiat.switchStartCell(i,j);
                 if (Taulell.getFinishCell(i, j) != TaulellCopiat.getFinishCell(i, j)) TaulellCopiat.switchFinishCell(i,j);

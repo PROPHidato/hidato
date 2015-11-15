@@ -316,3 +316,16 @@ public class ProvesQueHaviemFet {
         Taulell.setValueCell(5, 7, 6);*/
 
 
+
+    /*public static void netejaBoard(BoardHidato Taulell) {
+        for (int i = 0; i < Taulell.getSize(); ++i) {
+            for (int j = 0; j < Taulell.getSize(); ++j) {
+                Taulell.setValueCell(0,i,j);
+                if (Taulell.getWrittenCell(i,j) == true) Taulell.switchWrittenCell(i,j);
+                else if (Taulell.getVisibleCell(i, j) == true) Taulell.switchVisibleCell(i, j);
+                else if (Taulell.getStartCell(i, j) == true) Taulell.switchStartCell(i, j);
+                else if (Taulell.getFinishCell(i, j) == true) Taulell.switchFinishCell(i, j);
+                else if (Taulell.getValidaCell(i,j) == false) Taulell.switchValidaCell(i, j);
+            }
+        }
+    }*/

@@ -34,14 +34,20 @@ public class DriverClassesCompartides {
             System.out.println("Estàs al Joc " + GameId + ".");
             System.out.printf("Entra mida del taulell:  ");
             size = input.nextInt();
-            System.out.println("Introdueix la dificultat (1 = facil, 2 = mitja, 3 = dificil)");
-            dificultat = input.nextInt();
-            Game Joc = new Game(GameId, dificultat);
-            BoardHidato Taulell = new BoardHidato(size);
             System.out.println("Voldràs introduir tu el taulell o que el generi la maquina aleatoriament?");
             System.out.println("0 : Introduir el taulell.");
             System.out.println("1 : Crear el taulell aleatoriament.");
             select = input.nextInt();
+            if (select == 0) {
+                dificultat = 1;
+            } else {
+                System.out.println("Introdueix la dificultat (1 = facil, 2 = mitja, 3 = dificil)");
+                dificultat = input.nextInt();
+            }
+            Game Joc = new Game(GameId, dificultat);
+            BoardHidato Taulell = new BoardHidato(size);
+
+
             if (select == 0) {
                 System.out.println("Introdueix els valors del taullel per ordre.");
                 System.out.println("(Recorda: Com a minim s'han d'introduir el primer i ultim valor del Hidato. 0 = cela buida, -1 = cela invalida.)");
@@ -191,9 +197,6 @@ public class DriverClassesCompartides {
                 System.out.println("Valor introduit erroni: s = si, n = no.");
                 System.out.println("Segur que no vols jugar un altre joc? (s/n)");
                 sortida = input.next().charAt(0);
-            }
-                if (sortida == 'n') {
-                Funcions.netejaBoard(Taulell);
             }
         }
         System.out.println("Fi de les proves.");

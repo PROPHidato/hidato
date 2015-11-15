@@ -12,14 +12,10 @@ package domini;
 public class CellHidato extends Cell {
     private boolean start; //marca si la casella es la primera
     private boolean finish; //marca si la casella es la ultima
-    private boolean valida; //per si la casella �s v�lida
+    private boolean valida; //per si la casella es valida
 
     public CellHidato(int row, int column) {
         super(column, row);
-        this.column = column;
-        this.row = row;
-        written = false;
-        visible = false;
         value = 0;  // 0 = cela buida
         valida = true;
         start = false;

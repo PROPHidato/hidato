@@ -44,6 +44,7 @@ public class Board {
 
     public void setValueCell(int value, int row, int column) {
         board.get(row).get(column).setValue(value);
+        if (getValueCell(row,column) != 0) switchWrittenCell(row,column);
     }
 
     public static int consult_max_annotations(){

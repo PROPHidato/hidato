@@ -17,7 +17,7 @@ import java.util.*;
 
 public class BoardHidato extends Board {
     static int max_annotations; //màxim nombre de marques que poden tenir les cel·es del taulell.
-    private static int num_celesinvalides;
+    private int num_celesinvalides;
     private int start_i;
     private int start_j;
     private int finish_i;
@@ -25,13 +25,6 @@ public class BoardHidato extends Board {
 
     public BoardHidato(int size) {
         super(size);
-        ArrayList<ArrayList<CellHidato>> board = new ArrayList<ArrayList<CellHidato>>(size);
-        for (int i=0;i < board.size();++i) {
-            board.add(new ArrayList<CellHidato>(size));
-            for (int j = 0; j < board.size(); ++j) {
-                board.get(i).add(new CellHidato(i,j));
-            }
-        }
         max_annotations = size*size; //Si taulell hi han 25 caselles podrà anar-hi del 1 al 25 en una casella.
     }
 
