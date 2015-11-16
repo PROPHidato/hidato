@@ -45,7 +45,6 @@ public class DriverClassesCompartides {
             Game Joc = new Game(GameId, dificultat);
             BoardHidato Taulell = new BoardHidato(size);
 
-
             if (select == 0) {
                 System.out.println("Introdueix els valors del taullel per ordre.");
                 System.out.println("(Recorda: Com a minim s'han d'introduir el primer i ultim valor del Hidato. 0 = cela buida, -1 = cela invalida.)");
@@ -81,7 +80,6 @@ public class DriverClassesCompartides {
             entrada = input.nextInt();
             while(entrada != -1) {
                 Character sn = 's';
-                Character s = 's';
                 if (entrada == 0) {
                     System.out.println("1 : Consultar la mida del taulell creat.");
                     System.out.println("2: Consultar usuari actual.");
@@ -131,6 +129,7 @@ public class DriverClassesCompartides {
                     Funcions.imprimeixValors(TaulellAux);
                     entrada2 = input.nextInt();
                     while(fi_joc == false) {
+                        Character s = 's';
                         if (entrada2 == 0) {
                             System.out.println("1 : Introduir valor a una cela.");
                             System.out.println("2: Posar una marca a una cela.");
@@ -171,6 +170,7 @@ public class DriverClassesCompartides {
                             val2 = input.nextInt();
                             System.out.println("Valors: ");
                             for (int i = 0; i < TaulellAux.consult_max_annotations(); ++i) {
+
                                 if (TaulellAux.getAnnotationCell(i, val1, val2) == true) System.out.println(i + " ");
                             }
 

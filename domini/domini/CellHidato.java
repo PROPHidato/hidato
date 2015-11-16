@@ -21,7 +21,7 @@ public class CellHidato extends Cell {
         start = false;
         finish = false;
 
-        annotations = new boolean[Board.consult_max_annotations()];
+        annotations = new boolean[BoardHidato.consult_max_annotations()];
         for (int i = 0; i < annotations.length; i++) annotations[i] = false;
     }
 
