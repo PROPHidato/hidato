@@ -65,7 +65,7 @@ public class DriverClassesCompartides {
             System.out.println("2: Consultar usuari actual.");
             System.out.println("3: Consultar dificultat del joc actual.");
             System.out.println("4 : Consultar estat actual del taulell.");
-            System.out.println("5 : Resoldre el taulell la màquina (acabar de fer be)."); //valors dins Taulell, true/false
+            System.out.println("5 : Resoldre el taulell la màquina."); //valors dins Taulell, true/false
             System.out.println("6 : Fer una partida al joc.");
             System.out.println("-1 : Sortir.");
             System.out.println("Com a usuari et volem advertir que les celes van de [0][0] a [size-1][size-1]!");
@@ -80,7 +80,7 @@ public class DriverClassesCompartides {
                     System.out.println("2: Consultar usuari actual.");
                     System.out.println("3: Consultar dificultat del joc actual.");
                     System.out.println("4 : Consultar estat actual del taulell.");
-                    System.out.println("5 : Resoldre el taulell la màquina (acabar de fer be).");
+                    System.out.println("5 : Resoldre el taulell la màquina.");
                     System.out.println("6 : Fer una partida al joc.");
                     System.out.println("-1 : Sortir.");
                     System.out.println();
