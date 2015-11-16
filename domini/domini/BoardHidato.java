@@ -39,7 +39,7 @@ public class BoardHidato extends Board {
     public void incrementar_celesinvalides(int row, int column) {
         ++num_celesinvalides;
         switchValidaCell(row,column);
-        board.get(row).get(column).setValue(-1);
+        setValProvCell(-1, row, column);
     }
 
     public boolean getAnnotationCell(int value, int row, int column) {

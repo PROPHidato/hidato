@@ -31,13 +31,21 @@ public class Funcions {
                     if (valor == 1) {
                         Taulell.setStart_i(i);
                         Taulell.setStart_j(j);
+                        Taulell.setValueCell(valor, i, j);
                     } else if (valor > valormax) {
                         Taulell.setFinish_i(i);
                         Taulell.setFinish_j(j);
                         valormax = valor;
+                        Taulell.setValueCell(valor, i, j);
                     }
-                    if (valor == -1) Taulell.switchValidaCell(i,j);
+                    else if (valor == -1){
+                        Taulell.setValProvCell(valor, i, j);
+                        Taulell.switchValidaCell(i,j);
+                    }
+
+                    else {
                     Taulell.setValueCell(valor, i, j);
+                    }
                 }
             }
             correcte = true; //per fer que funcioni ara, dsp mes tard esborrar-ho
@@ -118,32 +126,91 @@ public class Funcions {
             }
         }
     }
+    public static void amagar_nowritten(BoardHidato Taulell){
+        for (int i = 0; i < Taulell.getSize(); ++i) {
+            for (int j = 0; j < Taulell.getSize(); ++j) {
+                if (Taulell.getValidaCell(i, j) && !Taulell.getWrittenCell(i, j)){  //si la pos es valida i no lhem posat
+                    //a written abans al generar les posicions aleatories --> les posem a 0
+                    Taulell.setValueCell(0, i, j);
+                    //Taulell.switchWrittenCell(i,j);
+                }
+            }
+        }
+    }
+
+    static double percentatgeceles_written(){
+        int percentatge = Game.getDifficult();
+        if (percentatge == 1) return 0.8;
+        else if (percentatge == 2) return 0.6;
+        else return 0.3;
+    }
+
+    public static void reset_written(BoardHidato Taulell){
+        for (int i = 0; i < Taulell.getSize(); ++i) {
+            for (int j = 0; j < Taulell.getSize(); ++j) {
+                if (Taulell.getValidaCell(i, j) && Taulell.getValueCell(i,j) != 1 && Taulell.getValueCell(i,j) != numfinal){  //si la pos es valida i no lhem posat
+                    //a written abans al generar les posicions aleatories --> les posem a 0
+                   Taulell.switchWrittenCell(i,j);
+                }
+            }
+        }
+    }
+    public static void written_atrue(BoardHidato Taulell){
+        for (int i = 0; i < Taulell.getSize(); ++i) {
+            for (int j = 0; j < Taulell.getSize(); ++j) {
+               // if (Taulell.getValidaCell(i, j) && Taulell.getValueCell(i,j) != 1 && Taulell.getValueCell(i,j) != numfinal){  //si la pos es valida i no lhem posat
+                    if (!Taulell.getWrittenCell(i,j)){//a written abans al generar les posicions aleatories --> les posem a 0
+                    Taulell.switchWrittenCell(i,j);
+                    }
+                //}
+            }
+        }
+    }
+
+    public static void imprimeix_written(BoardHidato Taulell){
+        for (int i = 0; i < Taulell.getSize(); ++i) {
+            for (int j = 0; j < Taulell.getSize(); ++j) {
+                //if (Taulell.getValidaCell(i, j)){  //si la pos es valida i no lhem posat
+                    //a written abans al generar les posicions aleatories --> les posem a 0
+                    System.out.print(Taulell.getWrittenCell(i,j) + " ");
+                out.println();
+            }
+            out.println();
+        }
+    }
+
+    public static void imprimeix_invalides(BoardHidato Taulell){
+        for (int i = 0; i < Taulell.getSize(); ++i) {
+            for (int j = 0; j < Taulell.getSize(); ++j) {
+                System.out.print(Taulell.getValidaCell(i,j) + " ");
+                out.println();
+            }
+            out.println();
+        }
+    }
 
     public static void generar_written(BoardHidato Taulell) {//posem al taulell les celes que al ppi estaran escrites
         int numvisibles, posi, posj, size, valor;
         size = Taulell.getSize();
-        numvisibles = 0; // fem q el 1 i lultim no conten
+        numvisibles = 2; // fem q el 1 i lultim no conten
         Random segi = new Random();
         Random segj = new Random();
-        Random valoract = new Random();
-        double tantpercent = size * size * percentatgeceles();
+        double tantpercent = ((size * size)-Taulell.consultar_num_celesinvalides()) * percentatgeceles_written();
         int totalsvisibles = (int) tantpercent;
+        solve_modifica(Taulell, size, false);
+        solution = false;
+        reset_written(Taulell);//posem a written = false totes les celes menys linici i el fi
         while (numvisibles < totalsvisibles) {
             posi = segi.nextInt(size);
             posj = segj.nextInt(size);
-            valor = valoract.nextInt(numfinal-3);
-            valor = valor + 2; //nombre aleatori entre 2 i numfinal no inclos
-            if (perafegir(Taulell,posi,posj)) {  //si la q volem anar es valida i no te valor, hi anem
+            //si no esta written i es valida -- > la posem a written
+            if (Taulell.getValidaCell(posi,posj) && !Taulell.getWrittenCell(posi,posj)) { //si la q volem anar es valida i no te valor, hi anem
                 ++numvisibles;
-                Taulell.setValueCell(valor, posi, posj);
+                Taulell.switchWrittenCell(posi,posj);
             }
+            //quan triem la posicio i no es invalida ni ja written, incrementem el nombre de celes visibles posades
         }
-        solve(Taulell, size, false);
-        if (!solution) {
-            esborrar_writtenposades(Taulell);
-            generar_written(Taulell);
-        }
-        solution = false;
+        amagar_nowritten(Taulell);
     }
 
     static boolean posarainvalida(BoardHidato Taulell,int row,int column) {//si totes les celes veines o totes menys una son invalides, return true
@@ -201,11 +268,9 @@ public class Funcions {
         }
         return false;
     }
-    static double percentatgeceles(){
-        int percentatge = Game.getDifficult();
-        if (percentatge == 1) return 0.2;
-        else if (percentatge == 2) return 0.1;
-        else return 0.05;
+    static double percentatgeceles_valides(){
+        double num = 0.2;
+        return num;
     }
 
     public static void posa_start(BoardHidato Taulell){
@@ -247,7 +312,7 @@ public class Funcions {
         Random posi = new Random();
         Random posj = new Random();
         posades = 0;
-        double tantpercent = size * size * percentatgeceles();
+        double tantpercent = size * size * percentatgeceles_valides();
         int maxinvalides = (int) tantpercent;
         while (posades < maxinvalides) {
             int row = posi.nextInt(size);   //fila random entre totes les celes totals
@@ -259,11 +324,11 @@ public class Funcions {
             }
         }
         posa_start(Taulell);
-        repassem_invalides(Taulell);
+        //repassem_invalides(Taulell);
         numcelesinvalides = Taulell.consultar_num_celesinvalides();
         numfinal = numfinal - numcelesinvalides;
         posa_final(Taulell); //POSEM LA ULTIMA CELA AL TAULELL
-        imprimeixValors(Taulell);
+        //imprimeixValors(Taulell);
         solve(Taulell, size, false);
         if (!solution) {
             netejaBoard(Taulell);
@@ -343,7 +408,7 @@ public class Funcions {
         // resoldre el taulell i posar els valors de caselles not written als que toquen
         Boolean canviat = false;
         if (comprovar2(Taulell, X, Y, size, startx, starty)) {
-            if(escriure) imprimeixValors(Taulell);
+            if (escriure) imprimeixValors(Taulell);
             solution = true;
         }
         else {
@@ -403,4 +468,89 @@ public class Funcions {
         int current = 2;
         backtrack(Taulell, visitats, startx, starty, X, Y, current,size, escriure);  //resoldre taulell
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static void backtrack_modifica(BoardHidato Taulell, boolean[][] visitats,int startx, int starty, Integer X[], Integer Y[], int current, int size, boolean escriure)   {
+        // Fent servir el taulell, la matriu de visitats, el punt de start i el punt de finish,
+        // resoldre el taulell i posar els valors de caselles not written als que toquen
+        Boolean canviat = false;
+        if (comprovar2(Taulell, X, Y, size, startx, starty)) {
+            if(escriure) imprimeixValors(Taulell);
+            solution = true;
+        }
+        else {
+            for (int i = 0; i < 8; ++i) {
+                if (!solution) {
+                    if (startx + X[i] >= 0 && startx + X[i] < size && starty + Y[i] >= 0 && starty + Y[i] < size) {
+                        if (!visitats[startx + X[i]][starty + Y[i]]) {
+                            if (!Taulell.getWrittenCell(startx + X[i], starty + Y[i]) || (Taulell.getWrittenCell(startx + X[i], starty + Y[i]) && Taulell.getValueCell(startx + X[i], starty + Y[i]) == current)) {
+                                if (!Taulell.getWrittenCell(startx + X[i], starty + Y[i])) {
+                                    Taulell.setValueCell(current, startx + X[i], starty + Y[i]);
+                                    canviat = true;
+                                }
+                                visitats[startx + X[i]][starty + Y[i]] = true;
+                                backtrack_modifica(Taulell, visitats,startx + X[i], starty + Y[i], X, Y, current + 1, size, escriure);
+                                if (!solution) {
+                                    visitats[startx + X[i]][starty + Y[i]] = false;
+                                    if (canviat) {
+                                        Taulell.setValueCell(0, startx + X[i], starty + Y[i]);
+                                        Taulell.switchWrittenCell(startx + X[i], starty + Y[i]);
+                                        canviat = false;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public static void solve_modifica(BoardHidato Taulell, int size, boolean escriure)    {   //de moment ho farem amb un taulell arbitrari
+        int startx = 0;  //i de la primera cela
+        int starty = 0;  //j de la ultima cela
+        int finish = 1;
+        int countsize = 0;
+        boolean visitats[][] = new boolean[size][size];
+
+        Integer X[] = {0,1,1,1,0,-1,-1,-1};
+        Integer Y[] = {1,1,0,-1,-1,-1,0,1};
+
+        for (int i = 0; i < size; ++i)  {
+            for (int j = 0; j < size; ++j)  {
+                if (Taulell.getValidaCell(i,j)) {
+                    if (Taulell.getValueCell(i,j) == 1)   {
+                        visitats[i][j] = true;               //guardem casella start i la marquem com a visitada
+                        startx = i;
+                        starty = j;
+                    }
+                    else visitats[i][j] = false; //caselles a omplir marcades com a "no visitades"
+
+                    if (Taulell.getWrittenCell(i,j) && Taulell.getValueCell(i,j) > finish)    {
+                        ++countsize;
+                    }
+                }
+                else if (!Taulell.getValidaCell(i, j)) visitats[i][j] = true; //caselles invalides marcades com a "visitades"
+            }
+        }
+        int current = 2;
+        backtrack_modifica(Taulell, visitats, startx, starty, X, Y, current, size, escriure);  //resoldre taulell
+    }
+
 }
+
+
+
+
+

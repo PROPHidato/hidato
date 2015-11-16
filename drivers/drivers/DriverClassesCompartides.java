@@ -19,14 +19,14 @@ public class DriverClassesCompartides {
         int marca;
         int GameId = 1;
         int dificultat;
-        Character sortida = 'n';
+        Character sortida = 's';
         Boolean generat = false;
 
         System.out.printf("Entra nom de jugador:  ");
         String nom = input.nextLine();
         Player Jugador = new Player(nom);
 
-        while(sortida == 'n') {
+        while(sortida == 's') {
 
             System.out.println("Estàs al Joc " + GameId + ".");
             System.out.printf("Entra mida del taulell:  ");
@@ -191,11 +191,11 @@ public class DriverClassesCompartides {
                 entrada = input.nextInt();
             }
             ++GameId;
-            System.out.println("Segur que no vols jugar un altre joc? (s/n)");
+            System.out.println("Vols jugar un altre joc? (s/n)");
             sortida = input.next().charAt(0);
             while (sortida != 's' && sortida != 'n')        {
                 System.out.println("Valor introduit erroni: s = si, n = no.");
-                System.out.println("Segur que no vols jugar un altre joc? (s/n)");
+                System.out.println("Vols jugar un altre joc? (s/n)");
                 sortida = input.next().charAt(0);
             }
         }
