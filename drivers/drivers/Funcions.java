@@ -116,7 +116,6 @@ public class Funcions {
             columnfi = posjfi.nextInt(size);
             if (Taulell.getValidaCell(rowfi, columnfi) && Taulell.getValueCell(rowfi,columnfi) == 0) {
                 Taulell.setValueCell(numfinal, rowfi, columnfi);
-                //Taulell.switchWrittenCell(rowfi, columnfi);
                 Taulell.setStart_i(rowfi);
                 Taulell.setStart_j(columnfi);
                 posatfinal = true;
@@ -133,23 +132,18 @@ public class Funcions {
         Random valoract = new Random();
         double tantpercent = size * size * percentatgeceles();
         int totalsvisibles = (int) tantpercent;
-        System.out.println("hem d posar " + totalsvisibles + "numeros visibles");
-       // int numvoltes = 0;
         while (numvisibles < totalsvisibles) {
-         //   if (numvoltes > 5) break;
             posi = segi.nextInt(size);
             posj = segj.nextInt(size);
             valor = valoract.nextInt(numfinal-3);
             valor = valor + 2; //nombre aleatori entre 2 i numfinal no inclos
             if (perafegir(Taulell,posi,posj)) {  //si la q volem anar es valida i no te valor, hi anem
-                System.out.println("afegim " + valor + "a la posicio" +  posi + " " + posj);
+                //System.out.println("afegim " + valor + "a la posicio" +  posi + " " + posj);
                 ++numvisibles;
                 Taulell.setValueCell(valor, posi, posj);
-                //Taulell.switchWrittenCell(posi, posj);
             }
-            System.out.println("generem " + valor + "a la posicio" + posi + " " + posj);
-            imprimeixValors(Taulell);
-           // ++numvoltes;
+            //System.out.println("generem " + valor + "a la posicio" + posi + " " + posj);
+            //imprimeixValors(Taulell);
         }
         solve(Taulell, size);
         if (solution) {
@@ -164,11 +158,13 @@ public class Funcions {
     }
 
 
+
     static boolean posarainvalida(BoardHidato Taulell,int row,int column) {//si totes les celes veines o totes menys una son invalides, return true
         //primer les q tenen 3 al voltant
         int inva = 0;
         int size = Taulell.getSize();
         if (row == 0 && column == 0 || row == 0 && column == size - 1 || row == size - 1 && column == 0 || row == size - 1 && column == size - 1) {
+
             if (row == 0)
                 if ((!Taulell.getValidaCell(row + 1, column))) ++inva;
             if (column == 0)
@@ -185,7 +181,7 @@ public class Funcions {
                 if ((!Taulell.getValidaCell(row - 1, column + 1))) ++inva;
             if (row == size - 1 && column == size - 1)
                 if ((!Taulell.getValidaCell(row - 1, column - 1))) ++inva;
-            System.out.println(inva + " invalides veines");
+            //System.out.println(inva + " invalides veines");
             if (inva >= 2) return true;
         }
         else if ((row > 0 && row < size - 1) && column == 0 || (column > 0 && column < size - 1) && row == 0 ||
@@ -206,7 +202,7 @@ public class Funcions {
                 if ((!Taulell.getValidaCell(row + 1, column + 1))) ++inva;//abaix dreat
             if (row < size - 1 && column > 0)
                 if ((!Taulell.getValidaCell(row + 1, column - 1))) ++inva; //abaix esq
-            System.out.println(inva + " invalides veines");
+            //System.out.println(inva + " invalides veines");
             if (inva >= 4) return true;
         } else {
             if (!Taulell.getValidaCell(row, column + 1)) ++inva;
@@ -217,7 +213,7 @@ public class Funcions {
             if (!Taulell.getValidaCell(row - 1, column - 1)) ++inva;
             if (!Taulell.getValidaCell(row + 1, column - 1)) ++inva;
             if (!Taulell.getValidaCell(row - 1, column + 1)) ++inva;
-            System.out.println(inva + " invalides veines");
+            //System.out.println(inva + " invalides veines");
             if (inva >= 4) return true;
         }
         return false;
@@ -241,7 +237,6 @@ public class Funcions {
             columnini = posjini.nextInt(size);
             if (Taulell.getValidaCell(rowini, columnini)) {
                 Taulell.setValueCell(1, rowini, columnini);
-                //Taulell.switchWrittenCell(rowini, columnini);
                 Taulell.setStart_i(rowini);
                 Taulell.setStart_j(columnini);
                 posatinici = true;
@@ -254,9 +249,9 @@ public class Funcions {
             for (int j = 0; j < size; ++j) {
                 if (Taulell.getValidaCell(i, j)) {//si no es invalida mirem les del seu voltant
                     //si totes o totes menys una son invalides, la canviem a invalida tambe
-                    System.out.println("comprovem " + i + " " + j);
+                    //System.out.println("comprovem " + i + " " + j);
                     if (Taulell.getValueCell(i, j) == 0 && posarainvalida(Taulell, i, j)) {
-                        System.out.println("posem a invalida la casella " + i + " " + j);
+                        //System.out.println("posem a invalida la casella " + i + " " + j);
                         Taulell.incrementar_celesinvalides(i, j);
                     }
                 }
@@ -268,7 +263,6 @@ public class Funcions {
         int posades, size ,numcelesinvalides;
         size = Taulell.getSize();
         numfinal = (size * size);
-        //System.out.println(numfinal);
         Random posi = new Random();
         Random posj = new Random();
         posades = 0;
@@ -279,7 +273,7 @@ public class Funcions {
             int column = posj.nextInt(size); //columan random entre totes les celes totals
             if (Taulell.getValidaCell(row, column)) {   //la cela q hem triat aleatoriament, si no es invalida la posem
                 // la posem a invalida
-                System.out.println("fila " + row + " columna " + column);
+                //System.out.println("fila " + row + " columna " + column);
                 Taulell.incrementar_celesinvalides(row, column);
                 ++posades;
             }
