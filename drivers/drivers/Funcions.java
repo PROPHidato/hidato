@@ -340,24 +340,7 @@ public class Funcions {
                 }
             }
         }
-        //imprimeixValors(Taulell);
-        //System.out.println("entro");
-        /*for (int k=0; k < 8;++k) {
-            //System.out.println(k);
-            //System.out.println((countsize-1));
-            //System.out.println(intermitjos[countsize-1].getValue());
-            //el finish va a part perque al comprovacio es diferent
-            if (intermitjos[countsize - 1].getRow() + X[k] < size && intermitjos[countsize - 1].getRow()+X[k] >= 0 && intermitjos[countsize - 1].getColumn()+Y[k]  < size && intermitjos[countsize - 1].getColumn()+ Y[k] >= 0) {
-                if (intermitjos[countsize - 1].getValue() == Taulell.getValueCell(intermitjos[countsize - 1].getRow() + X[k], intermitjos[countsize - 1].getColumn() + Y[k]) + 1) {
-                    ++comprovant;
-                    //System.out.println("entro");
-                }
-            }
-        }*/
-        //System.out.println("comprovant  " + comprovant);
-        //System.out.println("comparador " + comparador);
-        //System.out.println();
-        //imprimeixValors(Taulell);
+
         for (int k=0; k <size; ++k) {
             for (int p = 0; p < size; ++p){
                 if (Taulell.getValidaCell(k,p) && Taulell.getValueCell(k,p) == 0) espais_blancs= true;
@@ -366,6 +349,47 @@ public class Funcions {
 
 
         return (comprovant==comparador && !espais_blancs);
+    }
+
+    public static boolean comprovar2 (BoardHidato Taulell, Integer X[], Integer Y[], int size, int startx, int starty) {
+
+        int valides = 0;
+        int maxValue = 0;
+
+        for (int k=0; k <size; ++k) {
+            for (int p = 0; p < size; ++p){
+                if (Taulell.getValidaCell(k,p)){
+                    ++valides;
+                    if (Taulell.getValueCell(k,p) == 0) return false;
+                    else if (Taulell.getValueCell(k,p) > maxValue) maxValue = Taulell.getValueCell(k,p);
+
+                }
+
+            }
+        }
+
+        for(int i=0; i<valides; ++i) { //tots els intermitjos
+
+            for (int j=0; j < 8;++j) {
+
+                if (startx + Y[j] < size && startx+Y[j] >= 0 && starty+X[j] < size && starty+ X[j] >= 0) {
+
+                    if (Taulell.getValueCell(startx,starty) == (Taulell.getValueCell(startx+Y[j],starty+X[j])-1)) {
+
+                        startx = startx+Y[j];
+                        starty = starty+X[j];
+                        if (Taulell.getValueCell(startx,starty) == maxValue) return true;
+
+                    }
+
+                }
+            }
+        }
+
+
+
+
+        return false;
     }
 
 
@@ -378,7 +402,8 @@ public class Funcions {
         // resoldre el taulell i posar els valors de caselles not written als que toquen
         //Boolean acabat = false;
         Boolean canviat = false;
-        if (comprovar(Taulell, intermitjos, X, Y,countsize, size)) {
+        //if (comprovar(Taulell, intermitjos, X, Y,countsize, size)) {
+        if (comprovar2(Taulell, X, Y, size, startx, starty)) {
             imprimeixValors(Taulell);
             solution = true;
 
@@ -426,15 +451,6 @@ public class Funcions {
 
     public static void solve (BoardHidato Taulell, int size)    {   //de moment ho farem amb un taulell arbitrari
 
-        /*Taulell.setValueCell(1, 0, 0);
-
-        Taulell.setValueCell(-1,1,0);
-        Taulell.switchValidaCell(1, 0);
-
-        Taulell.setValueCell(8,2,0);*/
-
-
-        //imprimeixValors(Taulell);
 
         int startx = 0;  //i de la primera cela
         int starty = 0;  //j de la ultima cela
@@ -499,11 +515,7 @@ public class Funcions {
                 }
             }
         }
-        //System.out.println("iterador " + iterador);
-        //System.out.println("finish " + finish);
-        //System.out.println("valor de 0 " + intermitjos[0].getValue());
-        //System.out.println("valor de 1 " + intermitjos[1].getValue());
-        //System.out.println("valor de 2 " + intermitjos[2].getValue());
+
 
         int current = 2;
         backtrack(Taulell, visitats, intermitjos, startx, starty, X, Y, current,countsize,size);  //resoldre taulell
@@ -515,7 +527,7 @@ public class Funcions {
         // resoldre el taulell i posar els valors de caselles not written als que toquen
         //Boolean acabat = false;
         Boolean canviat = false;
-        if (comprovar(Taulell, intermitjos, X, Y,countsize, size)) {
+        if (comprovar2(Taulell, X, Y, size,startx, starty)) {
             //imprimeixValors(Taulell);
             solution = true;
 
