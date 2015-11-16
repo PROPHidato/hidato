@@ -80,7 +80,6 @@ public class DriverClassesCompartides {
             entrada = input.nextInt();
             while(entrada != -1) {
                 Character sn = 's';
-                Character s = 's';
                 if (entrada == 0) {
                     System.out.println("1 : Consultar la mida del taulell creat.");
                     System.out.println("2: Consultar usuari actual.");
@@ -130,6 +129,7 @@ public class DriverClassesCompartides {
                     Funcions.imprimeixValors(TaulellAux);
                     entrada2 = input.nextInt();
                     while(fi_joc == false) {
+                        Character s = 's';
                         if (entrada2 == 0) {
                             System.out.println("1 : Introduir valor a una cela.");
                             System.out.println("2: Posar una marca a una cela.");
