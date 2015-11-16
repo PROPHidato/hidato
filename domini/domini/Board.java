@@ -38,10 +38,6 @@ public class Board {
         return board.get(row).get(column).getValue();
     }
 
-    /*public int getValue() {
-        return this.getValue();
-    }*/
-
     public void setValueCell(int value, int row, int column) {
         board.get(row).get(column).setValue(value);
        if (getValueCell(row,column) != 0) switchWrittenCell(row,column);
@@ -62,7 +58,6 @@ public class Board {
     public boolean getWrittenCell(int row, int column) {return (board.get(row).get(column).getWritten());}
 
     public void switchWrittenCell (int row, int column) {board.get(row).get(column).switchWritten();}
-
 }
 
 

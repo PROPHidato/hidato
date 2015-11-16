@@ -52,11 +52,7 @@ public class DriverClassesCompartides {
                 generat = false;
             } else if (select == 1) {
                 System.out.println("Generant un taulell qualsevol . . .");
-                //funcio que generi el taulell
                 Funcions.colocar_celesinvalides(Taulell);
-                System.out.println("numero celes invalides: " + Taulell.consultar_num_celesinvalides());
-                System.out.println("numero final: " + size*size+(-Taulell.consultar_num_celesinvalides()));
-                Funcions.imprimeixValors(Taulell);
                 Funcions.generar_written(Taulell);
                 System.out.println("Generat:");
                 Funcions.imprimeixValors(Taulell);
@@ -108,7 +104,7 @@ public class DriverClassesCompartides {
                 } else if(entrada == 5) {
                     System.out.println("Resolent el taulell . . .");
                     System.out.println("Resolt:");
-                    Funcions.solve(Taulell, size);
+                    Funcions.solve(Taulell, size, true);
 
                 }
                 else if(entrada == 6) {

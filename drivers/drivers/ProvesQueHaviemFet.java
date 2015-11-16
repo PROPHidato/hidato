@@ -318,3 +318,39 @@ public class ProvesQueHaviemFet {
 
 
     /**/
+
+/* public static boolean comprovar (BoardHidato Taulell, CellHidato[] intermitjos, Integer X[], Integer Y[], int countsize, int size) {
+        boolean espais_blancs = false;
+        int comparador = (countsize-1)*2+1;  //aquest es el numero al qual ha de ser igual el comprovant si totes les caselles intermitjes tenen una casella adjecent de valor +1 i -1 respecte el seu propi valor i la final nomes en te una -1
+        int comprovant = 0;
+        int i;
+        for(i=0; i<countsize; ++i) { //tots els intermitjos
+            for (int j=0; j < 8;++j) {
+
+                if (intermitjos[i].getRow() + X[j] < size && intermitjos[i].getRow()+X[j] >= 0 && intermitjos[i].getColumn()+Y[j] < size && intermitjos[i].getColumn()+ Y[j] >= 0) {
+                    /*System.out.println(intermitjos[i].getValue());
+                    System.out.println((intermitjos[i].getRow()+X[j])+ " " + (intermitjos[i].getColumn() + Y[j]));
+                    System.out.println((intermitjos[i].getRow())+ " " + (intermitjos[i].getColumn()));
+                    System.out.println("  " + (Taulell.getValueCell(intermitjos[i].getRow() + X[j], intermitjos[i].getColumn() + Y[j])+1));
+                    System.out.println("  " + (Taulell.getValueCell(intermitjos[i].getRow() + X[j], intermitjos[i].getColumn() + Y[j])-1));*/
+/*if (intermitjos[i].getValue() == Taulell.getValueCell(intermitjos[i].getColumn() + Y[j],intermitjos[i].getRow() + X[j] ) + 1 ||
+        intermitjos[i].getValue() == Taulell.getValueCell(intermitjos[i].getColumn() + Y[j],intermitjos[i].getRow() + X[j] ) - 1) {
+        //System.out.println("comprovant " + comprovant);
+        //System.out.println("comprovant " + comprovant);
+        ++comprovant;
+
+        }
+        //System.out.println("entro");
+        }
+        }
+        }
+
+        for (int k=0; k <size; ++k) {
+        for (int p = 0; p < size; ++p){
+        if (Taulell.getValidaCell(k,p) && Taulell.getValueCell(k,p) == 0) espais_blancs= true;
+        }
+        }
+
+
+        return (comprovant==comparador && !espais_blancs);
+        }*/
