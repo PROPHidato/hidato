@@ -123,32 +123,32 @@ public class Funcions {
     }
 
     public static void generar_written(BoardHidato Taulell) {//posem al taulell les celes que al ppi estaran escrites
-        int numvisibles, posactui, posactuj, posi, posj, size, valor;
+        int numvisibles, posi, posj, size, valor;
         size = Taulell.getSize();
         numvisibles = 0; // fem q el 1 i lultim no conten
-        posactui = Taulell.getStart_i();
-        posactuj = Taulell.getStart_j();
         Random segi = new Random();
         Random segj = new Random();
         Random valoract = new Random();
         double tantpercent = size * size * percentatgeceles();
         int totalsvisibles = (int) tantpercent;
         System.out.println("hem d posar " + totalsvisibles + "numeros visibles");
+        int numvoltes = 0;
         while (numvisibles < totalsvisibles) {
+            if (numvoltes > 5) break;
             posi = segi.nextInt(size);
             posj = segj.nextInt(size);
             valor = valoract.nextInt(numfinal-3);
             valor = valor + 2; //nombre aleatori entre 2 i numfinal no inclos
             if (perafegir(Taulell,posi,posj)) {  //si la q volem anar es valida i no te valor, hi anem
-                System.out.println("afegim " + valor + "a la posicio" + posi + posj);
+                System.out.println("afegim " + valor + "a la posicio" +  posi + " " + posj);
                 ++numvisibles;
                 Taulell.setValueCell(valor, posi, posj);
                 //Taulell.switchWrittenCell(posi, posj);
             }
-            System.out.println("generem " + valor + "a la posicio" + posi + posj);
+            System.out.println("generem " + valor + "a la posicio" + posi + " " + posj);
             imprimeixValors(Taulell);
+            ++numvoltes;
         }
-        //System.out.println("ara mirem si te solucio ");
         solve(Taulell, size);
         if (solution) {
             System.out.println("Solucio trobada.");
@@ -288,6 +288,16 @@ public class Funcions {
         numfinal = numfinal - numcelesinvalides;
         posa_final(Taulell); //POSEM LA ULTIMA CELA AL TAULELL
         imprimeixValors(Taulell);
+        solve(Taulell, size);
+        if (solution) {
+            System.out.println("Solucio trobada.");
+        } else {
+            System.out.println("Hidato sense solucio possible. Torna-ho a provar.");
+            System.out.println("generem un altre taulell.");
+            netejaBoard(Taulell);
+            colocar_celesinvalides(Taulell);
+            }
+        solution = false;
     }
     public static boolean verificadorSolucio(BoardHidato Taulell) {
         int actual_i = Taulell.getStart_i();;
@@ -413,7 +423,7 @@ public class Funcions {
 
 
 
-    public static void backtrack(BoardHidato Taulell, boolean[][] visitats, CellHidato[] intermitjos,int startx, int starty, Integer X[], Integer Y[], int current, int countsize, int size)   {
+    public static void backtrack(BoardHidato Taulell, boolean[][] visitats, CellHidato[] intermitjos,int startx, int starty, Integer X[], Integer Y[], int current, int countsize, int size) {
         // Fent servir el taulell, la matriu de visitats, el punt de start i el punt de finish,
         // resoldre el taulell i posar els valors de caselles not written als que toquen
         //Boolean acabat = false;
