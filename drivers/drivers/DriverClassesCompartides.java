@@ -26,7 +26,6 @@ public class DriverClassesCompartides {
         String nom = input.nextLine();
         Player Jugador = new Player(nom);
 
-
         while(sortida == 'n') {
 
             System.out.println("Estàs al Joc " + GameId + ".");
@@ -105,11 +104,9 @@ public class DriverClassesCompartides {
                     System.out.println("Resolent el taulell . . .");
                     System.out.println("Resolt:");
                     Funcions.solve(Taulell, size, true);
-
                 }
                 else if(entrada == 6) {
                     Match Partida = new Match(dificultat);
-                    //fer coses amb partida
 
                     BoardHidato TaulellAux = new BoardHidato(size);
                     Funcions.copiarBoard(TaulellAux, Taulell);
@@ -169,7 +166,6 @@ public class DriverClassesCompartides {
 
                                 if (TaulellAux.getAnnotationCell(i, val1, val2) == true) System.out.println(i + " ");
                             }
-
                         } else if (entrada2 == 4) {
                             if(Funcions.verificadorSolucio(TaulellAux)) {
                                 System.out.println("Ben resolt! Felicitats :)");
