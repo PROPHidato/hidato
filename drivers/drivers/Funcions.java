@@ -73,6 +73,7 @@ public class Funcions {
     }
 
     public static void netejaBoard(BoardHidato Taulell) {
+        Taulell.reset_numerocelesinvalides();
         for (int i = 0; i < Taulell.getSize(); ++i) {
             for (int j = 0; j < Taulell.getSize(); ++j) {
                 Taulell.setValueCell(0,i,j);
@@ -93,8 +94,9 @@ public class Funcions {
     public static void esborrar_writtenposades(BoardHidato Taulell){
         for (int i = 0; i < Taulell.getSize(); ++i) {
             for (int j = 0; j < Taulell.getSize(); ++j) {
-                if (!Taulell.getValidaCell(i, j) && Taulell.getValueCell(i, j) != 0 && Taulell.getValueCell(i, j) != 1
+                if (Taulell.getValidaCell(i, j) && Taulell.getValueCell(i, j) != 0 && Taulell.getValueCell(i, j) != 1
                         && Taulell.getValueCell(i, j) != numfinal){
+                    System.out.println("borrem " + Taulell.getValueCell(i,j) + " de la pos " + i + " " + j);
                     Taulell.setValueCell(0, i, j);
                     Taulell.switchWrittenCell(i,j);
                 }
@@ -132,9 +134,9 @@ public class Funcions {
         double tantpercent = size * size * percentatgeceles();
         int totalsvisibles = (int) tantpercent;
         System.out.println("hem d posar " + totalsvisibles + "numeros visibles");
-        int numvoltes = 0;
+       // int numvoltes = 0;
         while (numvisibles < totalsvisibles) {
-            if (numvoltes > 5) break;
+         //   if (numvoltes > 5) break;
             posi = segi.nextInt(size);
             posj = segj.nextInt(size);
             valor = valoract.nextInt(numfinal-3);
@@ -147,7 +149,7 @@ public class Funcions {
             }
             System.out.println("generem " + valor + "a la posicio" + posi + " " + posj);
             imprimeixValors(Taulell);
-            ++numvoltes;
+           // ++numvoltes;
         }
         solve(Taulell, size);
         if (solution) {

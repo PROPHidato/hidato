@@ -35,7 +35,7 @@ public class BoardHidato extends Board {
         return max_annotations;
     }
 
-
+    public void reset_numerocelesinvalides(){num_celesinvalides = 0;}
 
     public int consultar_num_celesinvalides(){
         return num_celesinvalides;
