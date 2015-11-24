@@ -52,6 +52,6 @@ public class Match implements Serializable {
     }
 
     public int getGameId() {
-        return Joc.getGameId();
+        return Joc.getId();
     }
 }

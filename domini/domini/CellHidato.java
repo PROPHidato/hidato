@@ -13,13 +13,15 @@ public class CellHidato extends Cell {
     private boolean start; //marca si la casella es la primera
     private boolean finish; //marca si la casella es la ultima
     private boolean valida; //per si la casella es valida
+    boolean written; //per veure si el valor ja venia donat en el joc o no
+    boolean[] annotations = new boolean[BoardHidato.consult_max_annotations()]; //marques
 
-    public CellHidato(int row, int column) {
-        super(column, row);
+    public CellHidato() {
         value = 0;  // 0 = cela buida
         valida = true;
         start = false;
         finish = false;
+
 
         annotations = new boolean[BoardHidato.consult_max_annotations()];
         for (int i = 0; i < annotations.length; i++) annotations[i] = false;
@@ -51,5 +53,13 @@ public class CellHidato extends Cell {
 
     public void switchValida(){  //Aclarar perque = visible.
         this.valida ^= true;
+    }
+
+    public boolean getWritten(){
+        return written;
+    }
+
+    public void switchWritten(){  //Aclarar perquè = written.
+        this.written ^= true;
     }
 }

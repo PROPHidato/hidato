@@ -72,7 +72,6 @@ public class Funcions {
                 if (Taulell.getWrittenCell(i,j) != TaulellCopiat.getWrittenCell(i,j)) TaulellCopiat.switchWrittenCell(i,j);
                 if (Taulell.getStartCell(i,j) != TaulellCopiat.getStartCell(i, j)) TaulellCopiat.switchStartCell(i,j);
                 if (Taulell.getFinishCell(i, j) != TaulellCopiat.getFinishCell(i, j)) TaulellCopiat.switchFinishCell(i,j);
-                if (Taulell.getVisibleCell(i, j) != TaulellCopiat.getVisibleCell(i, j)) TaulellCopiat.switchVisibleCell(i,j);
                 if (Taulell.getValidaCell(i, j) != TaulellCopiat.getValidaCell(i, j)) TaulellCopiat.switchValidaCell(i,j);
             }
         }
@@ -84,7 +83,6 @@ public class Funcions {
             for (int j = 0; j < Taulell.getSize(); ++j) {
                 Taulell.setValueCell(0,i,j);
                 if (Taulell.getWrittenCell(i,j) == true) Taulell.switchWrittenCell(i,j);
-                else if (Taulell.getVisibleCell(i, j) == true) Taulell.switchVisibleCell(i, j);
                 else if (Taulell.getStartCell(i, j) == true) Taulell.switchStartCell(i, j);
                 else if (Taulell.getFinishCell(i, j) == true) Taulell.switchFinishCell(i, j);
                 else if (Taulell.getValidaCell(i,j) == false) Taulell.switchValidaCell(i, j);
@@ -138,7 +136,7 @@ public class Funcions {
         }
     }
 
-    static double percentatgeceles_written(){
+    public static double percentatgeceles_written(){
         int percentatge = Game.getDifficult();
         if (percentatge == 1) return 0.8;
         else if (percentatge == 2) return 0.6;

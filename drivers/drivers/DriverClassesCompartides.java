@@ -111,7 +111,7 @@ public class DriverClassesCompartides {
                     BoardHidato TaulellAux = new BoardHidato(size);
                     Funcions.copiarBoard(TaulellAux, Taulell);
 
-                    System.out.println("Benvingut a la partida del joc "+ Joc.getGameId() + ":");
+                    System.out.println("Benvingut a la partida del joc "+ Joc.getId() + ":");
                     System.out.printf("Apretant els seguents numeros podras fer les seguents coses:\n");
                     System.out.println("1 : Introduir valor a una cela.");
                     System.out.println("2: Posar una marca a una cela.");
@@ -136,7 +136,7 @@ public class DriverClassesCompartides {
                                 val2 = input.nextInt();
                                 val3 = input.nextInt();
                                 if ((val2 >= TaulellAux.getSize()) || (val2 >= TaulellAux.getSize())) System.out.println("Has sortit fora del taulell.");
-                                else if (TaulellAux.getWrittenCell(val2,val3) == true)  System.out.println("Cela no modificable.");
+                                else if (TaulellAux.getWrittenCell(val2,val3) == true)  System.out.println("Cela no modificable.");  //modificar això
                                 else {
                                     TaulellAux.setValProvCell(val1, val2, val3);
                                     Funcions.imprimeixValors(TaulellAux);

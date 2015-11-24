@@ -21,6 +21,13 @@ public class BoardHidato extends Board {
 
     public BoardHidato(int size) {
         super(size);
+        for (int i=0;i < size;++i) {
+            board.add(new ArrayList<CellHidato>(size));
+            for (int j = 0; j < size; ++j) {
+                board.get(i).add(new CellHidato());
+
+            }
+        }
         max_annotations = size*size; //Si taulell hi han 25 caselles podrà anar-hi del 1 al 25 en una casella.
     }
 
@@ -53,6 +60,24 @@ public class BoardHidato extends Board {
     public void setAnnotationCell(int value, boolean annotation, int row, int column) {
         board.get(row).get(column).setAnnotation(value, annotation);
     }
+
+    public int getValueCell(int row, int column) {
+        return super.getValueCell(row+1,column+1);
+    }
+
+    public void setValProvCell(int value, int row, int column) {
+        super.setCell(value, row+1, column+1);
+    }
+
+
+    public void setValueCell(int value, int row, int column) {
+        board.get(row).get(column).setValue(value);
+        if (getValueCell(row,column) != 0) switchWrittenCell(row,column);
+    }
+
+    public boolean getWrittenCell(int row, int column) {return (board.get(row).get(column).getWritten());}
+
+    public void switchWrittenCell (int row, int column) {board.get(row).get(column).switchWritten();}
 
     public boolean getValidaCell(int row, int column) {return board.get(row).get(column).getValida();}
 

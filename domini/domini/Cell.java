@@ -10,21 +10,10 @@ package domini;
 
 
 public class Cell {
-    int value;
-    int column; //numero de columna
-    int row; //numero de fila
-    boolean[] annotations = new boolean[Board.consult_max_annotations()]; //marques
-    boolean visible; //per veure si la casella és visible
-    boolean written; //per veure si el valor ja venia donat en el joc o no
+    protected int value;
 
-    public Cell(int row, int column) {
-        this.column = column;
-        this.row = row;
-        written = false;
-        visible = false;
+    public Cell() {
         value = -1;
-
-        for (int i = 0; i < annotations.length; i++) annotations[i] = false;
     }
 
     public int getValue() {
@@ -35,28 +24,11 @@ public class Cell {
         this.value = value;
     }
 
-    public int getColumn() {
-        return column;
+    public void clearValue() {
+        this.value = -1;
     }
 
-    public int getRow() {
-        return row;
+    public boolean isEmpty() {
+        return value == 1;
     }
-
-    public boolean getWritten(){
-        return written;
-    }
-
-    public void switchWritten(){  //Aclarar perquè = written.
-        this.written ^= true;
-    }
-
-    public boolean getVisible(){
-        return visible;
-    }
-
-    public void switchVisible(){  //Aclarar perquè = visible.
-        this.visible ^= true;
-    }
-
 }

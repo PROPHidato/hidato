@@ -9,7 +9,7 @@ package domini;
  */
 
 
-public class Game {
+public class Game{
     private int GameId;
     private static int difficult;    // 1 = fàcil, 2 = mitjà, 3 = difícil
     //dificil 5% celes invalides
@@ -21,7 +21,7 @@ public class Game {
         this.difficult = difficult;
     }
 
-    public int getGameId() {
+    public int getId() {
         return GameId;
     }
 

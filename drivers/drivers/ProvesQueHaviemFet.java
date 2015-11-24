@@ -46,7 +46,6 @@ public class ProvesQueHaviemFet {
 
         System.out.println("Poso un 2 a la [1][1]");
         Taulell.setValueCell(2, 1, 1); //Posar el 2
-        Taulell.switchVisibleCell(1, 1); //Fer cell visible
 
         //Imprimeix el taulell
         System.out.println();
@@ -55,7 +54,6 @@ public class ProvesQueHaviemFet {
 
         System.out.println("Poso un 23 a la [3][3]");
         Taulell.setValueCell(23, 3, 3);
-        Taulell.switchVisibleCell(3, 3); //Fer cell visible
 
         //Imprimeix el taulell
         System.out.println();
@@ -66,7 +64,6 @@ public class ProvesQueHaviemFet {
         else  System.out.println("NO ESCRITA");
         System.out.println("Poso un 3 a la [0][3]");
         Taulell.setValueCell(3,0,3);
-        Taulell.switchVisibleCell(0,3); //Fer cell visible
 
 
         //Imprimeix el taulell
@@ -85,6 +82,9 @@ public class ProvesQueHaviemFet {
 
 
         System.out.println();
+    }
+}
+
         /*
         System.out.println("PROVA DE CELA HIDATO");
         System.out.println("Entra una fila i una columna per crear una cela hidato qualsevol:  ");
@@ -142,20 +142,19 @@ public class ProvesQueHaviemFet {
         c.switchVisible();
 
         System.out.println("Esta escrit el c2?: " + c.getVisible());
-        */
+        */ /*
     }
 
     public static void imprimeixVisibles(BoardHidato Taulell) {
         System.out.println("+: Visible, _: No visible");
         for (int i = 0; i < Taulell.getSize();i++) {
             for (int j = 0; j < Taulell.getSize();j++) {
-                if (Taulell.getVisibleCell(i,j)) System.out.print ("+ _");
                 else System.out.print("_ ");
             }
             System.out.println();
         }
     }
-}
+}                 */
 
 
 
