@@ -1,4 +1,5 @@
 package domini;
+import java.io.Serializable;
 import java.util.*;
 
 
@@ -10,7 +11,7 @@ import java.util.*;
  */
 
 
-public class Board {
+public class Board implements Serializable{
     public int size;
     public ArrayList<ArrayList<CellHidato>> board;
 
@@ -31,5 +32,8 @@ public class Board {
         board.get(row-1).get(column-1).setValue(value);
     }
 }
+
+
+
 
 

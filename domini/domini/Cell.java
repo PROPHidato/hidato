@@ -1,15 +1,12 @@
 package domini;
 
+import java.io.Serializable;
 
 /**
- * Created with IntelliJ IDEA.
- * Date: 29/10/15
- * Time: 17:50
- * To change this template use File | Settings | File Templates.
+ * Created by the Hidato team.
  */
 
-
-public class Cell {
+public class Cell implements Serializable {
     protected int value;
 
     public Cell() {
@@ -29,6 +26,6 @@ public class Cell {
     }
 
     public boolean isEmpty() {
-        return value == 1;
+        return value == -1;
     }
 }
