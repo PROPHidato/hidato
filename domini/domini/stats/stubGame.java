@@ -2,7 +2,9 @@ package domini.stats;
 
 import domini.Playable;
 
-public class stubGame implements Playable {
+import java.io.Serializable;
+
+public class stubGame implements Playable, Serializable {
     int _gameID;
     int _difficulty;
     // aqui faltaría un board al que asociar el game, pero no el necesito per Stats.
