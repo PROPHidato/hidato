@@ -9,9 +9,9 @@ package domini;
  */
 
 
-public class Game{
+public class Game implements Playable{
     private int GameId;
-    private static int difficult;    // 1 = fàcil, 2 = mitjà, 3 = difícil
+    private int difficult;    // 1 = fàcil, 2 = mitjà, 3 = difícil
     //dificil 5% celes invalides
     //mitja 10% celes invalides
     //facil 20% celes invalides
@@ -29,7 +29,7 @@ public class Game{
         this.GameId = GameId;
     }
 
-    public static int getDifficult() {
+    public int getDifficulty() {
         return difficult;
     }
 

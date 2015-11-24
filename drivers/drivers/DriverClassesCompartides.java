@@ -52,7 +52,7 @@ public class DriverClassesCompartides {
             } else if (select == 1) {
                 System.out.println("Generant un taulell qualsevol . . .");
                 Funcions.colocar_celesinvalides(Taulell);
-                Funcions.generar_written(Taulell);
+                Funcions.generar_written(Taulell,Joc.getDifficulty());
                 System.out.println("Generat:");
                 Funcions.imprimeixValors(Taulell);
                 generat = true;
@@ -93,9 +93,9 @@ public class DriverClassesCompartides {
                     if (!generat) System.out.println("Dificultat generada pel creador del taulell.");
                     else {
                         System.out.print("La dificultat és: ");
-                        if (Joc.getDifficult() == 1) System.out.println("facil.");
-                        else if (Joc.getDifficult() == 2) System.out.println("mitja.");
-                        else if (Joc.getDifficult() == 3) System.out.println("dificil. ");
+                        if (Joc.getDifficulty() == 1) System.out.println("facil.");
+                        else if (Joc.getDifficulty() == 2) System.out.println("mitja.");
+                        else if (Joc.getDifficulty() == 3) System.out.println("dificil. ");
                     }
                 } else if(entrada == 4) {
                     System.out.println("Taulell actual:");

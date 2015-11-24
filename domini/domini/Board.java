@@ -11,7 +11,7 @@ import java.util.*;
  */
 
 
-public class Board implements Serializable{
+public class Board implements Serializable {
     public int size;
     public ArrayList<ArrayList<CellHidato>> board;
 

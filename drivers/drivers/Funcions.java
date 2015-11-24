@@ -136,8 +136,8 @@ public class Funcions {
         }
     }
 
-    public static double percentatgeceles_written(){
-        int percentatge = Game.getDifficult();
+    public static double percentatgeceles_written(int dificultat){
+        int percentatge = dificultat;
         if (percentatge == 1) return 0.8;
         else if (percentatge == 2) return 0.6;
         else return 0.3;
@@ -187,13 +187,13 @@ public class Funcions {
         }
     }
 
-    public static void generar_written(BoardHidato Taulell) {//posem al taulell les celes que al ppi estaran escrites
+    public static void generar_written(BoardHidato Taulell, int dificultat) {//posem al taulell les celes que al ppi estaran escrites
         int numvisibles, posi, posj, size, valor;
         size = Taulell.getSize();
         numvisibles = 2; // fem q el 1 i lultim no conten
         Random segi = new Random();
         Random segj = new Random();
-        double tantpercent = ((size * size)-Taulell.consultar_num_celesinvalides()) * percentatgeceles_written();
+        double tantpercent = ((size * size)-Taulell.consultar_num_celesinvalides()) * percentatgeceles_written(dificultat);
         int totalsvisibles = (int) tantpercent;
         solve_modifica(Taulell, size, false);
         solution = false;
